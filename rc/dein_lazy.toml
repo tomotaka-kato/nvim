@@ -53,6 +53,10 @@ on_ft = ['less', 'css']
 [[plugins]] # lessファイルの保存時に自動でコンパイル
 repo = 'vitalk/vim-lesscss'
 on_ft = ['less']
+hook_source = '''
+	let g:lesscss_cmd = 'lessc'
+	let g:lesscss_on = 1
+'''
 
 [[plugins]] # 16進数のカラーコードの色をハイライトとして表示する
 repo = 'lilydjwg/colorizer'
@@ -65,6 +69,9 @@ on_ft = ['go']
 [[plugins]]
 repo = 'elzr/vim-json'
 on_ft = ['json', 'javascript']
+hook_source = '''
+	let g:vim_json_syntax_conceal = 0
+'''
 
 [[plugins]]
 repo = 'ternjs/tern_for_vim'
@@ -74,4 +81,3 @@ build   = 'npm install'
 [[plugins]]
 repo = 'mxw/vim-jsx'
 on_ft = ['jsx']
-
