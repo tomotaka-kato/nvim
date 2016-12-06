@@ -4,8 +4,7 @@ repo    = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
-[[plugins]]
-repo    = 'tomasr/molokai'
+[[plugins]] repo    = 'tomasr/molokai'
 
 [[plugins]]
 repo    = 'w0ng/vim-hybrid'
@@ -63,7 +62,8 @@ repo = 'vim-syntastic/syntastic'
 repo = 'neomake/neomake'
 hook_add = '''
 	autocmd! BufWritePost * Neomake
-	let g:noemake_javascript_enabled_makers = ['eslint']
+	let g:neomake_javascript_enabled_makers = ['eslint']
+	let g:neomake_jsx_enabled_makers = ['eslint']
 	let g:neomake_error_sign = {'text': '>>', 'texthl': 'Error'}
 	let g:neomake_warning_sign = {'text': '>>',  'texthl': 'Todo'}
 '''
