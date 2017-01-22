@@ -66,6 +66,7 @@ hook_add = '''
 	let g:neomake_jsx_enabled_makers = ['eslint']
 	let g:neomake_error_sign = {'text': '>>', 'texthl': 'Error'}
 	let g:neomake_warning_sign = {'text': '>>',  'texthl': 'Todo'}
+	autocmd! VimLeave *.js  !eslint_d stop
 '''
 hook_source = '''
 '''
