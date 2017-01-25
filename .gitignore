@@ -2,6 +2,7 @@ dein/
 tmp/backup/
 tmp/swap/
 tmp/undo/
+.netrwhist
 
 !tmp/backup/.gitkeep
 !tmp/swap/.gitkeep
