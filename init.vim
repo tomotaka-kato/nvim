@@ -104,7 +104,7 @@ set confirm " 終了前に保存確認
 set hidden " 保存前でも別ファイルを開ける
 set autoread " 外部でファイルに変更がされた場合に読みなおす
 set visualbell t_vb=
-:set helplang=en,ja " ヘルプを英語優先で開く
+set helplang=ja,en
 let loaded_matchparen = 1 " 括弧のハイライトをなくす
 set ignorecase
 set smartcase
@@ -118,12 +118,6 @@ augroup HighlightTrailingSpaces
 	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
-"Linuxの場合はviminfoを用いてヤンクデータを共有
-let OSTYPE = system('uname')
-if OSTYPE == "Linux\n"
-	noremap <SPACE>y y:wv<CR>
-	noremap <SPACE>p :rv!<CR>p
-endif
 
 :source $VIMRUNTIME/macros/matchit.vim
 

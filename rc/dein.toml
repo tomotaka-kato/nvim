@@ -2,18 +2,7 @@
 repo    = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]] repo    = 'tomasr/molokai'
-
-[[plugins]]
 repo    = 'w0ng/vim-hybrid'
-
-[[plugins]]
-repo    = 'djjcast/mirodark'
-
-[[plugins]]
-repo    = 'vim-scripts/Zenburn'
 
 [[plugins]]
 repo    = 'junegunn/vim-easy-align'
@@ -31,9 +20,6 @@ hook_add = '''
 	let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
 '''
 
-[[plugins]] #changes status line
-repo    = 'bling/vim-airline'
-
 [[plugins]]
 repo    = 'tpope/vim-surround'
 
@@ -43,26 +29,8 @@ repo    = 'jiangmiao/auto-pairs'
 [[plugins]] # タブごとにカレントディレクトリを管理
 repo = 'kana/vim-tabpagecd'
 
-[[plugins]] # gitをvimから操作できるようにする。
-repo = 'tpope/vim-fugitive'
-
 [[plugins]] # ターミナル版vimの背景をターミナルと同じにする
 repo = 'miyakogi/seiya.vim'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-
-[[plugins]]
-repo = 'Chiel92/vim-autoformat'
-
-[[plugins]]
-repo = 'vim-syntastic/syntastic'
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-	let g:ale_linters = { 'jsx': ['eslint'] }
-'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'

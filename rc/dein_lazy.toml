@@ -9,62 +9,8 @@ hook_source = '''
 on_i = 1
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
-hook_source = '''
-	imap <C-k> <Plug>(neosnippet_expand_or_jump)
-	smap <C-k> <Plug>(neosnippet_expand_or_jump)
-	xmap <C-k> <Plug>(neosnippet_expand_target)
-	if has('conceal')
-		set conceallevel=2 concealcursor=niv
-	endif
-'''
-on_i  = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
-
-[[plugins]]
-repo = 'derekwyatt/vim-scala'
-on_ft= ['scala', 'play2-routes',  'play2-conf', 'html']
-
-[[plugins]] # playframeworkのsyntax highlight
-repo    = 'gre/play2vim'
-on_ft= ['scala', 'play2-routes',  'play2-conf', 'html']
-
-[[plugins]]
-repo = 'Quramy/tsuquyomi'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'jason0x43/vim-js-indent'
-on_ft = ['typescript', 'javascript']
-
-[[plugins]]
-repo = 'groenewege/vim-less'
-on_ft = ['less', 'css']
-
-[[plugins]] # lessファイルの保存時に自動でコンパイル
-repo = 'vitalk/vim-lesscss'
-on_ft = ['less']
-hook_source = '''
-	let g:lesscss_cmd = 'lessc'
-	let g:lesscss_on = 1
-'''
-
-[[plugins]] # 16進数のカラーコードの色をハイライトとして表示する
-repo = 'lilydjwg/colorizer'
-on_ft = ['css','less']
-
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
 
 [[plugins]]
 repo = 'elzr/vim-json'
@@ -72,12 +18,3 @@ on_ft = ['json', 'javascript']
 hook_source = '''
 	let g:vim_json_syntax_conceal = 0
 '''
-
-[[plugins]]
-repo = 'ternjs/tern_for_vim'
-on_ft = ['javascript', 'jsx']
-build   = 'npm install'
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-on_ft = ['jsx']
