@@ -1,30 +1,27 @@
 [[plugins]]
-repo    = 'Shougo/dein.vim'
+repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo    = 'w0ng/vim-hybrid'
+repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
-repo    = 'junegunn/vim-easy-align'
+repo = 'junegunn/vim-easy-align'
 hook_add = '''
 	vmap <Enter> <Plug>(EasyAlign)
 	nmap ga <Plug>(EasyAlign)
 '''
 
 [[plugins]]
-repo    = 'rking/ag.vim'
-
-[[plugins]]
-repo    = 'ctrlpvim/ctrlp.vim'
+repo = 'Shougo/deoplete.nvim'
 hook_add = '''
-	let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
+	let g:deoplete#enable_at_startup = 1
 '''
 
 [[plugins]]
-repo    = 'tpope/vim-surround'
+repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo    = 'jiangmiao/auto-pairs'
+repo = 'jiangmiao/auto-pairs'
 
 [[plugins]] # タブごとにカレントディレクトリを管理
 repo = 'kana/vim-tabpagecd'
@@ -34,3 +31,19 @@ repo = 'miyakogi/seiya.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+on_ft = ['haskell']
+depends = 'deoplete.nvim'
+build = 'bash install.sh'
+hook_add = '''
+  source ~/.config/nvim/plugins/LanguageClient-neovim.rc.vim
+'''
+hook_post_source = '''
+  set omnifunc=LanguageClient#complete
+'''

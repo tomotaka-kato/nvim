@@ -89,6 +89,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set autoindent
+set expandtab
 filetype plugin indent on " filetype プラグインによる indent を on にする
 set formatoptions-=ro " 改行時にコメントアウトするのはなくす
 let g:html_indent_inctags = "html,body,head,tbody" "HTMlのインデント
@@ -108,7 +109,8 @@ set helplang=ja,en
 let loaded_matchparen = 1 " 括弧のハイライトをなくす
 set ignorecase
 set smartcase
-set clipboard+=unnamedplus
+set clipboard+=unnamed
+
 
 
 " 行末のスーペースをハイライト
