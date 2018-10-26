@@ -71,13 +71,15 @@ set fileencodings=ucs-bom,utf-8,cp932,default,latin1
 
 "表示
 syntax on
-set t_Co=256
 set incsearch
 set hlsearch
 set laststatus=2
-set background=dark
-colorscheme hybrid
-let g:seiya_auto_enable = 1 "ターミナル版の背景をターミナルと同じにする
+set termguicolors
+colorscheme iceberg
+
+" 改行コード、半角スペース、タブの可視化
+set list
+set listchars=tab:»-,trail:-,eol:¬
 
 " フォーマット
 set formatoptions=q
@@ -111,20 +113,9 @@ set ignorecase
 set smartcase
 set clipboard+=unnamed
 
+set number
+set cursorline
 
 
-" 行末のスーペースをハイライト
-augroup HighlightTrailingSpaces
-	autocmd!
-	autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
-	autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-augroup END
-
-
+" 対応するHTMLタグへのジャンプ
 :source $VIMRUNTIME/macros/matchit.vim
-
-
-augroup PrevimSettings
-  autocmd!
-  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END

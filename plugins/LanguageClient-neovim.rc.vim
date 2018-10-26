@@ -8,6 +8,9 @@ endif
 
 let g:LanguageClient_autoStart = 1
 
+" シンタックスチェックはaleに任せるのでOFFにする
+let g:LanguageClient_diagnosticsEnable = 0
+
 nnoremap <Leader>lh :call LanguageClient_textDocument_hover()<CR>
 nnoremap <Leader>ld :call LanguageClient_textDocument_definition()<CR>
 nnoremap <Leader>lr :call LanguageClient_textDocument_rename()<CR>
