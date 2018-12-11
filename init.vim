@@ -111,7 +111,7 @@ set helplang=ja,en
 let loaded_matchparen = 1 " 括弧のハイライトをなくす
 set ignorecase
 set smartcase
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 set number
 set cursorline
