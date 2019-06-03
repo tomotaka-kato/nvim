@@ -32,7 +32,7 @@ hook_add = '''
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
-on_ft = ['haskell']
+on_ft = ['haskell', 'javascript', 'typescript']
 depends = 'deoplete.nvim'
 build = 'bash install.sh'
 hook_add = '''

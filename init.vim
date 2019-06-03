@@ -116,6 +116,12 @@ set clipboard+=unnamedplus
 set number
 set cursorline
 
+" 全角記号の表示がずれる問題対策
+set ambiwidth=double
 
 " 対応するHTMLタグへのジャンプ
 :source $VIMRUNTIME/macros/matchit.vim
+
+" Pythonのパス設定
+let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
+let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'

@@ -6,6 +6,13 @@ if executable('hie-wrapper')
   let g:LanguageClient_serverCommands = {'haskell' : ['hie-wrapper']}
 endif
 
+if executable('typescript-language-server')
+  let g:LanguageClient_serverCommands = {
+    \'typescript': ['typescript-language-server', '--stdio'],
+    \'javascript': ['typescript-language-server', '--stdio']
+  \}
+endif
+
 let g:LanguageClient_autoStart = 1
 
 " シンタックスチェックはaleに任せるのでOFFにする
