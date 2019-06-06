@@ -8,11 +8,11 @@ hook_add = '''
 	nmap ga <Plug>(EasyAlign)
 '''
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-	let g:deoplete#enable_at_startup = 1
-'''
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# hook_add = '''
+# 	let g:deoplete#enable_at_startup = 1
+# '''
 
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -23,37 +23,49 @@ repo = 'jiangmiao/auto-pairs'
 [[plugins]] # タブごとにカレントディレクトリを管理
 repo = 'kana/vim-tabpagecd'
 
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-  source ~/.config/nvim/plugins/ale.rc.vim
-'''
+# [[plugins]]
+# repo = 'w0rp/ale'
+# hook_add = '''
+#   source ~/.config/nvim/plugins/ale.rc.vim
+# '''
 
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-on_ft = ['haskell', 'javascript', 'typescript']
-depends = 'deoplete.nvim'
-build = 'bash install.sh'
-hook_add = '''
-  source ~/.config/nvim/plugins/LanguageClient-neovim.rc.vim
-'''
-hook_post_source = '''
-  set omnifunc=LanguageClient#complete
-'''
+# [[plugins]]
+# repo = 'autozimu/LanguageClient-neovim'
+# rev = 'next'
+# on_ft = ['haskell', 'javascript', 'typescript']
+# depends = 'deoplete.nvim'
+# build = 'bash install.sh'
+# hook_add = '''
+#   source ~/.config/nvim/plugins/LanguageClient-neovim.rc.vim
+# '''
+# hook_post_source = '''
+#   set omnifunc=LanguageClient#complete
+# '''
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 
-[[plugins]] # vimのテキストをシンタックスハイライト付きでコピーする
-repo = 'zerowidth/vim-copy-as-rtf'
-
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
-  let g:gitgutter_sign_added = '.'
+  set signcolumn=yes
+  let g:gitgutter_sign_added = '+'
   let g:gitgutter_sign_modified = '.'
-  let g:gitgutter_sign_removed = '.'
+  let g:gitgutter_sign_removed = '-'
   let g:gitgutter_sign_removed_first_line = '.'
   let g:gitgutter_sign_modified_removed = '.'
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <silent><C-e> :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merge = 0
+build = './install.sh nightly'
+hook_add = '''
+	nmap <silent> <C-]> <Plug>(coc-definition) 
 '''

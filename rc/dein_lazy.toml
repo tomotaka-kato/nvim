@@ -5,3 +5,11 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'neovimhaskell/haskell-vim'
 on_ft = ['haskell']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim' 
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
