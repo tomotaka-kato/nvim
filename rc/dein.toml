@@ -23,11 +23,11 @@ repo = 'jiangmiao/auto-pairs'
 [[plugins]] # タブごとにカレントディレクトリを管理
 repo = 'kana/vim-tabpagecd'
 
-# [[plugins]]
-# repo = 'w0rp/ale'
-# hook_add = '''
-#   source ~/.config/nvim/plugins/ale.rc.vim
-# '''
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  source ~/.config/nvim/plugins/ale.rc.vim
+'''
 
 # [[plugins]]
 # repo = 'autozimu/LanguageClient-neovim'
@@ -49,6 +49,7 @@ repo = 'cocopon/iceberg.vim'
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
   set signcolumn=yes
+  set updatetime=250
   let g:gitgutter_sign_added = '+'
   let g:gitgutter_sign_modified = '.'
   let g:gitgutter_sign_removed = '-'

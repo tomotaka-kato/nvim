@@ -1,6 +1,8 @@
 {
     "diagnostic.errorSign": "✖",
     "diagnostic.infoSign": "ⓘ",
-    "diagnostic.hintSign": "💡"
+    "diagnostic.hintSign": "💡",
+    "diagnostic.signOffset": 250,
+    "diagnostic.displayByAle": true
 }
 
