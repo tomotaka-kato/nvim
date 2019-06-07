@@ -70,6 +70,13 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
