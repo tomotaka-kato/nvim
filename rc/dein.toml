@@ -75,11 +75,25 @@ build = './install --all'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+hook_add = '''
+    nnoremap <silent><C-p> :Files<CR>
+    nnoremap <silent><leader>g :Ag<CR> 
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+hook_add = '''
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  nmap * <Plug>(anzu-star-with-echo)
+  nmap # <Plug>(anzu-sharp-with-echo)
+'''
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
 hook_add = '''
-	nmap <silent> <C-]> <Plug>(coc-definition) 
+	nnoremap <silent> <C-]> <Plug>(coc-definition) 
+    nnoremap <leader>rn <Plug>(coc-rename)
 '''

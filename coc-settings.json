@@ -3,6 +3,10 @@
     "diagnostic.infoSign": "ⓘ",
     "diagnostic.hintSign": "💡",
     "diagnostic.signOffset": 250,
-    "diagnostic.displayByAle": true
+    "diagnostic.displayByAle": true,
+
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.styleInitialIndent": true,
+    "vetur.format.scriptInitialIndent": true
 }
 

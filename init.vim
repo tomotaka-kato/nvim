@@ -1,3 +1,8 @@
+"leaderをspaceに変更
+"マッピングが読み込まれる前に変更しないとダメなので、
+"一番最初にリーダーを変更する
+let mapleader="\<SPACE>"
+
 """""""""""""""""""""""""""""
 "				dein setting				"
 """""""""""""""""""""""""""""
@@ -87,14 +92,16 @@ set smarttab
 set nowrap
 set nrformats=
 set noexpandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 set expandtab
 filetype plugin indent on " filetype プラグインによる indent を on にする
 set formatoptions-=ro " 改行時にコメントアウトするのはなくす
 let g:html_indent_inctags = "html,body,head,tbody" "HTMlのインデント
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 " マウス
 set mouse=a
@@ -125,3 +132,16 @@ set ambiwidth=double
 " Pythonのパス設定
 let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
+
+
+" 汎用的なキーマップ
+" window移動
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" 折り返し行移動
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
