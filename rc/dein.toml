@@ -90,13 +90,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'yuttie/comfortable-motion.vim'
-hook_add = '''
-  let g:comfortable_motion_scroll_down_key = "j"
-  let g:comfortable_motion_scroll_up_key = "k"
-'''
-
-[[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
