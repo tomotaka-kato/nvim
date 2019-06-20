@@ -90,6 +90,15 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+hook_add = '''
+  let g:airline_theme = 'iceberg'
+'''
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
