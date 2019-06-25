@@ -101,6 +101,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = "alvan/vim-closetag"
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
