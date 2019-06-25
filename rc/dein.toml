@@ -78,6 +78,8 @@ repo = 'junegunn/fzf.vim'
 hook_add = '''
     nnoremap <silent><C-p> :Files<CR>
     nnoremap <silent><leader>g :Ag<CR> 
+    command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag -S -l ""'}), <bang>0)
 '''
 
 [[plugins]]
