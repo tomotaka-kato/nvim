@@ -8,12 +8,6 @@ hook_add = '''
 	nmap ga <Plug>(EasyAlign)
 '''
 
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# hook_add = '''
-# 	let g:deoplete#enable_at_startup = 1
-# '''
-
 [[plugins]]
 repo = 'tpope/vim-surround'
 
@@ -28,19 +22,6 @@ repo = 'w0rp/ale'
 hook_add = '''
   source ~/.config/nvim/plugins/ale.rc.vim
 '''
-
-# [[plugins]]
-# repo = 'autozimu/LanguageClient-neovim'
-# rev = 'next'
-# on_ft = ['haskell', 'javascript', 'typescript']
-# depends = 'deoplete.nvim'
-# build = 'bash install.sh'
-# hook_add = '''
-#   source ~/.config/nvim/plugins/LanguageClient-neovim.rc.vim
-# '''
-# hook_post_source = '''
-#   set omnifunc=LanguageClient#complete
-# '''
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
@@ -102,6 +83,12 @@ hook_add = '''
 
 [[plugins]]
 repo = "alvan/vim-closetag"
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
