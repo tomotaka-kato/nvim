@@ -77,7 +77,7 @@ set fileencodings=ucs-bom,utf-8,cp932,default,latin1
 "表示
 syntax on
 set incsearch
-set hlsearch
+set nohlsearch
 set laststatus=2
 set termguicolors
 colorscheme iceberg
