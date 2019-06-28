@@ -57,10 +57,14 @@ build = './install --all'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
+    let g:fzf_layout = { 'down': '~60%' }
     nnoremap <silent><C-p> :Files<CR>
     nnoremap <silent><leader>g :Ag<CR> 
     command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag -S -l ""'}), <bang>0)
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('up:50%'), {'source': 'ag -S -l ""'}), <bang>0)
+
+    command! -bang -nargs=* Ag
+      \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('up:50%'), <bang>0)
 '''
 
 [[plugins]]
