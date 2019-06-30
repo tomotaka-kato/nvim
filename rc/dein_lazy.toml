@@ -13,3 +13,13 @@ on_ft = ['typescript']
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
+
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'cd app & yarn install'
