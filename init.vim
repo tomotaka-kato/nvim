@@ -77,7 +77,7 @@ set fileencodings=ucs-bom,utf-8,cp932,default,latin1
 "表示
 syntax on
 set incsearch
-set nohlsearch
+set hlsearch
 set laststatus=2
 set termguicolors
 colorscheme iceberg
@@ -99,7 +99,7 @@ set autoindent
 set expandtab
 filetype plugin indent on " filetype プラグインによる indent を on にする
 set formatoptions-=ro " 改行時にコメントアウトするのはなくす
-let g:html_indent_inctags = "html,body,head,tbody" "HTMlのインデント
+let g:html_indent_inctags = "html,body,head,tbody,template,script,style" "HTMlのインデント
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
@@ -115,7 +115,7 @@ set hidden " 保存前でも別ファイルを開ける
 set autoread " 外部でファイルに変更がされた場合に読みなおす
 set visualbell t_vb=
 set helplang=ja,en
-let loaded_matchparen = 1 " 括弧のハイライトをなくす
+" let loaded_matchparen = 1 " 括弧のハイライトをなくす
 set ignorecase
 set smartcase
 set clipboard+=unnamedplus
