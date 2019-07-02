@@ -21,6 +21,9 @@ repo = 'kana/vim-tabpagecd'
 repo = 'w0rp/ale'
 hook_add = '''
   source ~/.config/nvim/plugins/ale.rc.vim
+  let g:ale_linters = {
+  \ 'cs': ['OmniSharp']
+  \}
 '''
 
 [[plugins]]

@@ -7,6 +7,6 @@
 
     "vetur.format.options.tabSize": 4,
     "vetur.format.styleInitialIndent": true,
-    "vetur.format.scriptInitialIndent": true
+    "vetur.format.scriptInitialIndent": true,
 }
 
