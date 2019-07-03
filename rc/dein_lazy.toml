@@ -41,3 +41,7 @@ hook_add = '''
   let g:OmniSharp_server_stdio = 1
   let g:OmniSharp_selector_ui = 'fzf'
 '''
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
