@@ -89,7 +89,7 @@ set listchars=tab:»-,trail:-,eol:¬
 " フォーマット
 set formatoptions=q
 set smarttab
-set nowrap
+set wrap
 set nrformats=
 set noexpandtab
 set tabstop=2
