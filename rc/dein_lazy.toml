@@ -9,10 +9,6 @@ hook_source = """
 """
 
 [[plugins]]
-repo = "Robzz/deoplete-omnisharp"
-on_source = ["deoplete.nvim"]
-
-[[plugins]]
 repo = 'neovimhaskell/haskell-vim'
 on_ft = ['haskell']
 
@@ -36,14 +32,6 @@ hook_add = '''
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 build = 'cd app & yarn install'
-
-[[plugins]]
-repo = 'OmniSharp/omnisharp-vim'
-on_ft = ['cs', 'csi', 'csx']
-hook_add = '''
-  let g:OmniSharp_server_stdio = 1
-  let g:OmniSharp_selector_ui = 'fzf'
-'''
 
 [[plugins]]
 repo = 'fatih/vim-go'
