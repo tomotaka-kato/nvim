@@ -146,7 +146,7 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 " ペーストするときに選択している文字でレジスタを上書きしないようにする。
-nnoremap p "_dP
+vnoremap p "_dP
 
 
 " Vueファイル設定
