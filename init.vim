@@ -145,6 +145,8 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+" ペーストするときに選択している文字でレジスタを上書きしないようにする。
+nnoremap p "_dP
 
 
 " Vueファイル設定
@@ -154,5 +156,3 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
 let g:NERDTreeExtensionHighlightColor = {}
 let g:NERDTreeExtensionHighlightColor['vue'] = '42B983'
-
-
