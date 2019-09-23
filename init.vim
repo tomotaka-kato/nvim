@@ -72,7 +72,7 @@ set directory=$HOME/.config/nvim/tmp/swap
 "エンコード
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp932,default,latin1
+set fileencodings=utf-8,ucs-bom,cp932,default,latin1
 
 "表示
 syntax on
@@ -122,6 +122,8 @@ set clipboard+=unnamedplus
 
 set relativenumber
 set cursorline
+
+set virtualedit=block "空白文字まで矩形選択できるようにする
 
 " 全角記号の表示がずれる問題対策
 set ambiwidth=double
