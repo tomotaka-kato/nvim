@@ -120,7 +120,7 @@ set ignorecase
 set smartcase
 set clipboard+=unnamedplus
 
-set number
+set relativenumber
 set cursorline
 
 " 全角記号の表示がずれる問題対策
