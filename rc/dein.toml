@@ -21,9 +21,6 @@ repo = 'kana/vim-tabpagecd'
 repo = 'w0rp/ale'
 hook_add = '''
   source ~/.config/nvim/plugins/ale.rc.vim
-  let g:ale_linters = {
-  \ 'cs': ['OmniSharp']
-  \}
 '''
 
 [[plugins]]
@@ -102,6 +99,5 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
 hook_add = '''
-	nmap <silent> <C-]> <Plug>(coc-definition) 
-  nmap <leader>rn <Plug>(coc-rename)
+  source ~/.config/nvim/plugins/coc.rc.vim
 '''
