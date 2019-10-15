@@ -152,6 +152,8 @@ vnoremap j gj
 vnoremap k gk
 " ペーストするときに選択している文字でレジスタを上書きしないようにする。
 vnoremap p "_dP
+" vの2回押しでカーソル行から末尾まで選択
+vnoremap v $h
 
 
 " Vueファイル設定
