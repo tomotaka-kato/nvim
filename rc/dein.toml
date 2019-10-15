@@ -102,6 +102,6 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
 hook_add = '''
-	nnoremap <silent> <C-]> <Plug>(coc-definition) 
-    nnoremap <leader>rn <Plug>(coc-rename)
+	nmap <silent> <C-]> <Plug>(coc-definition) 
+  nmap <leader>rn <Plug>(coc-rename)
 '''
