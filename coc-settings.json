@@ -4,6 +4,7 @@
     "diagnostic.hintSign": "💡",
     "diagnostic.signOffset": 250,
     "diagnostic.displayByAle": true,
+    "suggest.snippetIndicator": "►",
 
     "vetur.format.styleInitialIndent": false,
     "vetur.format.scriptInitialIndent": false,
