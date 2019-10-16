@@ -5,10 +5,9 @@
     "diagnostic.signOffset": 250,
     "diagnostic.displayByAle": true,
 
-    "vetur.format.options.tabSize": 4,
-    "vetur.format.styleInitialIndent": true,
-    "vetur.format.scriptInitialIndent": true
-
+    "vetur.format.styleInitialIndent": false,
+    "vetur.format.scriptInitialIndent": false,
+    "vetur.format.options.tabSize": 4
 
 }
 
