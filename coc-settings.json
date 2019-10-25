@@ -8,7 +8,14 @@
 
     "vetur.format.styleInitialIndent": false,
     "vetur.format.scriptInitialIndent": false,
-    "vetur.format.options.tabSize": 4
+    "vetur.format.options.tabSize": 4,
 
+    "languageserver": {
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
+    }
+  }
 }
 
