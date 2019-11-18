@@ -132,8 +132,8 @@ set ambiwidth=double
 :source $VIMRUNTIME/macros/matchit.vim
 
 " Pythonのパス設定
-let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
-let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
+" let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
+" let g:python3_host_prog = system('which python3') ".'/versions/neovim3/bin/python'
 
 
 " 汎用的なキーマップ
@@ -142,6 +142,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" Windowそのものを移動
+nnoremap <leader><C-h> <C-w>H
+nnoremap <leader><C-j> <C-w>J
+nnoremap <leader><C-k> <C-w>K
+nnoremap <leader><C-l> <C-w>L
 
 nnoremap <leader>a :%
 
