@@ -80,7 +80,8 @@ set incsearch
 set hlsearch
 set laststatus=2
 set termguicolors
-colorscheme iceberg
+" colorscheme iceberg
+colorscheme alduin
 
 " 改行コード、半角スペース、タブの可視化
 set list
@@ -120,7 +121,6 @@ set ignorecase
 set smartcase
 set clipboard+=unnamedplus
 
-set relativenumber
 set cursorline
 
 set virtualedit=block "空白文字まで矩形選択できるようにする
@@ -155,8 +155,6 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-" ペーストするときに選択している文字でレジスタを上書きしないようにする。
-vnoremap p "_dP
 " vの2回押しでカーソル行から末尾まで選択
 vnoremap v $h
 

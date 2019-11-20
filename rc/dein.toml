@@ -27,6 +27,9 @@ hook_add = '''
 repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
+repo = 'AlessandroYorba/Alduin'
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
   set signcolumn=yes
