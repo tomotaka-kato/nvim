@@ -106,7 +106,7 @@ let g:html_indent_style1 = "inc"
 
 " マウス
 set mouse=a
-
+" 
 "その他
 set backspace=indent,eol,start " インサートモード時にバックスペースを使う
 set nrformats= "C-X,C-Aを強制的に10進数認識させる
@@ -116,6 +116,7 @@ set hidden " 保存前でも別ファイルを開ける
 set autoread " 外部でファイルに変更がされた場合に読みなおす
 set visualbell t_vb=
 set helplang=ja,en
+set number
 " let loaded_matchparen = 1 " 括弧のハイライトをなくす
 set ignorecase
 set smartcase
@@ -126,7 +127,7 @@ set cursorline
 set virtualedit=block "空白文字まで矩形選択できるようにする
 
 " 全角記号の表示がずれる問題対策
-set ambiwidth=double
+" set ambiwidth=double これ設定すると逆に崩れる
 
 " 対応するHTMLタグへのジャンプ
 :source $VIMRUNTIME/macros/matchit.vim

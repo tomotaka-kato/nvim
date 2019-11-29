@@ -36,3 +36,7 @@ build = 'cd app & yarn install'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
+
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = ['fish']
