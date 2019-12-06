@@ -58,16 +58,15 @@ endif
 """""""""""""""""""""""""""
 
 "バックアップ
-set backup
-set backupdir=$HOME/.config/nvim/tmp/backup
+set nobackup
+set nowritebackup
 
 "アンドゥファイル
 set undofile
 set undodir=$HOME/.config/nvim/tmp/undo
 
 "スワップファイル
-set swapfile
-set directory=$HOME/.config/nvim/tmp/swap
+set noswapfile
 
 "エンコード
 set encoding=utf-8
@@ -82,6 +81,8 @@ set laststatus=2
 set termguicolors
 " colorscheme iceberg
 colorscheme alduin
+" let g:gruvbox_material_background = 'hard'
+" colorscheme gruvbox-material
 
 " 改行コード、半角スペース、タブの可視化
 set list

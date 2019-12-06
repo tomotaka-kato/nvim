@@ -24,12 +24,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'cocopon/iceberg.vim'
-
-[[plugins]]
-repo = 'AlessandroYorba/Alduin'
-
-[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
   set signcolumn=yes
@@ -109,3 +103,14 @@ hook_add = '''
 [[plugins]]
 repo = 'gre/play2vim'
 
+
+
+# カラースキーム
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'AlessandroYorba/Alduin'
+
+[[plugins]]
+repo = 'sainnhe/gruvbox-material'
