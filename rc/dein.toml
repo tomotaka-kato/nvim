@@ -12,7 +12,7 @@ hook_add = '''
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
+repo = 'cohama/lexima.vim'
 
 [[plugins]] # タブごとにカレントディレクトリを管理
 repo = 'kana/vim-tabpagecd'

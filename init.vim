@@ -72,7 +72,6 @@ set noswapfile
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,ucs-bom,cp932,default,latin1
-
 "表示
 syntax on
 set incsearch
@@ -94,13 +93,12 @@ set smarttab
 set wrap
 set nrformats=
 set noexpandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set autoindent
 set expandtab
 filetype plugin indent on " filetype プラグインによる indent を on にする
-set formatoptions-=ro " 改行時にコメントアウトするのはなくす
 let g:html_indent_inctags = "html,body,head,tbody,template,script,style" "HTMlのインデント
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
