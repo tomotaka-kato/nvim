@@ -11,9 +11,6 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
 [[plugins]] # タブごとにカレントディレクトリを管理
 repo = 'kana/vim-tabpagecd'
 
@@ -80,11 +77,8 @@ repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
-  let g:airline_theme = 'iceberg'
+  " let g:airline_theme = 'iceberg'
 '''
-
-[[plugins]]
-repo = "alvan/vim-closetag"
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
@@ -103,6 +97,8 @@ hook_add = '''
 [[plugins]]
 repo = 'gre/play2vim'
 
+[[plugins]]
+repo = 'tpope/vim-commentary'
 
 
 # カラースキーム

@@ -79,19 +79,17 @@ set hlsearch
 set laststatus=2
 set termguicolors
 " colorscheme iceberg
-colorscheme alduin
-" let g:gruvbox_material_background = 'hard'
-" colorscheme gruvbox-material
+" colorscheme alduin
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 
 " 改行コード、半角スペース、タブの可視化
 set list
 set listchars=tab:»-,trail:-,eol:¬
 
 " フォーマット
-set formatoptions=q
 set smarttab
 set wrap
-set nrformats=
 set noexpandtab
 set tabstop=4
 set softtabstop=4
