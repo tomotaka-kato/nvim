@@ -14,7 +14,18 @@
       //   "rootPatterns": ["build.sbt"],
       //   "filetypes": ["scala", "sbt"]
       // }
-    }
+    },
+    "cSpell.userWords": [
+      "GOPATH"
+    ],
+
+    "vetur.validation.style": false,
+    "vetur.validation.script": false,
+    "vetur.validation.template": false,
+
+    "eslint.autoFixOnSave": true,
+
+    "python.jediPath": "~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/",
     
 }
 

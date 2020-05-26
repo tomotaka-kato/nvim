@@ -110,7 +110,7 @@ set nrformats= "C-X,C-Aを強制的に10進数認識させる
 set ruler
 set confirm " 終了前に保存確認
 set hidden " 保存前でも別ファイルを開ける
-set autoread " 外部でファイルに変更がされた場合に読みなおす
+" set autoread " 外部でファイルに変更がされた場合に読みなおす
 set visualbell t_vb=
 set helplang=ja,en
 set number
@@ -128,6 +128,9 @@ set virtualedit=block "空白文字まで矩形選択できるようにする
 
 " 対応するHTMLタグへのジャンプ
 :source $VIMRUNTIME/macros/matchit.vim
+
+" 矩形選択モードでGを入力したときに最終行の先頭ではなく、最終行の今いる列にカーソルが移動する。
+set nostartofline
 
 " Pythonのパス設定
 " let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'

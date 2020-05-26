@@ -33,9 +33,25 @@ repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 build = 'cd app & yarn install'
 
+# [[plugins]]
+# repo = 'fatih/vim-go'
+# on_ft = ['go']
+
 [[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
+repo = 'turbio/bracey.vim'
+on_ft = ['html']
+build = 'npm install --prefix server'
+hook_add = '''
+    g:bracey_refresh_on_save = 1
+'''
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+on_ft = ['scss']
+
+[[plugins]]
+repo = 'sophacles/vim-processing'
+on_ft = ['processing']
 
 [[plugins]]
 repo = 'dag/vim-fish'
