@@ -3,29 +3,21 @@
     "diagnostic.infoSign": "ⓘ",
     "diagnostic.hintSign": "💡",
     "diagnostic.signOffset": 250,
-    "diagnostic.displayByAle": true,
+    // "diagnostic.displayByAle": true,
     "suggest.snippetIndicator": "►",
 
     "coc.preferences.formatOnType": true,
 
-    "languageserver": {
-      // "metals": {
-      //   "command": "metals-vim",
-      //   "rootPatterns": ["build.sbt"],
-      //   "filetypes": ["scala", "sbt"]
-      // }
-    },
-    "cSpell.userWords": [
-      "GOPATH"
-    ],
-
-    "vetur.validation.style": false,
-    "vetur.validation.script": false,
-    "vetur.validation.template": false,
-
+    "eslint.filetypes": ["javascript", "typescript", "vue"],
     "eslint.autoFixOnSave": true,
 
-    "python.jediPath": "~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/",
+    "vetur.useWorkspaceDependencies": true, // typescriptの設定?
+    // "vetur.validation.style": false,
+    // "vetur.validation.script": false,
+    // "vetur.validation.template": false,
+
+
+    "python.jediPath": "~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/"
     
 }
 

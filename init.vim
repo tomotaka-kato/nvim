@@ -110,7 +110,7 @@ set nrformats= "C-X,C-Aを強制的に10進数認識させる
 set ruler
 set confirm " 終了前に保存確認
 set hidden " 保存前でも別ファイルを開ける
-" set autoread " 外部でファイルに変更がされた場合に読みなおす
+set autoread " 外部でファイルに変更がされた場合に読みなおす
 set visualbell t_vb=
 set helplang=ja,en
 set number

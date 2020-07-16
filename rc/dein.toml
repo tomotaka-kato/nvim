@@ -8,17 +8,14 @@ hook_add = '''
 	nmap ga <Plug>(EasyAlign)
 '''
 
+[[plugins]] # カッコの補完
+repo = "cohama/lexima.vim"
+
 [[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]] # タブごとにカレントディレクトリを管理
 repo = 'kana/vim-tabpagecd'
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-  source ~/.config/nvim/plugins/ale.rc.vim
-'''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -110,3 +107,16 @@ repo = 'AlessandroYorba/Alduin'
 
 [[plugins]]
 repo = 'sainnhe/gruvbox-material'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+    nmap <leader>s <Plug>(easymotion-s)
+    nmap <leader>w <Plug>(easymotion-bd-w)
+    nmap <leader>j <Plug>(easymotion-j)
+    nmap <leader>k <Plug>(easymotion-k)
+    map  <Leader>f <Plug>(easymotion-bd-f)
+    nmap <Leader>f <Plug>(easymotion-overwin-f)
+    let g:EasyMotion_smartcase = 1
+    let g:EasyMotion_use_migemo = 1
+'''
