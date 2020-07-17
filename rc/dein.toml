@@ -35,12 +35,12 @@ repo = 'tpope/vim-repeat'
 [[plugins]]
 repo = 'tpope/vim-speeddating'
 
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-  let g:NERDTreeWinSize = 50
-  nnoremap <silent><C-e> :NERDTreeToggle<CR>
-'''
+# [[plugins]]
+# repo = 'scrooloose/nerdtree'
+# hook_add = '''
+#   let g:NERDTreeWinSize = 50
+#   nnoremap <silent><C-e> :NERDTreeToggle<CR>
+# '''
 
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -117,6 +117,24 @@ hook_add = '''
     nmap <leader>k <Plug>(easymotion-k)
     map  <Leader>f <Plug>(easymotion-bd-f)
     nmap <Leader>f <Plug>(easymotion-overwin-f)
+    " Move to line
+    map <leader>l <Plug>(easymotion-bd-jk)
+    nmap <leader>l <Plug>(easymotion-overwin-line)
     let g:EasyMotion_smartcase = 1
     let g:EasyMotion_use_migemo = 1
+'''
+
+
+# defx.nvim (ファイラー) 関連
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+depends = ['defx-icons', 'defx-git']
+hook_add = '''
+  source ~/.config/nvim/plugins/defx.rc.vim
 '''
