@@ -111,17 +111,33 @@ repo = 'sainnhe/gruvbox-material'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-    nmap <leader>s <Plug>(easymotion-s)
-    nmap <leader>w <Plug>(easymotion-bd-w)
-    nmap <leader>j <Plug>(easymotion-j)
-    nmap <leader>k <Plug>(easymotion-k)
+    " <Leader>f{char} to move to {char}
     map  <Leader>f <Plug>(easymotion-bd-f)
     nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+    " s{char}{char} to move to {char}{char}
+    nmap <leader>s <Plug>(easymotion-overwin-f2)
+
     " Move to line
-    map <leader>l <Plug>(easymotion-bd-jk)
-    nmap <leader>l <Plug>(easymotion-overwin-line)
-    let g:EasyMotion_smartcase = 1
-    let g:EasyMotion_use_migemo = 1
+    map <Leader>l <Plug>(easymotion-bd-jk)
+    " nmap <Leader>l <Plug>(easymotion-overwin-line)
+
+    " Move to word
+    map  <Leader>w <Plug>(easymotion-bd-w)
+    nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+    " nmap <leader>s <Plug>(easymotion-prefix)
+    " nmap <leader>s <Plug>(easymotion-s)
+    " nmap <leader>w <Plug>(easymotion-bd-w)
+    " nmap <leader>j <Plug>(easymotion-j)
+    " nmap <leader>k <Plug>(easymotion-k)
+    " map  <Leader>f <Plug>(easymotion-bd-f)
+    " nmap <Leader>f <Plug>(easymotion-overwin-f)
+    " " Move to line
+    " map <leader>l <Plug>(easymotion-bd-jk)
+    " nmap <leader>l <Plug>(easymotion-overwin-line)
+    " let g:EasyMotion_smartcase = 1
+    " let g:EasyMotion_use_migemo = 1
 '''
 
 
@@ -138,3 +154,6 @@ depends = ['defx-icons', 'defx-git']
 hook_add = '''
   source ~/.config/nvim/plugins/defx.rc.vim
 '''
+
+[[plugin]]
+repo = 'tpope/vim-commentary'
