@@ -67,7 +67,7 @@ repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
-  " let g:airline_theme = 'iceberg'
+  let g:airline_theme = 'iceberg'
 '''
 
 [[plugins]]
@@ -153,4 +153,12 @@ repo = 'tpope/vim-commentary'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
+
+# ウィンドウのリサイズを行えるようになる。
+[[plugins]]
+repo = 'simeji/winresizer'
+hook_add = '''
+    let g:winresizer_start_key = '<leader>r'
+'''
+
 
