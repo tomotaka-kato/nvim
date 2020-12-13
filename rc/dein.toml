@@ -2,12 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'oblitum/rainbow'
-hook_add = '''
-    let g:rainbow_active = 1
-'''
-
-[[plugins]]
 repo = 'junegunn/vim-easy-align'
 hook_add = '''
 	vmap <Enter> <Plug>(EasyAlign)
@@ -40,13 +34,6 @@ repo = 'tpope/vim-repeat'
 
 [[plugins]]
 repo = 'tpope/vim-speeddating'
-
-# [[plugins]]
-# repo = 'scrooloose/nerdtree'
-# hook_add = '''
-#   let g:NERDTreeWinSize = 50
-#   nnoremap <silent><C-e> :NERDTreeToggle<CR>
-# '''
 
 [[plugins]]
 repo = 'junegunn/fzf'
