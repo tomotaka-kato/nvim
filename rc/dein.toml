@@ -150,3 +150,7 @@ hook_add = '''
 
 [[plugin]]
 repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+

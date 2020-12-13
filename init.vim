@@ -78,10 +78,17 @@ set incsearch
 set hlsearch
 set laststatus=2
 set termguicolors
-" colorscheme iceberg
+colorscheme iceberg
 " colorscheme alduin
-let g:gruvbox_material_background = 'hard'
-colorscheme gruvbox-material
+" let g:gruvbox_material_background = 'hard'
+" colorscheme gruvbox-material
+" 背景色をターミナルに合わせる
+" 透過背景の時用
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 " 改行コード、半角スペース、タブの可視化
 set list
@@ -148,6 +155,12 @@ nnoremap <C-w>h <C-w>H
 nnoremap <C-w>j <C-w>J
 nnoremap <C-w>k <C-w>K
 nnoremap <C-w>l <C-w>L
+
+" resize current buffer by +/- 5 
+nnoremap <D-left> :vertical resize -5<cr>
+nnoremap <D-down> :resize +5<cr>
+nnoremap <D-up> :resize -5<cr>
+nnoremap <D-right> :vertical resize +5<cr>
 
 nnoremap <leader>a :%
 
