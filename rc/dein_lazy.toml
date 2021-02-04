@@ -25,7 +25,7 @@ hook_add = '''
 [[plugins]]
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
-build = 'cd app & yarn install'
+build = 'cd app && yarn install'
 
 # [[plugins]]
 # repo = 'fatih/vim-go'
@@ -53,6 +53,11 @@ on_ft = ['html', 'vue']
 hook_source = '''
     let g:closetag_filenames = '*.html,*.vue'
 '''
+
+# [[plugins]]
+# repo = 'turbio/bracey.vim'
+# on_ft = ['html']
+# build = 'npm install --prefix server'
 
 # [[plugins]]
 # repo = 'sudar/vim-arduino-syntax'
