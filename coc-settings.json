@@ -19,9 +19,11 @@
     "typescriptreact",
     "json",
     "css",
-    // "markdown",
+    // "markdown", prettierが勝手にアルファベットと日本語の間にスペースを入れるのでコメントアウト。
     "yaml"
   ],
+
+  "prettier.singleQuote": true,
 
   "vetur.useWorkspaceDependencies": true, // typescriptの設定?
   // "vetur.validation.style": false,

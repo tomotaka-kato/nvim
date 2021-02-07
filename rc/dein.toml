@@ -161,4 +161,8 @@ hook_add = '''
     let g:winresizer_start_key = '<leader>r'
 '''
 
+# VimからのGit操作
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
 
