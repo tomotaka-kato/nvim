@@ -165,4 +165,8 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+# gitのツリー表示
+# vim-fugitiveが必要
+[[plugins]]
+repo = 'rbong/vim-flog'
 
