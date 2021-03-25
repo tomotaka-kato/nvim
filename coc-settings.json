@@ -8,6 +8,9 @@
 
   "coc.preferences.formatOnType": true,
 
+  "coc.source.OmniSharp.enable": true,
+  "coc.source.OmniSharp.triggerCharacters": ".",
+
   "eslint.filetypes": ["javascript", "typescript", "vue"],
   "eslint.autoFixOnSave": true,
 
@@ -19,11 +22,13 @@
     "typescriptreact",
     "json",
     "css",
+    "scss",
     // "markdown", prettierが勝手にアルファベットと日本語の間にスペースを入れるのでコメントアウト。
     "yaml"
   ],
 
   "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
 
   "vetur.useWorkspaceDependencies": true, // typescriptの設定?
   // "vetur.validation.style": false,

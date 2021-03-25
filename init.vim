@@ -98,9 +98,9 @@ set listchars=tab:»-,trail:-,eol:¬
 set smarttab
 set wrap
 set noexpandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 set expandtab
 filetype plugin indent on " filetype プラグインによる indent を on にする
@@ -120,7 +120,7 @@ set hidden " 保存前でも別ファイルを開ける
 set autoread " 外部でファイルに変更がされた場合に読みなおす
 set visualbell t_vb=
 set helplang=ja,en
-" set number
+set number
 " let loaded_matchparen = 1 " 括弧のハイライトをなくす
 set ignorecase
 set smartcase
