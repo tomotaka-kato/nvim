@@ -23,6 +23,7 @@
     "json",
     "css",
     "scss",
+    // "vue",
     // "markdown", prettierが勝手にアルファベットと日本語の間にスペースを入れるのでコメントアウト。
     "yaml"
   ],
