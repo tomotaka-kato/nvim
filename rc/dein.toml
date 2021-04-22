@@ -170,3 +170,9 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'rbong/vim-flog'
 
+[[plugins]]
+repo = 'udalov/kotlin-vim'
+
+
+[[plugins]]
+repo = 'morhetz/gruvbox'

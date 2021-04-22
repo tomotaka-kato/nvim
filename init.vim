@@ -78,10 +78,10 @@ set incsearch
 set hlsearch
 set laststatus=2
 set termguicolors
-colorscheme iceberg
+" colorscheme iceberg
 " colorscheme alduin
-" let g:gruvbox_material_background = 'hard'
-" colorscheme gruvbox-material
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 " 背景色をターミナルに合わせる
 " 透過背景の時用
 highlight Normal ctermbg=NONE guibg=NONE
@@ -140,8 +140,8 @@ set virtualedit=block "空白文字まで矩形選択できるようにする
 set nostartofline
 
 " Pythonのパス設定
-" let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
-" let g:python3_host_prog = system('which python3') ".'/versions/neovim3/bin/python'
+let g:python_host_prog = $PYENV_ROOT.'/versions/neovim-2/bin/python'
+let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim-3/bin/python'
 
 
 " 汎用的なキーマップ
@@ -171,7 +171,6 @@ vnoremap j gj
 vnoremap k gk
 " vの2回押しでカーソル行から末尾まで選択
 vnoremap v $h
-
 
 " Vueファイル設定
 autocmd FileType vue syntax sync fromstart
