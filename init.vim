@@ -151,10 +151,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " Windowそのものを移動
-nnoremap <C-w>h <C-w>H
-nnoremap <C-w>j <C-w>J
-nnoremap <C-w>k <C-w>K
-nnoremap <C-w>l <C-w>L
+" nnoremap <C-w>h <C-w>H
+" nnoremap <C-w>j <C-w>J
+" nnoremap <C-w>k <C-w>K
+" nnoremap <C-w>l <C-w>L
 
 " resize current buffer by +/- 5 
 nnoremap <D-left> :vertical resize -5<cr>

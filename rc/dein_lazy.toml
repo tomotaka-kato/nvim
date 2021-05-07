@@ -77,6 +77,10 @@ hook_source = '''
 repo = '~/vim-plugins/apple-swift-syntax'
 on_ft = ['swift']
 
+[[plugins]]
+repo = 'uiiaoo/java-syntax.vim'
+on_ft = ['java']
+
 
 
 
