@@ -1,40 +1,44 @@
 {
-  "diagnostic.errorSign": "✖",
-  "diagnostic.infoSign": "ⓘ",
-  "diagnostic.hintSign": "💡",
-  "diagnostic.signOffset": 250,
-  // "diagnostic.displayByAle": true,
-  "suggest.snippetIndicator": "►",
+    "diagnostic.errorSign": "✖",
+    "diagnostic.infoSign": "ⓘ",
+    "diagnostic.hintSign": "💡",
+    // "diagnostic.signOffset": 250,
+    // "diagnostic.displayByAle": true,
+    "suggest.snippetIndicator": "►",
 
-  "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnType": true,
 
-  "coc.source.OmniSharp.enable": true,
-  "coc.source.OmniSharp.triggerCharacters": ".",
+    // "coc.source.OmniSharp.enable": true,
+    // "coc.source.OmniSharp.triggerCharacters": ".",
 
-  "eslint.filetypes": ["javascript", "typescript", "vue"],
-  "eslint.autoFixOnSave": true,
+    "eslint.filetypes": ["javascript", "typescript", "vue"],
+    "eslint.autoFixOnSave": true,
 
-  "coc.preferences.formatOnSaveFiletypes": [
-    "html",
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "json",
-    "css",
-    "scss",
-    // "vue",
-    // "markdown", prettierが勝手にアルファベットと日本語の間にスペースを入れるのでコメントアウト。
-    "yaml"
-  ],
+    "coc.preferences.formatOnSaveFiletypes": [
+        "html",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "json",
+        "css",
+        "scss",
+        // "vue",
+        // "markdown", prettierが勝手にアルファベットと日本語の間にスペースを入れるのでコメントアウト。
+        "yaml"
+    ],
 
-  "prettier.singleQuote": true,
-  "prettier.tabWidth": 2,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
 
-  "vetur.useWorkspaceDependencies": true, // typescriptの設定?
-  // "vetur.validation.style": false,
-  // "vetur.validation.script": false,
-  // "vetur.validation.template": false,
+    "vetur.useWorkspaceDependencies": true, // typescriptの設定?
+    // "vetur.validation.style": false,
+    // "vetur.validation.script": false,
+    // "vetur.validation.template": false,
 
-  "python.jediPath": "~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/"
+    "python.jediPath": "~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/",
+
+    "go.goplsOptions": {
+        "completeUnimported": true
+    }
 }

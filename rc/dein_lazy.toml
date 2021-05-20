@@ -84,10 +84,18 @@ on_ft = ['java']
 
 
 
-# [[plugins]]
-# repo = 'turbio/bracey.vim'
-# on_ft = ['html']
-# build = 'npm install --prefix server'
+[[plugins]]
+repo = 'turbio/bracey.vim'
+on_ft = ['html']
+build = 'npm install --prefix server'
+
+[[plugins]]
+repo = 'thosakwe/vim-flutter'
+on_ft = ['dart']
+
+[[plugins]]
+repo = 'mattn/vim-goimports'
+on_ft = ['go']
 
 # [[plugins]]
 # repo = 'sudar/vim-arduino-syntax'

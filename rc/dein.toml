@@ -183,3 +183,18 @@ repo = 'morhetz/gruvbox'
 # 矩形選択したものをコピペすると横じゃなくて縦に変にペーストされるのを直す
 [[plugins]]
 repo = 'lambdalisue/pastefix.vim'
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+
+[[plugins]]
+repo = 'yuratomo/w3m.vim'
+hook_add = '''
+let g:w3m#external_browser = '/Applications/Safari.app/Contents/MacOS/Safari'
+'''
+
+[[plugins]]
+repo = 'skanehira/translate.vim'
+hook_add = '''
+let g:translate_popup_window = 1
+'''
