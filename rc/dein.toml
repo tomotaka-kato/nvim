@@ -198,3 +198,6 @@ repo = 'skanehira/translate.vim'
 hook_add = '''
 let g:translate_popup_window = 1
 '''
+
+[[plugins]]
+repo = 'honza/vim-snippets'
