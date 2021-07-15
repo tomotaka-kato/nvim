@@ -36,10 +36,6 @@ repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['scss']
 
 [[plugins]]
-repo = 'sophacles/vim-processing'
-on_ft = ['processing']
-
-[[plugins]]
 repo = 'dag/vim-fish'
 on_ft = ['fish']
 
