@@ -148,9 +148,6 @@ hook_add = '''
   source ~/.config/nvim/plugins/defx.rc.vim
 '''
 
-[[plugin]]
-repo = 'tpope/vim-commentary'
-
 [[plugins]]
 repo = 'mattn/emmet-vim'
 
