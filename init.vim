@@ -179,3 +179,8 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
 let g:NERDTreeExtensionHighlightColor = {}
 let g:NERDTreeExtensionHighlightColor['vue'] = '42B983'
+
+
+" コメント内で改行をしてもコメントが続かないようにする。
+au BufEnter * set fo-=c fo-=r fo-=o
+
