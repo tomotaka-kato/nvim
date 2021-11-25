@@ -96,7 +96,7 @@ set listchars=tab:»-,trail:-,eol:¬
 
 " フォーマット
 set smarttab
-set wrap
+set nowrap
 set noexpandtab
 set tabstop=4
 set softtabstop=4
