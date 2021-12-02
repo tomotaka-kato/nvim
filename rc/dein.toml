@@ -79,7 +79,7 @@ repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
-build = './install.sh nightly'
+build = 'yarn install'
 hook_add = '''
   source ~/.config/nvim/plugins/coc.rc.vim
 '''
@@ -198,3 +198,19 @@ let g:translate_popup_window = 1
 
 [[plugins]]
 repo = 'honza/vim-snippets'
+
+# treesitterのインストールと設定
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merge = 0
+hook_add = '''
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = { }
+  },
+  ensure_installed = "maintained",
+}
+EOF
+'''
