@@ -89,6 +89,11 @@ build = 'npm install --prefix server'
 repo = 'thosakwe/vim-flutter'
 on_ft = ['dart']
 
+
+[[plugins]]
+repo = 'tweekmonster/braceless.vim'
+on_ft = ['python', 'yaml']
+
 [[plugins]]
 repo = 'mattn/vim-goimports'
 on_ft = ['go']
@@ -98,6 +103,5 @@ on_ft = ['go']
 # on_ft = ['arduino']
 
 [[plugins]]
-repo = 'tweekmonster/braceless.vim'
-on_ft = ['python']
-
+repo = 'sophacles/vim-processing'
+on_ft = ['arduino']

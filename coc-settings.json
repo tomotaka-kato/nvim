@@ -1,4 +1,17 @@
 {
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+    },
+
     "diagnostic.errorSign": "✖",
     "diagnostic.infoSign": "ⓘ",
     "diagnostic.hintSign": "💡",
@@ -25,18 +38,20 @@
         "scss",
         // "vue",
         // "markdown", prettierが勝手にアルファベットと日本語の間にスペースを入れるのでコメントアウト。
-        "yaml"
+        "yaml",
+        "python"
     ],
 
     "prettier.singleQuote": true,
     "prettier.tabWidth": 4,
+    "python.linting.lintOnSave": true,
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.useLibraryCodeForTypes": true,
 
     "vetur.useWorkspaceDependencies": true, // typescriptの設定?
     // "vetur.validation.style": false,
     // "vetur.validation.script": false,
     // "vetur.validation.template": false,
-
-    "python.jediPath": "~/.pyenv/versions/anaconda3-5.3.1/lib/python3.7/site-packages/",
 
     "go.goplsOptions": {
         "completeUnimported": true

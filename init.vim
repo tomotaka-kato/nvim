@@ -175,10 +175,10 @@ vnoremap v $h
 " Vueファイル設定
 autocmd FileType vue syntax sync fromstart
 " Vueファイルのアイコン指定(cicaフォントの時のみ)
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
-let g:NERDTreeExtensionHighlightColor = {}
-let g:NERDTreeExtensionHighlightColor['vue'] = '42B983'
+" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
+" let g:NERDTreeExtensionHighlightColor = {}
+" let g:NERDTreeExtensionHighlightColor['vue'] = '42B983'
 
 
 " コメント内で改行をしてもコメントが続かないようにする。
