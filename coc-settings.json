@@ -19,6 +19,10 @@
     // "diagnostic.displayByAle": true,
     "suggest.snippetIndicator": "►",
 
+    "diagnostic.enableMessage": "always",
+    "codeLens.enable": true,
+    "codeLens.position": "right_align",
+
     "coc.preferences.formatOnType": true,
 
     // "coc.source.OmniSharp.enable": true,
@@ -44,7 +48,11 @@
 
     "prettier.singleQuote": true,
     "prettier.tabWidth": 4,
-    "python.linting.lintOnSave": true,
+
+    "typescript.referencesCodeLens.enable": true,
+
+    "python.linting.enabled": false,
+    "python.linting.lintOnSave": false,
     "python.analysis.autoSearchPaths": true,
     "python.analysis.useLibraryCodeForTypes": true,
 
