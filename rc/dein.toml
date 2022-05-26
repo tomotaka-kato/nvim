@@ -222,6 +222,18 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = { }
   },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      node_decremental = "grm",
+      scope_incremental = "grc",
+    },
+  },
+  indent = {
+    enable = true
+  },
   ensure_installed = "all",
 }
 EOF
