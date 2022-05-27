@@ -26,6 +26,9 @@ hook_add = '''
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 build = 'cd app && yarn install'
+hook_add = '''
+    let vim_markdown_preview_github=1
+'''
 
 # [[plugins]]
 # repo = 'fatih/vim-go'
