@@ -14,9 +14,6 @@ repo = "cohama/lexima.vim"
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-[[plugins]] # タブごとにカレントディレクトリを管理
-repo = 'kana/vim-tabpagecd'
-
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
@@ -192,13 +189,11 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-# gitのツリー表示
+# gitログのツリー表示
 # vim-fugitiveが必要
+# :Flog で呼び出す
 [[plugins]]
 repo = 'rbong/vim-flog'
-
-[[plugins]]
-repo = 'udalov/kotlin-vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -214,12 +209,6 @@ repo = 'lambdalisue/pastefix.vim'
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
 
-# [[plugins]]
-# repo = 'yuratomo/w3m.vim'
-# hook_add = '''
-# let g:w3m#external_browser = '/Applications/Safari.app/Contents/MacOS/Safari'
-# '''
-
 [[plugins]]
 repo = 'skanehira/translate.vim'
 hook_add = '''
@@ -233,6 +222,7 @@ repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merge = 0
+hook_post_update = 'TSUpdate'
 hook_add = '''
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
