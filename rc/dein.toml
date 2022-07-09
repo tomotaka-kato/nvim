@@ -146,18 +146,36 @@ hook_add = '''
 '''
 
 
-# defx.nvim (ファイラー) 関連
+# ファイラー 関連
 [[plugins]]
-repo = 'kristijanhusak/defx-icons'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-depends = ['defx-icons', 'defx-git']
+repo = 'lambdalisue/fern.vim'
 hook_add = '''
-  source ~/.config/nvim/plugins/defx.rc.vim
+    let g:fern#default_hidden=1
+    " Fern .をSpace+eキーに置き換え
+    nnoremap <silent> <C-e>  :<C-u>Fern .<CR>
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+hook_add = '''
+" アイコンに色をつける
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+hook_add = '''
+  let g:fern#renderer = 'nerdfont'
 '''
 
 [[plugins]]
