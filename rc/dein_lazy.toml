@@ -54,25 +54,6 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'OmniSharp/omnisharp-vim'
-on_ft = ['cs']
-hook_source = '''
-    let g:OmniSharp_server_stdio = 1
-    let g:OmniSharp_server_use_mono = 1
-'''
-
-
-# OmniSharp用にAleを使う
-[[plugins]]
-repo = 'dense-analysis/ale'
-on_ft = ['cs']
-hook_source = '''
-  source ~/.config/nvim/plugins/ale.rc.vim
-  let g:ale_linters = { 'cs': ['OmniSharp'] }
-
-'''
-
-[[plugins]]
 repo = '~/vim-plugins/apple-swift-syntax'
 on_ft = ['swift']
 
