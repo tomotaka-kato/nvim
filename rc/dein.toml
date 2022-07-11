@@ -218,31 +218,3 @@ let g:translate_popup_window = 1
 [[plugins]]
 repo = 'honza/vim-snippets'
 
-# treesitterのインストールと設定
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-merge = 0
-hook_post_update = 'TSUpdate'
-hook_add = '''
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = { }
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      node_decremental = "grm",
-      scope_incremental = "grc",
-    },
-  },
-  indent = {
-    enable = true
-  },
-  ensure_installed = "all",
-}
-EOF
-'''
