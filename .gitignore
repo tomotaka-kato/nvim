@@ -3,7 +3,7 @@ tmp/backup/
 tmp/swap/
 tmp/undo/
 .netrwhist
-
+.luarc.json
 !tmp/backup/.gitkeep
 !tmp/swap/.gitkeep
 !tmp/undo/.gitkeep

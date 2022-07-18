@@ -8,6 +8,9 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
   }
 end
 
+vim.cmd[[nnoremap <silent> ac <cmd>lua vim.lsp.buf.code_action()<CR>]]
+
+
 -- 補完プラグイの設定
 capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local cmp = require'cmp'
@@ -29,6 +32,13 @@ cmp.setup.cmdline('/', {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 	  { name = 'buffer' }
+	}
+})
+
+cmp.setup.cmdline(':', {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+        { name = 'buffer' }
 	}
 })
 
