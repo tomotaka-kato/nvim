@@ -46,6 +46,9 @@ vim.o.virtualedit='block' ---空白文字まで矩形選択できるようにす
 -- コメント行で改行をしてもコメントが続かないようにする
 vim.cmd[[au BufEnter * set fo-=c fo-=r fo-=o]]
 
+-- 終了時に保存確認
+vim.o.confirm = true
+
 -- マッピング
 -- window移動
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {noremap = true})
