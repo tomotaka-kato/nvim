@@ -16,11 +16,12 @@ vim.o.swapfile = false
 -- エンコード vim.o.encoding = 'utf-8'
 vim.o.fileencoding = 'utf-8'
 
- 
 -- 表示
 vim.o.number = true
 vim.o.hlsearch = true
 vim.o.laststatus=2
+vim.o.termguicolors = true
+vim.cmd[[let loaded_matchparen = 1]] --" 括弧のハイライトをなくす
 vim.o.termguicolors = true
 
 -- 改行コード、半角スペース、タブの可視化
@@ -55,3 +56,8 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {noremap = true})
+
+-- プラグインのセットアップ後じゃないとエラーになる。
+-- なのでこちらで宣言
+require'colorizer'.setup()
+

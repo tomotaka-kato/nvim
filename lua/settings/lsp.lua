@@ -1,4 +1,20 @@
 -- LSP本体設定
+
+local on_attach = function(client, bufnr)
+    -- マッピング
+    -- tami5/lspsaga.nvimを使ってUI表示を行う。
+    -- コードアクション
+    vim.cmd[[nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>]]
+    vim.cmd[[vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>]]
+    -- hover doc
+    vim.cmd[[nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>]]
+    -- scroll hover doc or scroll in definition preview
+    vim.cmd[[nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>]]
+    vim.cmd[[nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>]]
+    -- rename
+    vim.cmd[[nnoremap <silent> <leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>]]
+end
+
 local lsp_installer = require "nvim-lsp-installer"
 local lspconfig = require "lspconfig"
 lsp_installer.setup()
@@ -8,21 +24,12 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
   }
 end
 
--- マッピング
--- LSPの関数に関してはこちらに載ってるのを参考にできる。
--- https://github.com/neovim/nvim-lspconfig
-vim.cmd[[nnoremap <silent> <leader>ac <cmd>lua vim.lsp.buf.code_action()<CR>]]
-local bufopts = { noremap=true, silent=true}
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-
 -- 補完プラグイの設定
 capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local cmp = require'cmp'
 cmp.setup({
 	window = {},
 	mapping = cmp.mapping.preset.insert({
-		-- ["<C-p>"] = cmp.mapping.select_prev_item(),
-		-- ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -65,6 +72,9 @@ cmp.setup {
     })
   }
 }
+
+-- LSPのプログレス表示
+require"fidget".setup{}
 
 -- spellのための設定
 vim.opt.spell = true
