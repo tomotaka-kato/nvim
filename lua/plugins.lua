@@ -16,12 +16,13 @@ require'packer'.startup(function(use)
     -- [begin]補完
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-vsnip")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-path")
     use("hrsh7th/cmp-nvim-lsp-signature-help")
     use("hrsh7th/cmp-nvim-lsp-document-symbol")
-    use("f3fora/cmp-spell")
+    use("SirVer/ultisnips") -- pip install neovim を実行する必要あり
+    use("quangnguyen30192/cmp-nvim-ultisnips")
+    use('honza/vim-snippets')
     -- [end]補完
     -- ファイラ
     use('lambdalisue/fern.vim')

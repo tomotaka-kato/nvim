@@ -1,3 +1,5 @@
+local lspkind = require('lspkind')
+
 -- LSP本体設定
 
 local on_attach = function(client, bufnr)
@@ -24,10 +26,35 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
   }
 end
 
+local function on_cursor_hold()
+  if vim.lsp.buf.server_ready() then
+    vim.diagnostic.open_float()
+  end
+end
+
+-- [begin] diagnosticをvirtual_textではなくhoverで表示するように変更
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+)
+local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
+vim.api.nvim_set_option('updatetime', 500)
+vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
+-- [end] diagnosticをvirtual_textではなくhoverで表示するように変更
+
 -- 補完プラグイの設定
 capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local cmp = require'cmp'
 cmp.setup({
+    snippet = {
+        -- REQUIRED - you must specify a snippet engine
+        expand = function(args)
+            -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        end,
+    },
 	window = {},
 	mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
@@ -40,10 +67,17 @@ cmp.setup({
 		{ name = 'vsnip' },
 		{ name = 'path' },
         { name = 'nvim_lsp_signature_help' },
-        { name = 'spell' }
+        { name = 'ultisnips' },
 	}, {
 		{ name = 'buffer' },
-	})
+	}),
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = 'symbol', -- show only symbol annotations
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        })
+    }
+
 })
 
 cmp.setup.cmdline("/", {
@@ -62,20 +96,56 @@ cmp.setup.cmdline(':', {
 	}
 })
 
--- 補完にアイコンをつける
-local lspkind = require('lspkind')
-cmp.setup {
-  formatting = {
-    format = lspkind.cmp_format({
-      mode = 'symbol', -- show only symbol annotations
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-    })
+
+-- 言語ごとの設定
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+if not lspconfig.emmet_ls then
+  lspconfig.emmet_ls = {
+    default_config = {
+      cmd = { 'emmet_ls', '--stdio' };
+      filetypes = {
+        'html',
+        'css',
+        'scss',
+        'javascript',
+        'javascriptreact',
+        'typescript',
+        'typescriptreact',
+        'haml',
+        'xml',
+        'xsl',
+        'pug',
+        'slim',
+        'sass',
+        'stylus',
+        'less',
+        'sss',
+        'hbs',
+        'handlebars',
+      };
+      root_dir = function(fname)
+        return vim.loop.cwd()
+      end;
+      settings = {};
+    };
   }
+end
+
+lspconfig.emmet_ls.setup { capabilities = capabilities }
+require'lspconfig'.cssls.setup {
+    capabilities = capabilities,
 }
+require'lspconfig'.html.setup {
+    capabilities = capabilities,
+}
+
+-- UltiSnipsのマッピング
+vim.g.UltiSnipsExpandTrigger="<Enter>"
+vim.cmd[[let g:UltiSnipsJumpForwardTrigger="<Tab>"]]
+vim.cmd[[let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"]]
+
 
 -- LSPのプログレス表示
 require"fidget".setup{}
 
--- spellのための設定
-vim.opt.spell = true
-vim.opt.spelllang = { 'en_us' }

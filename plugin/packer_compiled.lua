@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
   },
+  ["cmp-nvim-ultisnips"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
+    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -98,11 +103,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/cmp-spell",
     url = "https://github.com/f3fora/cmp-spell"
-  },
-  ["cmp-vsnip"] = {
-    loaded = true,
-    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
-    url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["fern.vim"] = {
     loaded = true,
@@ -205,6 +205,11 @@ _G.packer_plugins = {
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ultisnips = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/ultisnips",
+    url = "https://github.com/SirVer/ultisnips"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/vim-commentary",
@@ -214,6 +219,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/vim-easy-align",
     url = "https://github.com/junegunn/vim-easy-align"
+  },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
   },
   ["vim-surround"] = {
     loaded = true,
