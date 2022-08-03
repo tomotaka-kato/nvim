@@ -6,30 +6,50 @@ local on_attach = function(client, bufnr)
     -- マッピング
     -- tami5/lspsaga.nvimを使ってUI表示を行う。
     -- コードアクション
-    vim.cmd[[nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>]]
-    vim.cmd[[vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>]]
+    vim.cmd [[nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>]]
+    vim.cmd [[vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>]]
     -- hover doc
-    vim.cmd[[nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>]]
+    vim.cmd [[nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>]]
     -- scroll hover doc or scroll in definition preview
-    vim.cmd[[nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>]]
-    vim.cmd[[nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>]]
+    vim.cmd [[nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>]]
+    vim.cmd [[nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>]]
     -- rename
-    vim.cmd[[nnoremap <silent> <leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>]]
+    vim.cmd [[nnoremap <silent> <leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>]]
 end
 
 local lsp_installer = require "nvim-lsp-installer"
 local lspconfig = require "lspconfig"
 lsp_installer.setup()
 for _, server in ipairs(lsp_installer.get_installed_servers()) do
-  lspconfig[server.name].setup {
-    on_attach = on_attach,
-  }
+    if server.name == 'efm' then
+        -- Linter, Formatterはefmで行うのでその設定
+        lspconfig.efm.setup {
+            -- flags = {
+            --     debounce_text_changes = 150,
+            -- },
+            init_options = { documentFormatting = true },
+            filetypes = { "python" },
+            settings = {
+                rootMarkers = { ".git/" },
+                languages = {
+                    python = {
+                        { formatCommand = "black --quiet -", formatStdin = true }
+                    }
+                }
+            }
+        }
+    else
+        lspconfig[server.name].setup {
+            on_attach = on_attach,
+        }
+    end
 end
 
+
 local function on_cursor_hold()
-  if vim.lsp.buf.server_ready() then
-    vim.diagnostic.open_float()
-  end
+    if vim.lsp.buf.server_ready() then
+        vim.diagnostic.open_float()
+    end
 end
 
 -- [begin] diagnosticをvirtual_textではなくhoverで表示するように変更
@@ -44,7 +64,7 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup
 
 -- 補完プラグイの設定
 capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local cmp = require'cmp'
+local cmp = require 'cmp'
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -55,22 +75,22 @@ cmp.setup({
             vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end,
     },
-	window = {},
-	mapping = cmp.mapping.preset.insert({
+    window = {},
+    mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+        ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
         -- ['<CR>'] = cmp.mapping.confirm({ select = true })
-	}),
-	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'vsnip' },
-		{ name = 'path' },
+    }),
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' },
+        { name = 'path' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'ultisnips' },
-	}, {
-		{ name = 'buffer' },
-	}),
+    }, {
+        { name = 'buffer' },
+    }),
     formatting = {
         format = lspkind.cmp_format({
             mode = 'symbol', -- show only symbol annotations
@@ -81,19 +101,20 @@ cmp.setup({
 })
 
 cmp.setup.cmdline("/", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = "nvim_lsp_document_symbol" },
-		-- { name = "cmdline_history" },
-		{ name = "buffer" },
-	}, {}),
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = "nvim_lsp_document_symbol" },
+        -- { name = "cmdline_history" },
+        { name = "buffer" },
+    }, {}),
 })
 
 cmp.setup.cmdline(':', {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'path' },
         { name = 'buffer' }
-	}
+    }
 })
 
 
@@ -104,61 +125,62 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 if not lspconfig.emmet_ls then
-  lspconfig.emmet_ls = {
-    default_config = {
-      cmd = { 'emmet_ls', '--stdio' };
-      filetypes = {
-        'html',
-        'css',
-        'scss',
-        'javascript',
-        'javascriptreact',
-        'typescript',
-        'typescriptreact',
-        'haml',
-        'xml',
-        'xsl',
-        'pug',
-        'slim',
-        'sass',
-        'stylus',
-        'less',
-        'sss',
-        'hbs',
-        'handlebars',
-      };
-      root_dir = function(fname)
-        return vim.loop.cwd()
-      end;
-      settings = {};
-    };
-  }
+    lspconfig.emmet_ls = {
+        default_config = {
+            cmd = { 'emmet_ls', '--stdio' };
+            filetypes = {
+                'html',
+                'css',
+                'scss',
+                'javascript',
+                'javascriptreact',
+                'typescript',
+                'typescriptreact',
+                'haml',
+                'xml',
+                'xsl',
+                'pug',
+                'slim',
+                'sass',
+                'stylus',
+                'less',
+                'sss',
+                'hbs',
+                'handlebars',
+            };
+            root_dir = function(fname)
+                return vim.loop.cwd()
+            end;
+            settings = {};
+        };
+    }
 end
 
 lspconfig.emmet_ls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
- }
-require'lspconfig'.cssls.setup {
+}
+require 'lspconfig'.cssls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
 }
-require'lspconfig'.html.setup {
+require 'lspconfig'.html.setup {
     capabilities = capabilities,
     on_attach = on_attach,
     embeddedLanguages = {
-        css =true,
+        css = true,
         javascript = true
     },
     provideFormatter = true
 }
 
 -- UltiSnipsのマッピング
-vim.g.UltiSnipsExpandTrigger="<Enter>"
-vim.cmd[[let g:UltiSnipsJumpForwardTrigger="<c-n>"]]
-vim.cmd[[let g:UltiSnipsJumpBackwardTrigger="<c-p>"]]
+vim.g.UltiSnipsExpandTrigger = "<Enter>"
+vim.cmd [[let g:UltiSnipsJumpForwardTrigger="<c-n>"]]
+vim.cmd [[let g:UltiSnipsJumpBackwardTrigger="<c-p>"]]
 
+-- 開いてるバッファのフォーマットコマンド
+vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format()', {})
 
 -- LSPのプログレス表示
-require"fidget".setup{}
-
+require "fidget".setup {}
