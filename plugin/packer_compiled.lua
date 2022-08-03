@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["bracey.vim"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/bracey.vim",
+    url = "https://github.com/turbio/bracey.vim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -99,11 +104,6 @@ _G.packer_plugins = {
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["cmp-spell"] = {
-    loaded = true,
-    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/cmp-spell",
-    url = "https://github.com/f3fora/cmp-spell"
-  },
   ["fern.vim"] = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/fern.vim",
@@ -113,6 +113,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/fidget.nvim",
     url = "https://github.com/j-hui/fidget.nvim"
+  },
+  ["hlargs.nvim"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/hlargs.nvim",
+    url = "https://github.com/m-demare/hlargs.nvim"
+  },
+  ["hop.nvim"] = {
+    config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0" },
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
   },
   ["lexima.vim"] = {
     loaded = true,
@@ -169,6 +180,11 @@ _G.packer_plugins = {
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+  },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
@@ -183,6 +199,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["nvim-yati"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nvim-yati",
+    url = "https://github.com/yioneko/nvim-yati"
   },
   ["onedark.vim"] = {
     loaded = true,
@@ -204,6 +225,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["treesitter-unit"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/treesitter-unit",
+    url = "https://github.com/David-Kunz/treesitter-unit"
   },
   ultisnips = {
     loaded = true,
@@ -238,6 +264,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: hop.nvim
+time([[Config for hop.nvim]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop.nvim")
+time([[Config for hop.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

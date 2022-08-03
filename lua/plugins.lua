@@ -31,11 +31,17 @@ require'packer'.startup(function(use)
       'nvim-telescope/telescope.nvim', tag = '0.1.x',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
-    -- treesitter
-    use('nvim-treesitter/nvim-treesitter')
+    -- [begin] treesitter
+    use{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use("yioneko/nvim-yati") -- インデントをいい感じに
     use('p00f/nvim-ts-rainbow') -- カッコを色分け
     use('JoosepAlviste/nvim-ts-context-commentstring') -- gccでコメントアウト
     use('tpope/vim-commentary') -- 上記プラグインへコマンドだけ提供する
+    use ('m-demare/hlargs.nvim') -- 引数で渡された変数に色をつける
+    use ('nvim-treesitter/nvim-treesitter-textobjects') -- テキストオブジェクトを追加
+    use ('David-Kunz/treesitter-unit')
+    -- [end] treesitter
+    use{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     -- カッコの補完
     use('cohama/lexima.vim')
     -- カラースキーム
@@ -53,6 +59,16 @@ require'packer'.startup(function(use)
     use('tpope/vim-surround')
     -- 移動
     use('yutkat/wb-only-current-line.vim') -- b, wが行を跨がない
+    use { -- easy motionのlua版みたいなもの
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        end
+    }
+    -- プレビュー
+    use{'turbio/bracey.vim', run = 'npm install --prefix server'}
 end)
 
 -- カラースキーム
@@ -64,8 +80,17 @@ vim.cmd[[let g:fern#default_hidden=1]]
 vim.cmd[[nnoremap <silent> <C-e>  :<C-u>Fern .<CR>]]
 
 -- easy align
-vim.cmd[[vmap <Enter> <Plug>(EasyAlign)]]
+vim.cmd[[xmap ga <Plug>(EasyAlign)]]
 vim.cmd[[nmap ga <Plug>(EasyAlign)]]
+
+-- hop
+-- vim.cmd[[nnoremap <silent><leader>w <cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>]]
+-- vim.cmd[[nnoremap <silent><leader>w <cmd>lua require'hop'.hint_words()<cr>]]
+vim.api.nvim_set_keymap('', '<leader>w', "<cmd>lua require'hop'.hint_words()<cr>", {noremap=true})
+vim.api.nvim_set_keymap('', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
+vim.api.nvim_set_keymap('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
 
 require('settings.lsp')
 require('settings.tree-sitter')

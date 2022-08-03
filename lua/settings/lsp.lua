@@ -60,7 +60,7 @@ cmp.setup({
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-        ['<CR>'] = cmp.mapping.confirm({ select = true })
+        -- ['<CR>'] = cmp.mapping.confirm({ select = true })
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
@@ -98,6 +98,9 @@ cmp.setup.cmdline(':', {
 
 
 -- 言語ごとの設定
+-- 以下に設定項目が書いてある。
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 if not lspconfig.emmet_ls then
@@ -132,18 +135,28 @@ if not lspconfig.emmet_ls then
   }
 end
 
-lspconfig.emmet_ls.setup { capabilities = capabilities }
+lspconfig.emmet_ls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+ }
 require'lspconfig'.cssls.setup {
     capabilities = capabilities,
+    on_attach = on_attach,
 }
 require'lspconfig'.html.setup {
     capabilities = capabilities,
+    on_attach = on_attach,
+    embeddedLanguages = {
+        css =true,
+        javascript = true
+    },
+    provideFormatter = true
 }
 
 -- UltiSnipsのマッピング
 vim.g.UltiSnipsExpandTrigger="<Enter>"
-vim.cmd[[let g:UltiSnipsJumpForwardTrigger="<Tab>"]]
-vim.cmd[[let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"]]
+vim.cmd[[let g:UltiSnipsJumpForwardTrigger="<c-n>"]]
+vim.cmd[[let g:UltiSnipsJumpBackwardTrigger="<c-p>"]]
 
 
 -- LSPのプログレス表示
