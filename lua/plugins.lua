@@ -1,12 +1,17 @@
+local status, packer = pcall(require, 'packer')
+if (not status) then
+    print("Packer is not installed.")
+end
+
 vim.cmd[[packadd packer.nvim]]
 
-require'packer'.startup(function(use)
+packer.startup(function(use)
     -- [begin] library
-    use{'wbthomason/packer.nvim', opt = true}
+    use{'wbthomason/packer.nvim'}
     use('kyazdani42/nvim-web-devicons')
     use('onsails/lspkind-nvim') -- 補完にアイコンがつく
     -- [end] library
-    -- LSP
+    -- [begin] LSP
     use('neovim/nvim-lspconfig')
     use('williamboman/mason.nvim')
     use('williamboman/mason-lspconfig.nvim')
@@ -14,6 +19,7 @@ require'packer'.startup(function(use)
     use("tami5/lspsaga.nvim") -- LSPで表示するUIの変更
     use("folke/lsp-colors.nvim") -- LSPの色表示改善
     use("j-hui/fidget.nvim") -- LSPのプログレス表示
+    -- [end] LSP
     -- [begin]補完
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-nvim-lsp")
@@ -42,7 +48,6 @@ require'packer'.startup(function(use)
     use ('nvim-treesitter/nvim-treesitter-textobjects') -- テキストオブジェクトを追加
     use ('David-Kunz/treesitter-unit')
     -- [end] treesitter
-    use{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     -- カッコの補完
     use('cohama/lexima.vim')
     -- カラースキーム
@@ -89,13 +94,9 @@ vim.cmd[[nmap ga <Plug>(EasyAlign)]]
 -- vim.cmd[[nnoremap <silent><leader>w <cmd>lua require'hop'.hint_words()<cr>]]
 vim.api.nvim_set_keymap('', '<leader>w', "<cmd>lua require'hop'.hint_words()<cr>", {noremap=true})
 
-require('settings.lsp')
-require('settings.tree-sitter')
-require('settings.telescope')
-require('settings.statusline')
+require 'settings.tree-sitter'
+require 'settings.telescope'
 
 vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
 
--- プラグインのセットアップ後じゃないとエラーになる。
--- なのでこちらで宣言
 require 'colorizer'.setup()
