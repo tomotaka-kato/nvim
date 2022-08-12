@@ -33,56 +33,46 @@ local on_attach = function(client, bufnr)
     vim.cmd [[nnoremap <silent> <leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>]]
 end
 
-local lspconfig = require "lspconfig"
-mason_lspconfig.setup_handlers({ function(server_name)
-    if server_name == 'efm' then
-        -- Linter, Formatterはefmで行うのでその設定
-        lspconfig.efm.setup {
-            -- flags = {
-            --     debounce_text_changes = 150,
-            -- },
-            init_options = { documentFormatting = true },
-            filetypes = { "python" },
-            settings = {
-                rootMarkers = { ".git/" },
-                languages = {
-                    python = {
-                        { formatCommand = "black --quiet -", formatStdin = true }
-                    }
+function setup_emmet(lspconfig)
+    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    lspconfig.emmet_ls.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }
+end
+
+function setup_efm(lspconfig)
+    -- Linter, Formatterはefmで行うのでその設定
+    lspconfig.efm.setup {
+        -- flags = {
+        --     debounce_text_changes = 150,
+        -- },
+        init_options = { documentFormatting = true },
+        filetypes = { "python" },
+        settings = {
+            rootMarkers = { ".git/" },
+            languages = {
+                python = {
+                    { formatCommand = "black --quiet -", formatStdin = true }
                 }
             }
         }
+    }
+end
+
+local lspconfig = require "lspconfig"
+mason_lspconfig.setup_handlers({ function(server_name)
+    if server_name == 'efm' then
+        setup_efm(lspconfig)
+    elseif server_name == 'emmet' then
+        setup_emmet(lspconfig)
     else
         lspconfig[server_name].setup {
             on_attach = on_attach,
         }
     end
 end })
--- for _, server in ipairs(lsp_installer.get_installed_servers()) do
---     if server.name == 'efm' then
---         -- Linter, Formatterはefmで行うのでその設定
---         lspconfig.efm.setup {
---             -- flags = {
---             --     debounce_text_changes = 150,
---             -- },
---             init_options = { documentFormatting = true },
---             filetypes = { "python" },
---             settings = {
---                 rootMarkers = { ".git/" },
---                 languages = {
---                     python = {
---                         { formatCommand = "black --quiet -", formatStdin = true }
---                     }
---                 }
---             }
---         }
---     else
---         lspconfig[server.name].setup {
---             on_attach = on_attach,
---         }
---     end
--- end
-
 
 local function on_cursor_hold()
     if vim.lsp.buf.server_ready() then
@@ -160,44 +150,38 @@ cmp.setup.cmdline(':', {
 -- 以下に設定項目が書いてある。
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#html
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-if not lspconfig.emmet_ls then
-    lspconfig.emmet_ls = {
-        default_config = {
-            cmd = { 'emmet_ls', '--stdio' };
-            filetypes = {
-                'html',
-                'css',
-                'scss',
-                'javascript',
-                'javascriptreact',
-                'typescript',
-                'typescriptreact',
-                'haml',
-                'xml',
-                'xsl',
-                'pug',
-                'slim',
-                'sass',
-                'stylus',
-                'less',
-                'sss',
-                'hbs',
-                'handlebars',
-            };
-            root_dir = function(fname)
-                return vim.loop.cwd()
-            end;
-            settings = {};
-        };
-    }
-end
+-- if not lspconfig.emmet_ls then
+--     lspconfig.emmet_ls = {
+--         default_config = {
+--             cmd = { 'emmet_ls', '--stdio' };
+--             filetypes = {
+--                 'html',
+--                 'css',
+--                 'scss',
+--                 'javascript',
+--                 'javascriptreact',
+--                 'typescript',
+--                 'typescriptreact',
+--                 'haml',
+--                 'xml',
+--                 'xsl',
+--                 'pug',
+--                 'slim',
+--                 'sass',
+--                 'stylus',
+--                 'less',
+--                 'sss',
+--                 'hbs',
+--                 'handlebars',
+--             };
+--             root_dir = function(fname)
+--                 return vim.loop.cwd()
+--             end;
+--             settings = {};
+--         };
+--     }
+-- end
 
-lspconfig.emmet_ls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
 require 'lspconfig'.cssls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
