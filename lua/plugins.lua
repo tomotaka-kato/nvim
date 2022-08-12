@@ -8,7 +8,8 @@ require'packer'.startup(function(use)
     -- [end] library
     -- LSP
     use('neovim/nvim-lspconfig')
-    use("williamboman/nvim-lsp-installer")
+    use('williamboman/mason.nvim')
+    use('williamboman/mason-lspconfig.nvim')
     use("tamago324/nlsp-settings.nvim") -- プロジェクト固有のLSP設定をできるようにする
     use("tami5/lspsaga.nvim") -- LSPで表示するUIの変更
     use("folke/lsp-colors.nvim") -- LSPの色表示改善
@@ -94,3 +95,7 @@ require('settings.telescope')
 require('settings.statusline')
 
 vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
+
+-- プラグインのセットアップ後じゃないとエラーになる。
+-- なのでこちらで宣言
+require 'colorizer'.setup()

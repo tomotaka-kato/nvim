@@ -1,4 +1,16 @@
 local lspkind = require('lspkind')
+local mason = require('mason')
+local mason_lspconfig = require('mason-lspconfig')
+
+mason.setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
 
 -- LSP本体設定
 
@@ -17,11 +29,9 @@ local on_attach = function(client, bufnr)
     vim.cmd [[nnoremap <silent> <leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>]]
 end
 
-local lsp_installer = require "nvim-lsp-installer"
 local lspconfig = require "lspconfig"
-lsp_installer.setup()
-for _, server in ipairs(lsp_installer.get_installed_servers()) do
-    if server.name == 'efm' then
+mason_lspconfig.setup_handlers({ function(server_name)
+    if server_name == 'efm' then
         -- Linter, Formatterはefmで行うのでその設定
         lspconfig.efm.setup {
             -- flags = {
@@ -39,11 +49,35 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
             }
         }
     else
-        lspconfig[server.name].setup {
+        lspconfig[server_name].setup {
             on_attach = on_attach,
         }
     end
-end
+end })
+-- for _, server in ipairs(lsp_installer.get_installed_servers()) do
+--     if server.name == 'efm' then
+--         -- Linter, Formatterはefmで行うのでその設定
+--         lspconfig.efm.setup {
+--             -- flags = {
+--             --     debounce_text_changes = 150,
+--             -- },
+--             init_options = { documentFormatting = true },
+--             filetypes = { "python" },
+--             settings = {
+--                 rootMarkers = { ".git/" },
+--                 languages = {
+--                     python = {
+--                         { formatCommand = "black --quiet -", formatStdin = true }
+--                     }
+--                 }
+--             }
+--         }
+--     else
+--         lspconfig[server.name].setup {
+--             on_attach = on_attach,
+--         }
+--     end
+-- end
 
 
 local function on_cursor_hold()
