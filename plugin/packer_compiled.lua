@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["bracey.vim"] = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/bracey.vim",
@@ -125,11 +130,6 @@ _G.packer_plugins = {
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
   },
-  ["lexima.vim"] = {
-    loaded = true,
-    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/lexima.vim",
-    url = "https://github.com/cohama/lexima.vim"
-  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
@@ -165,6 +165,17 @@ _G.packer_plugins = {
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
     url = "https://github.com/tamago324/nlsp-settings.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
+  ["nvim-autopairs"] = {
+    config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -189,6 +200,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+  },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
@@ -225,6 +241,11 @@ _G.packer_plugins = {
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -234,11 +255,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/treesitter-unit",
     url = "https://github.com/David-Kunz/treesitter-unit"
-  },
-  ultisnips = {
-    loaded = true,
-    path = "/Users/tomo/.local/share/nvim/site/pack/packer/start/ultisnips",
-    url = "https://github.com/SirVer/ultisnips"
   },
   ["vim-commentary"] = {
     loaded = true,
@@ -268,6 +284,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Config for: hop.nvim
 time([[Config for hop.nvim]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop.nvim")

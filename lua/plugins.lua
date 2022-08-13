@@ -19,6 +19,7 @@ packer.startup(function(use)
     use("tami5/lspsaga.nvim") -- LSPで表示するUIの変更
     use("folke/lsp-colors.nvim") -- LSPの色表示改善
     use("j-hui/fidget.nvim") -- LSPのプログレス表示
+    use { 'jose-elias-alvarez/null-ls.nvim' } -- formatter, linter
     -- [end] LSP
     -- [begin]補完
     use("hrsh7th/nvim-cmp")
@@ -27,8 +28,9 @@ packer.startup(function(use)
     use("hrsh7th/cmp-path")
     use("hrsh7th/cmp-nvim-lsp-signature-help")
     use("hrsh7th/cmp-nvim-lsp-document-symbol")
-    use("SirVer/ultisnips") -- pip install neovim を実行する必要あり
-    use("quangnguyen30192/cmp-nvim-ultisnips")
+    -- use("SirVer/ultisnips") -- pip install neovim を実行する必要あり
+    use ('L3MON4D3/LuaSnip')
+    use("saadparwaiz1/cmp_luasnip")
     use('honza/vim-snippets')
     -- [end]補完
     -- ファイラ
@@ -38,6 +40,7 @@ packer.startup(function(use)
       'nvim-telescope/telescope.nvim', tag = '0.1.x',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use('nvim-telescope/telescope-file-browser.nvim')
     -- [begin] treesitter
     use{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use("yioneko/nvim-yati") -- インデントをいい感じに
@@ -49,7 +52,14 @@ packer.startup(function(use)
     use ('David-Kunz/treesitter-unit')
     -- [end] treesitter
     -- カッコの補完
-    use('cohama/lexima.vim')
+    use {
+        'windwp/nvim-autopairs',
+        config = function () require("nvim-autopairs").setup {} end
+    }
+    use{
+        'windwp/nvim-ts-autotag',
+        require('nvim-ts-autotag').setup{}
+    }
     -- カラースキーム
     use('joshdick/onedark.vim')
     -- ステータスライン
@@ -58,7 +68,10 @@ packer.startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     -- ハイライト
-    use('norcalli/nvim-colorizer.lua')
+    use{
+        'norcalli/nvim-colorizer.lua',
+        require'colorizer'.setup()
+    }
     -- 整形
     use('junegunn/vim-easy-align')
     -- テキストオブジェクト
@@ -80,11 +93,6 @@ end)
 -- カラースキーム
 vim.cmd[[colorscheme onedark]]
 
--- fern
-vim.cmd[[let g:fern#default_hidden=1]]
--- Fern .をCtrl+eキーに置き換え
-vim.cmd[[nnoremap <silent> <C-e>  :<C-u>Fern .<CR>]]
-
 -- easy align
 vim.cmd[[xmap ga <Plug>(EasyAlign)]]
 vim.cmd[[nmap ga <Plug>(EasyAlign)]]
@@ -94,9 +102,4 @@ vim.cmd[[nmap ga <Plug>(EasyAlign)]]
 -- vim.cmd[[nnoremap <silent><leader>w <cmd>lua require'hop'.hint_words()<cr>]]
 vim.api.nvim_set_keymap('', '<leader>w', "<cmd>lua require'hop'.hint_words()<cr>", {noremap=true})
 
-require 'settings.tree-sitter'
-require 'settings.telescope'
-
 vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
-
-require 'colorizer'.setup()
