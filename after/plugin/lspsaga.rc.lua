@@ -31,15 +31,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
 local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
-vim.api.nvim_set_option('updatetime', 500)
+vim.api.nvim_set_option('updatetime', 300)
 vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
 vim.api.nvim_create_autocmd(
     { "CursorHold" },
     {
         group = diagnostic_hover_augroup_name,
-        callback = function()
-            diagnostic.show_cursor_diagnostics()
-        end
+        callback = diagnostic.show_cursor_diagnostics
     }
 )
 -- [end] diagnosticをvirtual_textではなくhoverで表示するように変更
