@@ -3,11 +3,11 @@ if (not status) then
     print("Packer is not installed.")
 end
 
-vim.cmd[[packadd packer.nvim]]
+vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
     -- [begin] library
-    use{'wbthomason/packer.nvim'}
+    use { 'wbthomason/packer.nvim' }
     use('kyazdani42/nvim-web-devicons')
     use('onsails/lspkind-nvim') -- 補完にアイコンがつく
     -- [end] library
@@ -19,7 +19,7 @@ packer.startup(function(use)
     use("tami5/lspsaga.nvim") -- LSPで表示するUIの変更
     use("folke/lsp-colors.nvim") -- LSPの色表示改善
     use("j-hui/fidget.nvim") -- LSPのプログレス表示
-    use ('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
+    use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
     -- [end] LSP
     -- [begin]補完
     use("hrsh7th/nvim-cmp")
@@ -29,7 +29,7 @@ packer.startup(function(use)
     use("hrsh7th/cmp-nvim-lsp-signature-help")
     use("hrsh7th/cmp-nvim-lsp-document-symbol")
     -- use("SirVer/ultisnips") -- pip install neovim を実行する必要あり
-    use ('L3MON4D3/LuaSnip')
+    use('L3MON4D3/LuaSnip')
     use("saadparwaiz1/cmp_luasnip")
     use('honza/vim-snippets')
     -- [end]補完
@@ -37,28 +37,28 @@ packer.startup(function(use)
     use('lambdalisue/fern.vim')
     -- ファジーファインダ
     use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.x',
-      requires = { {'nvim-lua/plenary.nvim'} }
+        'nvim-telescope/telescope.nvim', tag = '0.1.x',
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use('nvim-telescope/telescope-file-browser.nvim')
     -- [begin] treesitter
-    use{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use("yioneko/nvim-yati") -- インデントをいい感じに
     use('p00f/nvim-ts-rainbow') -- カッコを色分け
     use('JoosepAlviste/nvim-ts-context-commentstring') -- gccでコメントアウト
     use('tpope/vim-commentary') -- 上記プラグインへコマンドだけ提供する
-    use ('m-demare/hlargs.nvim') -- 引数で渡された変数に色をつける
-    use ('nvim-treesitter/nvim-treesitter-textobjects') -- テキストオブジェクトを追加
-    use ('David-Kunz/treesitter-unit')
+    use('m-demare/hlargs.nvim') -- 引数で渡された変数に色をつける
+    use('nvim-treesitter/nvim-treesitter-textobjects') -- テキストオブジェクトを追加
+    use('David-Kunz/treesitter-unit')
     -- [end] treesitter
     -- カッコの補完
     use {
         'windwp/nvim-autopairs',
-        config = function () require("nvim-autopairs").setup {} end
+        config = function() require("nvim-autopairs").setup {} end
     }
-    use{
+    use {
         'windwp/nvim-ts-autotag',
-        require('nvim-ts-autotag').setup{}
+        require('nvim-ts-autotag').setup {}
     }
     -- カラースキーム
     use('joshdick/onedark.vim')
@@ -68,9 +68,9 @@ packer.startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     -- ハイライト
-    use{
+    use {
         'norcalli/nvim-colorizer.lua',
-        require'colorizer'.setup()
+        require 'colorizer'.setup()
     }
     -- 整形
     use('junegunn/vim-easy-align')
@@ -83,21 +83,26 @@ packer.startup(function(use)
         branch = 'v2', -- optional but strongly recommended
         config = function()
             -- you can configure Hop the way you like here; see :h hop-config
-            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+            require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
         end
     }
     -- プレビュー
-    use{'turbio/bracey.vim', run = 'npm install --prefix server'}
+    use { 'turbio/bracey.vim', run = 'npm install --prefix server' }
+    -- その他
+    use {
+        'lewis6991/gitsigns.nvim',
+        require 'gitsigns'.setup {}
+    }
 end)
 
 -- カラースキーム
-vim.cmd[[colorscheme onedark]]
+vim.cmd [[colorscheme onedark]]
 
 -- easy align
-vim.cmd[[xmap ga <Plug>(EasyAlign)]]
-vim.cmd[[nmap ga <Plug>(EasyAlign)]]
+vim.cmd [[xmap ga <Plug>(EasyAlign)]]
+vim.cmd [[nmap ga <Plug>(EasyAlign)]]
 
 -- hop
 -- vim.cmd[[nnoremap <silent><leader>w <cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>]]
 -- vim.cmd[[nnoremap <silent><leader>w <cmd>lua require'hop'.hint_words()<cr>]]
-vim.api.nvim_set_keymap('', '<leader>w', "<cmd>lua require'hop'.hint_words()<cr>", {noremap=true})
+vim.api.nvim_set_keymap('', '<leader>w', "<cmd>lua require'hop'.hint_words()<cr>", { noremap = true })
