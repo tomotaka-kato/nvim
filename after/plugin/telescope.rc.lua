@@ -5,6 +5,7 @@ if (not status_telescope) then return end
 vim.cmd[[nnoremap <C-p> <cmd>Telescope find_files<cr>]]
 vim.cmd[[nnoremap <leader>fg <cmd>Telescope live_grep<cr>]]
 vim.cmd[[nnoremap <leader>fb <cmd>Telescope buffers<cr>]]
+vim.cmd[[nnoremap <leader>fd <cmd>Telescope diagnostics<cr>]]
 
 -- file browser
 local fb_actions = telescope.extensions.file_browser.actions
@@ -12,8 +13,10 @@ telescope.setup {
     extensions = {
         file_browser = {
             theme = "ivy",
+            -- theme = "dropdown",
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
+            initial_mode = 'normal',
             mappings = {
                 ["i"] = {
                     ["<C-h>"] = fb_actions.goto_parent_dir
@@ -39,6 +42,7 @@ telescope.setup {
     },
 }
 telescope.load_extension "file_browser"
+
 vim.api.nvim_set_keymap(
     'n',
     '<C-e>',

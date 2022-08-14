@@ -33,19 +33,6 @@ local on_attach = function(client, bufnr)
     --     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
     --     vim.api.nvim_command [[autogroup END]]
     -- end
-
-    -- マッピング
-    -- tami5/lspsaga.nvimを使ってUI表示を行う。
-    -- コードアクション
-    vim.cmd [[nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>]]
-    vim.cmd [[vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>]]
-    -- hover doc
-    vim.cmd [[nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>]]
-    -- scroll hover doc or scroll in definition preview
-    vim.cmd [[nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>]]
-    vim.cmd [[nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>]]
-    -- rename
-    vim.cmd [[nnoremap <silent> <leader>rn <cmd>lua require('lspsaga.rename').rename()<CR>]]
 end
 
 local setup_emmet = function()
@@ -112,21 +99,6 @@ mason_lspconfig.setup_handlers({ function(server_name)
     end
 end })
 
-local function on_cursor_hold()
-    if vim.lsp.buf.server_ready() then
-        vim.diagnostic.open_float()
-    end
-end
-
--- [begin] diagnosticをvirtual_textではなくhoverで表示するように変更
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
-)
-local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
-vim.api.nvim_set_option('updatetime', 500)
-vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
-vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
--- [end] diagnosticをvirtual_textではなくhoverで表示するように変更
 
 
 -- Linter,  formatter
