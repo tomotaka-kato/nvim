@@ -37,7 +37,8 @@ packer.startup(function(use)
     use('lambdalisue/fern.vim')
     -- ファジーファインダ
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.x',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use('nvim-telescope/telescope-file-browser.nvim')
@@ -61,7 +62,10 @@ packer.startup(function(use)
         require('nvim-ts-autotag').setup {}
     }
     -- カラースキーム
-    use('joshdick/onedark.vim')
+    use {
+        'joshdick/onedark.vim',
+        vim.cmd [[colorscheme onedark]]
+    }
     -- ステータスライン
     use {
         'nvim-lualine/lualine.nvim',
@@ -73,7 +77,11 @@ packer.startup(function(use)
         require 'colorizer'.setup()
     }
     -- 整形
-    use('junegunn/vim-easy-align')
+    use {
+        'junegunn/vim-easy-align',
+        vim.cmd [[xmap ga <Plug>(EasyAlign)]],
+        vim.cmd [[nmap ga <Plug>(EasyAlign)]]
+    }
     -- テキストオブジェクト
     use('tpope/vim-surround')
     -- 移動
@@ -84,7 +92,8 @@ packer.startup(function(use)
         config = function()
             -- you can configure Hop the way you like here; see :h hop-config
             require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-        end
+        end,
+        vim.api.nvim_set_keymap('', '<leader>w', "<cmd>lua require'hop'.hint_words()<cr>", { noremap = true })
     }
     -- プレビュー
     use { 'turbio/bracey.vim', run = 'npm install --prefix server' }
@@ -95,14 +104,4 @@ packer.startup(function(use)
     }
 end)
 
--- カラースキーム
-vim.cmd [[colorscheme onedark]]
-
--- easy align
-vim.cmd [[xmap ga <Plug>(EasyAlign)]]
-vim.cmd [[nmap ga <Plug>(EasyAlign)]]
-
--- hop
--- vim.cmd[[nnoremap <silent><leader>w <cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>]]
--- vim.cmd[[nnoremap <silent><leader>w <cmd>lua require'hop'.hint_words()<cr>]]
-vim.api.nvim_set_keymap('', '<leader>w', "<cmd>lua require'hop'.hint_words()<cr>", { noremap = true })
+require('hlargs').setup()

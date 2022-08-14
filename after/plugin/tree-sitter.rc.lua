@@ -1,4 +1,5 @@
 local status, ts = pcall(require, 'nvim-treesitter.configs')
+-- require('hlargs').setup()
 
 ts.setup {
     -- A list of parser names, or "all"
@@ -12,7 +13,7 @@ ts.setup {
     auto_install = true,
 
     -- List of parsers to ignore installing (for "all")
-    ignore_install = {'phpdoc'}, -- こいつだけエラーでコケるので外す
+    ignore_install = { 'phpdoc' }, -- こいつだけエラーでコケるので外す
 
     highlight = {
         -- `false` will disable the whole extension
@@ -62,10 +63,7 @@ ts.setup {
     },
 }
 
-vim.api.nvim_set_keymap('x', 'iu', ':lua require"treesitter-unit".select()<CR>', {noremap=true})
-vim.api.nvim_set_keymap('x', 'au', ':lua require"treesitter-unit".select(true)<CR>', {noremap=true})
-vim.api.nvim_set_keymap('o', 'iu', ':<c-u>lua require"treesitter-unit".select()<CR>', {noremap=true})
-vim.api.nvim_set_keymap('o', 'au', ':<c-u>lua require"treesitter-unit".select(true)<CR>', {noremap=true})
-
-require('hlargs').setup()
-
+vim.api.nvim_set_keymap('x', 'iu', ':lua require"treesitter-unit".select()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('x', 'au', ':lua require"treesitter-unit".select(true)<CR>', { noremap = true })
+vim.api.nvim_set_keymap('o', 'iu', ':<c-u>lua require"treesitter-unit".select()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('o', 'au', ':<c-u>lua require"treesitter-unit".select(true)<CR>', { noremap = true })

@@ -3,7 +3,6 @@ if (not status) then return end
 local lspkind = require 'lspkind'
 
 capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local cmp = require 'cmp'
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -55,12 +54,3 @@ cmp.setup.cmdline(':', {
         { name = 'buffer' }
     }
 })
-
-
--- UltiSnipsのマッピング
--- vim.g.UltiSnipsExpandTrigger = "<Enter>"
--- vim.cmd [[let g:UltiSnipsJumpForwardTrigger="<c-n>"]]
--- vim.cmd [[let g:UltiSnipsJumpBackwardTrigger="<c-p>"]]
-
--- 開いてるバッファのフォーマットコマンド
-vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format()', {})
