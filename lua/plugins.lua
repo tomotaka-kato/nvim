@@ -28,13 +28,10 @@ packer.startup(function(use)
     use("hrsh7th/cmp-path")
     use("hrsh7th/cmp-nvim-lsp-signature-help")
     use("hrsh7th/cmp-nvim-lsp-document-symbol")
-    -- use("SirVer/ultisnips") -- pip install neovim を実行する必要あり
     use('L3MON4D3/LuaSnip')
     use("saadparwaiz1/cmp_luasnip")
     use('honza/vim-snippets')
     -- [end]補完
-    -- ファイラ
-    use('lambdalisue/fern.vim')
     -- ファジーファインダ
     use {
         'nvim-telescope/telescope.nvim',
@@ -53,55 +50,37 @@ packer.startup(function(use)
     use('David-Kunz/treesitter-unit')
     -- [end] treesitter
     -- カッコの補完
-    use {
-        'windwp/nvim-autopairs',
-        config = function() require("nvim-autopairs").setup {} end
-    }
-    use {
-        'windwp/nvim-ts-autotag',
-        require('nvim-ts-autotag').setup {}
-    }
-    -- カラースキーム
+    use { 'windwp/nvim-autopairs' }
+    use { 'windwp/nvim-ts-autotag' }
+    -- -- カラースキーム
     use {
         'joshdick/onedark.vim',
-        vim.cmd [[colorscheme onedark]]
     }
-    -- ステータスライン
+    -- -- ステータスライン
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     -- ハイライト
-    use {
-        'norcalli/nvim-colorizer.lua',
-        require 'colorizer'.setup()
-    }
-    -- 整形
+    use { 'norcalli/nvim-colorizer.lua' }
+    -- -- 整形
     use {
         'junegunn/vim-easy-align',
         vim.cmd [[xmap ga <Plug>(EasyAlign)]],
         vim.cmd [[nmap ga <Plug>(EasyAlign)]]
     }
-    -- テキストオブジェクト
+    -- -- テキストオブジェクト
     use('tpope/vim-surround')
-    -- 移動
+    -- -- 移動
     use('yutkat/wb-only-current-line.vim') -- b, wが行を跨がない
     use { -- easy motionのlua版みたいなもの
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
-        config = function()
-            -- you can configure Hop the way you like here; see :h hop-config
-            require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-        end,
-        vim.api.nvim_set_keymap('', '<leader>w', "<cmd>lua require'hop'.hint_words()<cr>", { noremap = true })
     }
     -- プレビュー
     use { 'turbio/bracey.vim', run = 'npm install --prefix server' }
-    -- その他
-    use {
-        'lewis6991/gitsigns.nvim',
-        require 'gitsigns'.setup {}
-    }
+    -- -- その他
+    use { 'lewis6991/gitsigns.nvim' }
 end)
 
-require('hlargs').setup()
+vim.cmd [[colorscheme onedark]]
