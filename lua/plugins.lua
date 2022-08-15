@@ -81,6 +81,7 @@ packer.startup(function(use)
     use { 'turbio/bracey.vim', run = 'npm install --prefix server' }
     -- -- その他
     use { 'lewis6991/gitsigns.nvim' }
+    use ('gpanders/editorconfig.nvim')
 end)
 
 vim.cmd [[colorscheme onedark]]
