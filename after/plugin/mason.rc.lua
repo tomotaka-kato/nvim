@@ -26,10 +26,10 @@ mason.setup({
 
 local on_attach = function(client, bufnr)
     -- 保存時に自動でフォーマットをかける
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-    vim.api.nvim_command [[augroup END]]
+    -- vim.api.nvim_command [[augroup Format]]
+    -- vim.api.nvim_command [[autocmd! * <buffer>]]
+    -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+    -- vim.api.nvim_command [[augroup END]]
 end
 
 local setup_emmet = function()
@@ -60,7 +60,7 @@ local setup_efm = function()
     }
 end
 
-local setup_cssls = function ()
+local setup_cssls = function()
     nvim_lsp.cssls.setup {
         capabilities = capabilities,
         on_attach = on_attach,
@@ -95,4 +95,3 @@ mason_lspconfig.setup_handlers({ function(server_name)
         }
     end
 end })
-

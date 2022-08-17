@@ -1,5 +1,8 @@
 local status, ts = pcall(require, 'nvim-treesitter.configs')
--- require('hlargs').setup()
+if not status then
+    print('nvim-treesitter is not installed.')
+    return
+end
 
 ts.setup {
     -- A list of parser names, or "all"
