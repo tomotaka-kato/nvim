@@ -2,9 +2,18 @@ local status_nullls, null_ls = pcall(require, "null-ls")
 local status_package, mason_package = pcall(require, "mason-core.package")
 local status_registory, mason_registry = pcall(require, "mason-registry")
 
-if not status_nullls then return end
-if not status_package then return end
-if not status_registory then return end
+if not status_nullls then
+    print('null-ls is not installed.')
+    return
+end
+if not status_package then
+    print('mason-core is not installed.')
+    return
+end
+if not status_registory then
+    print('mason-registry is not installed.')
+    return
+end
 
 local null_sources = {}
 

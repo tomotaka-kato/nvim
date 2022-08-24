@@ -1,5 +1,8 @@
 local status, saga = pcall(require, 'lspsaga')
-if not status then return end
+if not status then
+    print('lspsaga is not installed.')
+    return
+end
 
 saga.init_lsp_saga {
     server_filetype_map = {}

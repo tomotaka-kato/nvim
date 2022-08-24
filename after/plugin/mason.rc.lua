@@ -2,14 +2,31 @@ local status_lspkind, lspkind = pcall(require, 'lspkind')
 local status_mason, mason = pcall(require, 'mason')
 local status_lspconfig, mason_lspconfig = pcall(require, 'mason-lspconfig')
 local status_nvim_lsp, nvim_lsp = pcall(require, "lspconfig")
+local status_fidget, fidget = pcall(require, 'fidget')
 
-if (not status_lspkind) then return end
-if (not status_mason) then return end
-if (not status_lspconfig) then return end
-if (not status_nvim_lsp) then return end
+if not status_lspkind then
+    print('lspkind is not installed.')
+    return
+end
+if not status_mason then
+    print('mason is not installed.')
+    return
+end
+if not status_lspconfig then
+    print('mason-lspconfig is not installed.')
+    return
+end
+if not status_nvim_lsp then
+    print('lspconfig is not installed.')
+    return
+end
+if not status_fidget then
+    print('fidget is not installed.')
+    return
+end
 
 -- LSPのプログレス表示
-require "fidget".setup {}
+fidget.setup {}
 
 
 mason.setup({

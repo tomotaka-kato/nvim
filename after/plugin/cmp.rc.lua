@@ -1,5 +1,8 @@
 local status, cmp = pcall(require, 'cmp')
-if (not status) then return end
+if (not status) then
+    print('cmp is not installed.')
+    return
+end
 local lspkind = require 'lspkind'
 
 capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())

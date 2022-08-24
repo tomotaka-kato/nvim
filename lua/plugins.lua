@@ -53,25 +53,23 @@ packer.startup(function(use)
     use { 'windwp/nvim-autopairs' }
     use { 'windwp/nvim-ts-autotag' }
     -- -- カラースキーム
-    use {
-        'joshdick/onedark.vim',
-    }
-    -- -- ステータスライン
+    use ('joshdick/onedark.vim')
+    -- ステータスライン
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     -- ハイライト
     use { 'norcalli/nvim-colorizer.lua' }
-    -- -- 整形
+    -- 整形
     use {
         'junegunn/vim-easy-align',
-        vim.cmd [[xmap ga <Plug>(EasyAlign)]],
-        vim.cmd [[nmap ga <Plug>(EasyAlign)]]
+        vim.cmd [[xmap <Enter> <Plug>(EasyAlign)]],
+        vim.cmd [[nmap <Enter> <Plug>(EasyAlign)]]
     }
-    -- -- テキストオブジェクト
+    -- テキストオブジェクト
     use('tpope/vim-surround')
-    -- -- 移動
+    -- 移動
     use('yutkat/wb-only-current-line.vim') -- b, wが行を跨がない
     use { -- easy motionのlua版みたいなもの
         'phaazon/hop.nvim',
@@ -79,7 +77,7 @@ packer.startup(function(use)
     }
     -- プレビュー
     use { 'turbio/bracey.vim', run = 'npm install --prefix server' }
-    -- -- その他
+    -- その他
     use { 'lewis6991/gitsigns.nvim' }
     use ('gpanders/editorconfig.nvim')
 end)
