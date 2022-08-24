@@ -47,6 +47,10 @@ local on_attach = function(client, bufnr)
     -- vim.api.nvim_command [[autocmd! * <buffer>]]
     -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
     -- vim.api.nvim_command [[augroup END]]
+
+    -- キーマップ
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, bufopts)
 end
 
 local setup_emmet = function()
