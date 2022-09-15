@@ -1,5 +1,8 @@
 local status, luasnip = pcall(require, 'luasnip')
-if not status then return end
+if not status then
+    print('luasnip is not installed.')
+    return
+end
 
 local ls = require"luasnip"
 local s = ls.snippet
