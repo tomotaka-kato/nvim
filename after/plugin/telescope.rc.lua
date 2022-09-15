@@ -12,8 +12,8 @@ local fb_actions = telescope.extensions.file_browser.actions
 telescope.setup {
     extensions = {
         file_browser = {
-            -- theme = "ivy",
-            theme = "dropdown",
+            theme = "ivy",
+            -- theme = "dropdown",
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
             initial_mode = 'normal',
