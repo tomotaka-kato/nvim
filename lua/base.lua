@@ -44,6 +44,15 @@ vim.o.virtualedit = 'block' ---空白文字まで矩形選択できるように�
 -- コメント行で改行をしてもコメントが続かないようにする
 vim.cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 
+vim.cmd [[
+    if system('uname -a } grep microsoft') != ''
+        augroup myYank
+            autocmd!
+            autocmd TextyankPost * :call system('clip.exe', @")
+        augroup END
+    endif"
+]]
+
 -- 終了時に保存確認
 vim.o.confirm = true
 

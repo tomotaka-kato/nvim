@@ -28,7 +28,8 @@ lualine.setup {
     lualine_c = {{
             'filename',
             file_status = true, -- display file status
-            path = 0 -- 0 = just filename
+            -- path = 0 -- 0 = just filename
+            path = 1 -- 0 = just filename
         }},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},

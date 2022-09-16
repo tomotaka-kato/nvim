@@ -64,8 +64,8 @@ packer.startup(function(use)
     -- 整形
     use {
         'junegunn/vim-easy-align',
-        vim.cmd [[xmap <Enter> <Plug>(EasyAlign)]],
-        vim.cmd [[nmap <Enter> <Plug>(EasyAlign)]]
+        vim.cmd [[xmap <C-Enter> <Plug>(EasyAlign)]],
+        vim.cmd [[nmap <C-Enter> <Plug>(EasyAlign)]]
     }
     -- テキストオブジェクト
     use('tpope/vim-surround')
