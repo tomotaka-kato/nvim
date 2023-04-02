@@ -82,4 +82,14 @@ packer.startup(function(use)
     use ('gpanders/editorconfig.nvim')
 end)
 
+
+-- nvimの背景透過設定
+-- 背景を透過させない場合にはここのコマンドをコメントアウトする
+vim.cmd [[
+    augroup user_colors
+      autocmd!
+      autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+    augroup END
+]]
+
 vim.cmd [[colorscheme onedark]]
