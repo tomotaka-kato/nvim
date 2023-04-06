@@ -81,6 +81,7 @@ packer.startup(function(use)
     -- その他
     use { 'lewis6991/gitsigns.nvim' }
     use ('gpanders/editorconfig.nvim')
+    use { 'petertriho/nvim-scrollbar'}
 end)
 
 
@@ -94,3 +95,4 @@ vim.cmd [[
 ]]
 
 vim.cmd [[colorscheme onedark]]
+require('scrollbar').setup()
