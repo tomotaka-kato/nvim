@@ -31,7 +31,7 @@ packer.startup(function(use)
     use("hrsh7th/cmp-nvim-lsp-document-symbol")
     use('L3MON4D3/LuaSnip')
     use("saadparwaiz1/cmp_luasnip")
-    use('honza/vim-snippets')
+    use "rafamadriz/friendly-snippets"
     -- [end]補完
     -- ファジーファインダ
     use {
@@ -82,6 +82,17 @@ packer.startup(function(use)
     use { 'lewis6991/gitsigns.nvim' }
     use ('gpanders/editorconfig.nvim')
     use { 'petertriho/nvim-scrollbar'}
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
+
+    -- :GitBlameToggle でgit blameの表示をトグルする
+    use {
+        'f-person/git-blame.nvim',
+        vim.cmd [[
+            let g:gitblame_enabled = 0
+        ]]
+    }
 end)
 
 
