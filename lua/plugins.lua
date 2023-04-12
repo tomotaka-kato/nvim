@@ -55,6 +55,10 @@ packer.startup(function(use)
     use { 'windwp/nvim-ts-autotag' }
     -- -- カラースキーム
     use ('joshdick/onedark.vim')
+    use ('cocopon/iceberg.vim')
+    use {
+        'xiyaowong/transparent.nvim',
+    }
     -- ステータスライン
     use {
         'nvim-lualine/lualine.nvim',
@@ -95,15 +99,7 @@ packer.startup(function(use)
     }
 end)
 
+vim.cmd([[colorscheme onedark]])
 
--- nvimの背景透過設定
--- 背景を透過させない場合にはここのコマンドをコメントアウトする
-vim.cmd [[
-    augroup user_colors
-      autocmd!
-      autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-    augroup END
-]]
-
-vim.cmd [[colorscheme onedark]]
 require('scrollbar').setup()
+require("transparent").setup()

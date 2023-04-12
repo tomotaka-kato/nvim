@@ -5,8 +5,9 @@ vim.o.title = true
 -- backup, undo, swap
 vim.o.backup = false
 vim.o.writebackup = false
-vim.o.undofile = false -- 容量を食うので一旦なしにする。欲しくなったら再検討
--- vim.cmd [[set undodir=$HOME/.config/nvim/tmp/undo]]
+-- vim.o.undofile = false -- 容量を食うので一旦なしにする。欲しくなったら再検討
+vim.o.undofile = true -- 容量を食うので一旦なしにする。欲しくなったら再検討
+vim.cmd [[set undodir=$HOME/.config/nvim/tmp/undo]]
 vim.o.swapfile = false
 
 -- エンコード

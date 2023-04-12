@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "/home/tomo/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
   },
+  ["iceberg.vim"] = {
+    loaded = true,
+    path = "/home/tomo/.local/share/nvim/site/pack/packer/start/iceberg.vim",
+    url = "https://github.com/cocopon/iceberg.vim"
+  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/home/tomo/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
@@ -284,6 +289,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tomo/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["transparent.nvim"] = {
+    loaded = true,
+    path = "/home/tomo/.local/share/nvim/site/pack/packer/start/transparent.nvim",
+    url = "https://github.com/xiyaowong/transparent.nvim"
   },
   ["treesitter-unit"] = {
     loaded = true,
