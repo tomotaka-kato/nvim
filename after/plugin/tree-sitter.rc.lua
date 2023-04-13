@@ -26,7 +26,7 @@ ts.setup {
         -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
         -- the name of the parser)
         -- list of language that will be disabled
-        disable = {},
+        disable = {'vue'}, -- vueは色がつかなくなる
 
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -37,7 +37,10 @@ ts.setup {
     context_commentstring = {
         enable = true
     },
-    yati = { enable = true },
+    yati = {
+        enable = false,
+        disable = { 'vue' } -- vueはなぜかindendが聞かなくなる
+    },
     rainbow = {
         enable = true,
         -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
