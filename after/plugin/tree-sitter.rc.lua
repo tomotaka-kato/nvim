@@ -7,7 +7,7 @@ end
 ts.setup {
     -- A list of parser names, or "all"
     -- ensure_installed = {'lua', 'python', 'typescript', 'javascript', 'json'},
-    ensure_installed = 'all',
+    ensure_installed = { 'lua' }, -- 設定ファイルはluaなのでluaだけはデフォルトで入れる
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -16,7 +16,7 @@ ts.setup {
     auto_install = true,
 
     -- List of parsers to ignore installing (for "all")
-    ignore_install = { 'phpdoc' }, -- こいつだけエラーでコケるので外す
+    ignore_install = {},
 
     highlight = {
         -- `false` will disable the whole extension
