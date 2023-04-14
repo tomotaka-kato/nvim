@@ -1,9 +1,9 @@
-dein/
 tmp/backup/
 tmp/swap/
 tmp/undo/
 .netrwhist
 .luarc.json
+plugin/packer_compiled.lua
 !tmp/backup/.gitkeep
 !tmp/swap/.gitkeep
 !tmp/undo/.gitkeep

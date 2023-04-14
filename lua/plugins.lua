@@ -90,6 +90,8 @@ packer.startup(function(use)
         require("toggleterm").setup()
     end}
 
+    use { 'leafOfTree/vim-vue-plugin' }
+
     -- :GitBlameToggle でgit blameの表示をトグルする
     use {
         'f-person/git-blame.nvim',
