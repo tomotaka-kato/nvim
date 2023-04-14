@@ -40,6 +40,7 @@ packer.startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use('nvim-telescope/telescope-file-browser.nvim')
+
     -- [begin] treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use("yioneko/nvim-yati") -- インデントをいい感じに
@@ -50,15 +51,14 @@ packer.startup(function(use)
     use('nvim-treesitter/nvim-treesitter-textobjects') -- テキストオブジェクトを追加
     use('David-Kunz/treesitter-unit')
     -- [end] treesitter
+
     -- カッコの補完
     use { 'windwp/nvim-autopairs' }
     use { 'windwp/nvim-ts-autotag' }
     -- -- カラースキーム
     use ('joshdick/onedark.vim')
     use ('cocopon/iceberg.vim')
-    use {
-        'xiyaowong/transparent.nvim',
-    }
+    use { 'xiyaowong/transparent.nvim' }
     -- ステータスライン
     use {
         'nvim-lualine/lualine.nvim',
@@ -91,6 +91,10 @@ packer.startup(function(use)
     end}
 
     use { 'leafOfTree/vim-vue-plugin' }
+    use {
+        'heavenshell/vim-jsdoc',
+        run = 'make install'
+    }
 
     -- :GitBlameToggle でgit blameの表示をトグルする
     use {

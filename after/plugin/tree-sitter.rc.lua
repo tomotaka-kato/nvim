@@ -38,7 +38,7 @@ ts.setup {
         enable = true
     },
     yati = {
-        enable = false,
+        enable = true,
         disable = { 'vue' } -- vueはなぜかindendが聞かなくなる
     },
     rainbow = {
