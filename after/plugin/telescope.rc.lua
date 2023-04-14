@@ -44,11 +44,4 @@ telescope.setup {
         },
     },
 }
-telescope.load_extension "file_browser"
 
-vim.api.nvim_set_keymap(
-    'n',
-    '<C-e>',
-    ':Telescope file_browser<CR>',
-    { noremap = true }
-)

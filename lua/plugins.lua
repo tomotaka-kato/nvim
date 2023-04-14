@@ -86,15 +86,15 @@ packer.startup(function(use)
     use { 'lewis6991/gitsigns.nvim' }
     use ('gpanders/editorconfig.nvim')
     use { 'petertriho/nvim-scrollbar'}
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end}
+    use {"akinsho/toggleterm.nvim", tag = '*'}
 
     use { 'leafOfTree/vim-vue-plugin' }
     use {
         'heavenshell/vim-jsdoc',
         run = 'make install'
     }
+
+    use { 'nvim-tree/nvim-tree.lua' }
 
     -- :GitBlameToggle でgit blameの表示をトグルする
     use {
