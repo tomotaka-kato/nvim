@@ -66,6 +66,7 @@ packer.startup(function(use)
     }
     -- ハイライト
     use { 'norcalli/nvim-colorizer.lua' }
+    use { "lukas-reineke/indent-blankline.nvim", } -- インデントのガイドを表示
     -- 整形
     use {
         'junegunn/vim-easy-align',
@@ -73,7 +74,15 @@ packer.startup(function(use)
         vim.cmd [[nmap <C-Enter> <Plug>(EasyAlign)]]
     }
     -- テキストオブジェクト
-    use('tpope/vim-surround')
+    use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+})
     -- 移動
     use('yutkat/wb-only-current-line.vim') -- b, wが行を跨がない
     use { -- easy motionのlua版みたいなもの
