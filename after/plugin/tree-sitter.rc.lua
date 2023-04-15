@@ -13,7 +13,7 @@ ts.setup {
     sync_install = false,
 
     -- Automatically install missing parsers when entering buffer
-    auto_install = true,
+    auto_install = false,
 
     -- List of parsers to ignore installing (for "all")
     ignore_install = {},
