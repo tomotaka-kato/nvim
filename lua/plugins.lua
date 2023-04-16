@@ -105,6 +105,8 @@ packer.startup(function(use)
 
     use { 'nvim-tree/nvim-tree.lua' }
 
+    use { 'mzlogin/vim-markdown-toc' }
+
     -- :GitBlameToggle でgit blameの表示をトグルする
     use {
         'f-person/git-blame.nvim',
