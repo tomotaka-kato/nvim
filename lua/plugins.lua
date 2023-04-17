@@ -114,6 +114,9 @@ packer.startup(function(use)
             let g:gitblame_enabled = 0
         ]]
     }
+
+    use { 'tpope/vim-fugitive' }
+
 end)
 
 vim.cmd([[colorscheme onedark]])
