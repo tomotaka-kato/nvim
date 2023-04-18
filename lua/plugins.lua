@@ -56,33 +56,31 @@ packer.startup(function(use)
     use { 'windwp/nvim-autopairs' }
     use { 'windwp/nvim-ts-autotag' }
     -- -- カラースキーム
-    use ('joshdick/onedark.vim')
+    use { 'joshdick/onedark.vim' }
     use ('cocopon/iceberg.vim')
-    use { 'xiyaowong/transparent.nvim' }
+    use { 'xiyaowong/transparent.nvim',
+        config = function()
+            require("transparent").setup()
+        end
+    }
     -- ステータスライン
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     -- ハイライト
-    use { 'norcalli/nvim-colorizer.lua' }
+    use { 'norcalli/nvim-colorizer.lua' } -- cssなどのカラーコードに色を付ける
     use { "lukas-reineke/indent-blankline.nvim", } -- インデントのガイドを表示
-    -- 整形
-    use {
-        'junegunn/vim-easy-align',
-        vim.cmd [[xmap <C-Enter> <Plug>(EasyAlign)]],
-        vim.cmd [[nmap <C-Enter> <Plug>(EasyAlign)]]
-    }
     -- テキストオブジェクト
     use({
-    "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
-})
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
     -- 移動
     use('yutkat/wb-only-current-line.vim') -- b, wが行を跨がない
     use { -- easy motionのlua版みたいなもの
@@ -93,8 +91,11 @@ packer.startup(function(use)
     use { 'turbio/bracey.vim', run = 'npm install --prefix server' }
     -- その他
     use { 'lewis6991/gitsigns.nvim' }
-    use ('gpanders/editorconfig.nvim')
-    use { 'petertriho/nvim-scrollbar'}
+    use { 'petertriho/nvim-scrollbar',
+        config = function()
+            require('scrollbar').setup()
+        end
+    }
     use {"akinsho/toggleterm.nvim", tag = '*'}
 
     use { 'leafOfTree/vim-vue-plugin' }
@@ -132,6 +133,3 @@ packer.startup(function(use)
 end)
 
 vim.cmd([[colorscheme onedark]])
-
-require('scrollbar').setup()
-require("transparent").setup()
