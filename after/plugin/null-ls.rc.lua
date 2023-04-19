@@ -1,4 +1,4 @@
-local status_nullls, null_ls = pcall(require, "null-ls") 
+local status_nullls, null_ls = pcall(require, "null-ls")
 local status_package, mason_package = pcall(require, "mason-core.package")
 local status_registory, mason_registry = pcall(require, "mason-registry")
 
