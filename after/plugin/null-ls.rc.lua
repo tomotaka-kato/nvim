@@ -27,6 +27,21 @@ for _, package in ipairs(mason_registry.get_installed_packages()) do
     end
 end
 
+local sources = {
+    null_ls.builtins.diagnostics.shellcheck.with({
+        diagnostic_config = {
+            -- see :help vim.diagnostic.config()
+            underline = true,
+            virtual_text = false,
+            signs = true,
+            update_in_insert = true,
+            severity_sort = true,
+        },
+    }),
+}
+
+null_sources['sources'] = sources
+
 null_ls.setup({
     sources = null_sources,
 })

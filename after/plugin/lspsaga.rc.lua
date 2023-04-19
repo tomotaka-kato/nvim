@@ -4,26 +4,27 @@ if not status then
     return
 end
 
-saga.init_lsp_saga {
+saga.init_lsp_saga ({
+    border_style = 'single',
     server_filetype_map = {}
-}
+})
 
-
+local keymap = vim.keymap
 
 -- key maps
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', ';dj', '<Cmd>Lspsaga diagnostic_jump_next<cr>', opts)
-vim.keymap.set('n', ';dk', '<Cmd>Lspsaga diagnostic_jump_prev<cr>', opts)
-vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<cr>', opts)
-vim.keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<cr>', opts)
-vim.keymap.set('n', '<leader>rn<cr>', '<Cmd>Lspsaga rename<cr>', opts)
-vim.keymap.set('n', 'gd', '<Cmd>Lspsaga lsp_finder<cr>', opts)
-vim.keymap.set('n', 'gp', '<Cmd>Lspsaga preview_definition<cr>', opts)
+keymap.set('n', ';dj', '<Cmd>Lspsaga diagnostic_jump_next<cr>', opts)
+keymap.set('n', ';dk', '<Cmd>Lspsaga diagnostic_jump_prev<cr>', opts)
+keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<cr>', opts)
+keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<cr>', opts)
+keymap.set('n', '<leader>rn<cr>', '<Cmd>Lspsaga rename<cr>', opts)
+keymap.set('n', 'gd', '<Cmd>Lspsaga lsp_finder<cr>', opts)
+keymap.set('n', 'gp', '<Cmd>Lspsaga preview_definition<cr>', opts)
 
 -- Code actiona
 local action = require('lspsaga.codeaction')
-vim.keymap.set("n", "<leader>ca", action.code_action, { silent = true })
-vim.keymap.set("v", "<leader>ca", function()
+keymap.set("n", "<leader>ca", action.code_action, { silent = true })
+keymap.set("v", "<leader>ca", function()
     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
     action.range_code_action()
 end, opts)

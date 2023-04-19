@@ -137,7 +137,9 @@ packer.startup(function(use)
                 -- refer to the configuration section below
             }
         end
-}
+    }
+
+    use { 'editorconfig/editorconfig-vim' }
 
 end)
 
