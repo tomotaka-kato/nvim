@@ -16,7 +16,7 @@ packer.startup(function(use)
     use('williamboman/mason.nvim')
     use('williamboman/mason-lspconfig.nvim')
     use("tamago324/nlsp-settings.nvim") -- プロジェクト固有のLSP設定をできるようにする
-    use("tami5/lspsaga.nvim") -- LSPで表示するUIの変更
+    use("kkharji/lspsaga.nvim") -- LSPで表示するUIの変更
     use("folke/lsp-colors.nvim") -- LSPの色表示改善
     use("j-hui/fidget.nvim") -- LSPのプログレス表示
     use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
