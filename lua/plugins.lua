@@ -114,6 +114,17 @@ packer.startup(function(use)
             let g:gitblame_enabled = 0
         ]]
     }
+
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    })
+
+
 end)
 
 vim.cmd([[colorscheme onedark]])
