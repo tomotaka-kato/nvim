@@ -53,8 +53,9 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, bufopts)
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 local setup_emmet = function()
-    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     nvim_lsp.emmet_ls.setup {
         capabilities = capabilities,
@@ -100,6 +101,20 @@ local setup_html = function()
     }
 end
 
+-- luaの設定
+-- 今はsumneko_luaではなくてlua_lsになってるっぽい
+local setup_lua_ls = function()
+    nvim_lsp.lua_ls.setup {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = {'vim'} -- vimなんてglobalにないよと怒られるので無視する
+                }
+            }
+        }
+    }
+end
+
 
 mason_lspconfig.setup_handlers({ function(server_name)
     if server_name == 'emmet' then
@@ -110,6 +125,8 @@ mason_lspconfig.setup_handlers({ function(server_name)
         setup_html()
     elseif server_name == 'cssls' then
         setup_cssls()
+    elseif server_name == 'lua_ls' then
+        setup_lua_ls()
     else
         nvim_lsp[server_name].setup {
             on_attach = on_attach,
