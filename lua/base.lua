@@ -73,7 +73,7 @@ augroup highlight_current_line
   autocmd BufLeave * highlight CursorLine cterm=none gui=none
   " autocmd WinEnter,BufWinEnter * highlight CursorLine cterm=underline gui=underline guibg=#101010 ctermbg=233
   " autocmd WinLeave,BufWinLeave * highlight CursorLine cterm=none gui=none
-  autocmd WinEnter * highlight CursorLine cterm=underline gui=underline guibg=#101010 ctermbg=233
+  autocmd WinEnter * highlight CursorLine cterm=underline gui=underline guibg=none ctermbg=none
   autocmd WinLeave * highlight CursorLine cterm=none gui=none
 augroup END
 ]])
