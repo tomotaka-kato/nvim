@@ -154,6 +154,15 @@ packer.startup(function(use)
         end
     }
 
+    use {
+        'nvim-tree/nvim-web-devicons',
+        confit = function()
+            require('trouble').setup {
+
+            }
+        end
+    }
+
 end)
 
 vim.cmd([[colorscheme onedark]])
