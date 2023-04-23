@@ -96,7 +96,6 @@ packer.startup(function(use)
             require('scrollbar').setup()
         end
     }
-    use {"akinsho/toggleterm.nvim", tag = '*'}
 
     use { 'leafOfTree/vim-vue-plugin' }
     use {
