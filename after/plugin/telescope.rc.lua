@@ -5,13 +5,14 @@ if not status_telescope then
     return
 end
 
--- telescope.setup({
---     pickers = {
---         find_files = {
---             theme = 'dropdown',
---         },
---     }
--- })
+telescope.setup({
+    defaults = {
+        layout_strategy = 'vertical',
+        layout_config = {
+            vertical = { width = 0.9 }
+        },
+    }
+})
 
 vim.cmd [[autocmd User TelescopePreviewerLoaded setlocal wrap]]
 
