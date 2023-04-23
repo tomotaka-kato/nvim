@@ -13,5 +13,9 @@ keymap.set('n', '<C-l>', '<C-w>l', { noremap = true })
 keymap.set('n', '+', '<C-a>')
 keymap.set('n', '-', '<C-x>')
 
--- ターミナルのインサートモードから抜けるコマンドをESCに変更
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+-- ターミナルのインサートモードから抜けるコマンドを変更
+keymap.set('t', '<C-t>', '<C-\\><C-n>', { noremap = true })
+-- ターミナルの起動コマンド
+keymap.set('n', '<C-t>s', '<cmd>botright new<CR><cmd>terminal<CR>', { noremap = true })
+keymap.set('n', '<C-t>v', '<cmd>rightbelow vnew<CR><cmd>terminal<CR>', { noremap = true })
+
