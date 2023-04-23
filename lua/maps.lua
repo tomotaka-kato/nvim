@@ -18,4 +18,5 @@ keymap.set('t', '<C-t>', '<C-\\><C-n>', { noremap = true })
 -- ターミナルの起動コマンド
 keymap.set('n', '<C-t>s', '<cmd>botright new<CR><cmd>terminal<CR>', { noremap = true })
 keymap.set('n', '<C-t>v', '<cmd>rightbelow vnew<CR><cmd>terminal<CR>', { noremap = true })
+keymap.set('n', '<C-t>n', '<cmd>tabe<CR><cmd>terminal<CR>', { noremap = true })
 
