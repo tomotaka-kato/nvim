@@ -163,6 +163,8 @@ packer.startup(function(use)
         end
     }
 
+    use { 'anuvyklack/hydra.nvim'  }
+
 end)
 
 vim.cmd([[colorscheme onedark]])
