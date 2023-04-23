@@ -77,3 +77,10 @@ augroup highlight_current_line
   autocmd WinLeave * highlight CursorLine cterm=none gui=none
 augroup END
 ]])
+
+
+-- :Tでnvim標準のターミナルを現在のウィンドウの下に開く
+vim.cmd([[command! -nargs=* T split | wincmd j | resize 20 | terminal <args>]])
+-- ターミナルを開いたら自動でインサートモードになるようにする
+vim.cmd([[autocmd TermOpen * startinsert]])
+
