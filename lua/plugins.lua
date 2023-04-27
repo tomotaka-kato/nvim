@@ -8,7 +8,7 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
     -- [begin] library
     use { 'wbthomason/packer.nvim' }
-    use('kyazdani42/nvim-web-devicons')
+    use { 'nvim-tree/nvim-web-devicons' }
     use('onsails/lspkind-nvim') -- 補完にアイコンがつく
     -- [end] library
     -- [begin] LSP
@@ -151,10 +151,13 @@ packer.startup(function(use)
     }
 
     use {
-        'nvim-tree/nvim-web-devicons',
-        confit = function()
-            require('trouble').setup {
-
+        "folke/lsp-trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
             }
         end
     }

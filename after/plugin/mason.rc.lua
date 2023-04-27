@@ -63,24 +63,24 @@ local setup_emmet = function()
     }
 end
 
-local setup_efm = function()
-    -- Linter, Formatterはefmで行うのでその設定
-    nvim_lsp.efm.setup {
-        -- flags = {
-        --     debounce_text_changes = 150,
-        -- },
-        init_options = { documentFormatting = true },
-        filetypes = { "python" },
-        settings = {
-            rootMarkers = { ".git/" },
-            languages = {
-                python = {
-                    { formatCommand = "black --quiet -", formatStdin = true }
-                }
-            }
-        }
-    }
-end
+-- local setup_efm = function()
+--     -- Linter, Formatterはefmで行うのでその設定
+--     nvim_lsp.efm.setup {
+--         -- flags = {
+--         --     debounce_text_changes = 150,
+--         -- },
+--         init_options = { documentFormatting = true },
+--         filetypes = { "python" },
+--         settings = {
+--             rootMarkers = { ".git/" },
+--             languages = {
+--                 python = {
+--                     { formatCommand = "black --quiet -", formatStdin = true }
+--                 }
+--             }
+--         }
+--     }
+-- end
 
 local setup_cssls = function()
     nvim_lsp.cssls.setup {
@@ -119,8 +119,8 @@ end
 mason_lspconfig.setup_handlers({ function(server_name)
     if server_name == 'emmet' then
         setup_emmet()
-    elseif server_name == 'efm' then
-        setup_efm()
+    -- elseif server_name == 'efm' then
+    --     setup_efm()
     elseif server_name == 'html' then
         setup_html()
     elseif server_name == 'cssls' then
