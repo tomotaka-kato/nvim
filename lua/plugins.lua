@@ -64,10 +64,7 @@ packer.startup(function(use)
         end
     }
     -- ステータスライン
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+    use { 'nvim-lualine/lualine.nvim' }
     -- ハイライト
     use { 'norcalli/nvim-colorizer.lua' } -- cssなどのカラーコードに色を付ける
     use { "lukas-reineke/indent-blankline.nvim", } -- インデントのガイドを表示
