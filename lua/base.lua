@@ -84,3 +84,18 @@ vim.cmd([[command! -nargs=* T split | wincmd j | resize 20 | terminal <args>]])
 -- ターミナルを開いたら自動でインサートモードになるようにする
 vim.cmd([[autocmd TermOpen * startinsert]])
 
+-- ubuntu環境ではnodeのバージョンが古いのでバイナリの場所を指定する
+-- 古いnodeだとvolarが動かないため
+local f = io.popen("whoami")
+if f == nil then
+    return
+end
+local user = f:read("*l")
+---@diagnostic disable-next-line: missing-parameter
+f.close()
+if user:find('ubuntu') then
+vim.cmd([[
+    let $PATH='/home/ubuntu/.nvm/versions/node/v16.19.1/bin:' . $PATH
+]])
+end
+
