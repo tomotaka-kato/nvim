@@ -192,6 +192,15 @@ packer.startup(function(use)
         end
     }
 
+    use {
+        'nvim-neorg/neorg',
+        run = ':Neorg sync-parsers',
+        config = function()
+            require('neorg').setup {
+
+            }
+        end
+    }
 
 end)
 
