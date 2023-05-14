@@ -5,7 +5,6 @@ if (not status) then
 end
 local lspkind = require 'lspkind'
 
-require("luasnip.loaders.from_vscode").lazy_load()
 capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 cmp.setup({
     snippet = {
@@ -26,7 +25,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'vsnip' },
+        { name = 'luasnip' },
         { name = 'path' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'luasnip' },

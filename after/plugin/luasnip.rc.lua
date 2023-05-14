@@ -4,7 +4,7 @@ if not status then
     return
 end
 
-local ls = require"luasnip"
+local ls = luasnip
 local s = ls.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
@@ -21,3 +21,15 @@ local extras = require("luasnip.extras")
 local m = require("luasnip.extras").m
 local l = require("luasnip.extras").l
 local postfix = require("luasnip.extras.postfix").postfix
+
+
+ls.snippet = {
+  all = {
+    s({trig = 'sample'}, {
+      t({"Sample Text!"}),
+      i(0)
+    }),
+  }
+}
+
+require("luasnip.loaders.from_vscode").lazy_load()

@@ -25,4 +25,9 @@ keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', noramap)
 keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<CR>', noramap)
 keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<CR>', noramap)
 
-
+-- LuaSnip
+-- インサートモードの時にTabで次の個所にジャンプする。nvimの記載方法でうまく書けなかった。。。
+vim.cmd([[
+    imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+    inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+]])
