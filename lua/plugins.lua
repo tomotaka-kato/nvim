@@ -20,6 +20,7 @@ packer.startup(function(use)
     use("folke/lsp-colors.nvim") -- LSPの色表示改善
     use("j-hui/fidget.nvim") -- LSPのプログレス表示
     use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
+    use('ray-x/lsp_signature.nvim')
     -- [end] LSP
     -- [begin]補完
     use("hrsh7th/nvim-cmp")
@@ -188,7 +189,9 @@ packer.startup(function(use)
     use{
         'rcarriga/nvim-notify',
         config = function()
-            vim.notify = require("notify")
+            vim.notify = require("notify").setup({
+                background_colour = "#000000"
+            })
         end
     }
 

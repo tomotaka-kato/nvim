@@ -3,6 +3,7 @@ local status_mason, mason = pcall(require, 'mason')
 local status_lspconfig, mason_lspconfig = pcall(require, 'mason-lspconfig')
 local status_nvim_lsp, nvim_lsp = pcall(require, "lspconfig")
 local status_fidget, fidget = pcall(require, 'fidget')
+local status_signature, signature =pcall(require, 'lsp_signature')
 
 if not status_lspkind then
     print('lspkind is not installed.')
@@ -23,6 +24,10 @@ end
 if not status_fidget then
     print('fidget is not installed.')
     return
+end
+if not status_signature then
+    print('lsp_signature is not installed.')
+    print('but process is continued.')
 end
 
 -- LSPのプログレス表示
@@ -51,6 +56,14 @@ local on_attach = function(client, bufnr)
     -- キーマップ
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, bufopts)
+    if status_signature then -- 入力中にシグネチャを表示する
+        signature.on_attach({
+            bind = true,
+            handler_opts = {
+                border = "rounded"
+            }
+        }, bufnr)
+    end
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
