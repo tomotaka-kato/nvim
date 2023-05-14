@@ -40,7 +40,7 @@ packer.startup(function(use)
         tag = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use('nvim-telescope/telescope-file-browser.nvim')
+    -- use('nvim-telescope/telescope-file-browser.nvim')
     use ('nvim-telescope/telescope-media-files.nvim')
 
     -- [begin] treesitter
@@ -48,38 +48,22 @@ packer.startup(function(use)
     use("yioneko/nvim-yati") -- インデントをいい感じに
     use('p00f/nvim-ts-rainbow') -- カッコを色分け
     use('JoosepAlviste/nvim-ts-context-commentstring') -- gccでコメントアウト
-    use('tpope/vim-commentary') -- 上記プラグインへコマンドだけ提供する
+    use { -- 上記プラグインへコマンドだけ提供する
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
     use('m-demare/hlargs.nvim') -- 引数で渡された変数に色をつける
     use('nvim-treesitter/nvim-treesitter-textobjects') -- テキストオブジェクトを追加
-    use('David-Kunz/treesitter-unit')
-    -- 画面に収まらない関数名を表示する
-    -- デフォルトの設定だとちょっと見にくいので使わないかも。。。
-    -- use{
-    --     'nvim-treesitter/nvim-treesitter-context' ,
-    --     config = function()
-    --         require'treesitter-context'.setup{
-    --             enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-    --             max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-    --             min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-    --             line_numbers = true,
-    --             multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
-    --             trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-    --             mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-    --             -- Separator between context and content. Should be a single character string, like '-'.
-    --             -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-    --             separator = nil,
-    --             zindex = 20, -- The Z-index of the context window
-    --         }
-    --     end
-    -- }
     -- [end] treesitter
 
     -- カッコの補完
     use { 'windwp/nvim-autopairs' }
     use { 'windwp/nvim-ts-autotag' }
-    -- -- カラースキーム
+    -- カラースキーム
     use { 'joshdick/onedark.vim' }
-    use ('cocopon/iceberg.vim')
+    -- use ('cocopon/iceberg.vim')
     use { 'xiyaowong/transparent.nvim',
         config = function()
             require("transparent").setup()
@@ -125,14 +109,6 @@ packer.startup(function(use)
     use { 'nvim-tree/nvim-tree.lua' }
 
     use { 'mzlogin/vim-markdown-toc' }
-
-    -- :GitBlameToggle でgit blameの表示をトグルする
-    use {
-        'f-person/git-blame.nvim',
-        vim.cmd [[
-            let g:gitblame_enabled = 0
-        ]]
-    }
 
     use({
         "iamcco/markdown-preview.nvim",
@@ -189,9 +165,11 @@ packer.startup(function(use)
     use{
         'rcarriga/nvim-notify',
         config = function()
-            vim.notify = require("notify").setup({
+            _, notify = pcall(require, 'notify')
+            notify.setup({
                 background_colour = "#000000"
             })
+            vim.notify = notify
         end
     }
 
