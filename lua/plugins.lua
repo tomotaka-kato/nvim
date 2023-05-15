@@ -174,26 +174,34 @@ packer.startup(function(use)
     }
 
     use {
-    "nvim-neorg/neorg",
-    tag = "*", -- v4.1.0ではエラーメッセージが大量に表示される
-    ft = "norg",
-    after = "nvim-treesitter", -- You may want to specify Telescope here as well
-    config = function()
-        require('neorg').setup {
-            load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
-                ["core.concealer"] = {}, -- Adds pretty icons to your documents
-                ["core.dirman"] = { -- Manages Neorg workspaces
-                    config = {
-                        -- workspaces = {
-                        --     notes = "~/notes",
-                        -- },
+        "nvim-neorg/neorg",
+        tag = "*", -- v4.1.0ではエラーメッセージが大量に表示される
+        ft = "norg",
+        after = "nvim-treesitter", -- You may want to specify Telescope here as well
+        config = function()
+            require('neorg').setup {
+                load = {
+                    ["core.defaults"] = {}, -- Loads default behaviour
+                    ["core.concealer"] = {}, -- Adds pretty icons to your documents
+                    ["core.dirman"] = { -- Manages Neorg workspaces
+                        config = {
+                            -- workspaces = {
+                            --     notes = "~/notes",
+                            -- },
+                        },
                     },
                 },
-            },
-        }
-    end
-}
+            }
+        end
+
+    }
+
+    -- 入れるか悩んでるプラグインメモ (github上でnvimの文字列で検索・most starsでソートして上から眺めてる)
+    -- use 'mfussenegger/nvim-dap' -- デバッグできるようになる
+    -- use 'ggandor/leap.nvim' -- hopとどっち使うか比較したい
+    -- use 'justinmk/vim-sneak' -- こっちもeasy motionと似たやつ
+
+
 
 end)
 
