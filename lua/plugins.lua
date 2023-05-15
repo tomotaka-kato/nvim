@@ -198,11 +198,10 @@ packer.startup(function(use)
         end
 
     }
+    use {"uga-rosa/ccc.nvim"} -- :CccPickでカラーピッカーが表示される
 
-    -- 入れるか悩んでるプラグインメモ (github上でnvimの文字列で検索・most starsでソートして上から眺めてる)
-    -- use 'mfussenegger/nvim-dap' -- デバッグできるようになる
-    -- use 'ggandor/leap.nvim' -- hopとどっち使うか比較したい
-    -- use 'justinmk/vim-sneak' -- こっちもeasy motionと似たやつ
+    use { "RRethy/vim-illuminate" } -- インストールしただけなので設定は確認する
+
 
 
 
