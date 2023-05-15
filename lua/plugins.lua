@@ -21,6 +21,9 @@ packer.startup(function(use)
     use("j-hui/fidget.nvim") -- LSPのプログレス表示
     use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
     use('ray-x/lsp_signature.nvim')
+    use({
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    })
     -- [end] LSP
     -- [begin]補完
     use("hrsh7th/nvim-cmp")

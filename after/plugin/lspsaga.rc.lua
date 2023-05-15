@@ -29,10 +29,6 @@ keymap.set("v", "<leader>ca", function()
     action.range_code_action()
 end, opts)
 
--- LSP標準のdiagnosticをvirtual textで表示しない
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
-)
 
 -- [begin] diagnosticをvirtual_textではなくhoverで表示するように変更
 local diagnostic = require('lspsaga.diagnostic')
