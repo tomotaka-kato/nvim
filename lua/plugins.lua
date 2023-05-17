@@ -214,7 +214,9 @@ packer.startup(function(use)
   }
   use {"uga-rosa/ccc.nvim"} -- :CccPickでカラーピッカーが表示される
 
-  use { "RRethy/vim-illuminate" } -- インストールしただけなので設定は確認する
+  -- カーソルの下の単語と同じ単語をハイライトする
+  -- インストールしただけなので設定は確認する
+  use { "RRethy/vim-illuminate" }
 
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
