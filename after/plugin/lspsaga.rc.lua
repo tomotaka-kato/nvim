@@ -1,12 +1,27 @@
 local status, saga = pcall(require, 'lspsaga')
 if not status then
-    print('lspsaga is not installed.')
-    return
+  print('lspsaga is not installed.')
+  return
 end
 
-saga.init_lsp_saga ({
-    border_style = 'single',
-    server_filetype_map = {}
+saga.setup ({
+  code_action = {
+    num_shortcut = true,
+    show_server_name = false,
+    extend_gitsigns = true,
+    keys = {
+      -- string | table type
+      quit = {"q", "<Esc>"},
+      exec = "<CR>",
+    },
+  },
+   lightbulb = {
+    enable = true,
+    enable_in_insert = true,
+    sign = true,
+    sign_priority = 40,
+    virtual_text = false,
+  },
 })
 
 local keymap = vim.keymap
@@ -22,24 +37,13 @@ keymap.set('n', 'gd', '<Cmd>Lspsaga lsp_finder<cr>', opts)
 keymap.set('n', 'gp', '<Cmd>Lspsaga preview_definition<cr>', opts)
 
 -- Code actiona
-local action = require('lspsaga.codeaction')
-keymap.set("n", "<leader>ca", action.code_action, { silent = true })
-keymap.set("v", "<leader>ca", function()
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
-    action.range_code_action()
-end, opts)
-
+keymap.set("n", "<leader>ca", ":Lspsaga code_action<cr>", { silent = true })
 
 -- [begin] diagnosticをvirtual_textではなくhoverで表示するように変更
-local diagnostic = require('lspsaga.diagnostic')
-local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
-vim.api.nvim_set_option('updatetime', 300)
-vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
-vim.api.nvim_create_autocmd(
-    { "CursorHold" },
-    {
-        group = diagnostic_hover_augroup_name,
-        callback = diagnostic.show_cursor_diagnostics
-    }
-)
+-- lsp_lineを使ってみてるのでいったんオフにする
+-- vim.api.nvim_set_option('updatetime', 300)
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--     pattern = "*",
+--     command = 'Lspsaga show_cursor_diagnostics ++unfocus',
+-- })
 -- [end] diagnosticをvirtual_textではなくhoverで表示するように変更
