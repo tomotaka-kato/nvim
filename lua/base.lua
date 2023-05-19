@@ -78,6 +78,9 @@ augroup highlight_current_line
 augroup END
 ]])
 
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 -- :Tでnvim標準のターミナルを現在のウィンドウの下に開く
 vim.cmd([[command! -nargs=* T split | wincmd j | resize 20 | terminal <args>]])
