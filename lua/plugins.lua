@@ -196,6 +196,7 @@ packer.startup(function(use)
     tag = "*",
     ft = "norg",
     after = "nvim-treesitter", -- You may want to specify Telescope here as well
+    run = ':Neorg sync-parsers',
     config = function()
       require('neorg').setup {
         load = {
