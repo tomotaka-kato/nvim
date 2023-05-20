@@ -193,7 +193,7 @@ packer.startup(function(use)
 
   use {
     "nvim-neorg/neorg",
-    tag = "*", -- v4.1.0ではエラーメッセージが大量に表示される
+    tag = "*",
     ft = "norg",
     after = "nvim-treesitter", -- You may want to specify Telescope here as well
     config = function()
@@ -221,7 +221,8 @@ packer.startup(function(use)
 
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
-
+  -- 置換を便利に行えるやつ
+  use { 'nvim-pack/nvim-spectre' }
 
 
 end)
