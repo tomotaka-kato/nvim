@@ -229,6 +229,15 @@ packer.startup(function(use)
   -- q or Esc でぬけるが、ターミナルとして開いてるので一度ターミナルのインサートモードから抜けること
   use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
 
+  -- ページ移動を滑らかなスクロールにする
+  -- ctrl-b や ctrl-f には効くが gg や Shift-g には効かない
+  use {
+    'karb94/neoscroll.nvim',
+    config = function ()
+      require('neoscroll').setup()
+    end
+  }
+
 end)
 
 vim.cmd([[colorscheme onedark]])
