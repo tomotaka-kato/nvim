@@ -73,6 +73,7 @@ packer.startup(function(use)
   }
   use('m-demare/hlargs.nvim') -- 引数で渡された変数に色をつける
   use('nvim-treesitter/nvim-treesitter-textobjects') -- テキストオブジェクトを追加
+  use 'David-Kunz/treesitter-unit'
   -- [end] treesitter
 
   -- カッコの補完
@@ -174,19 +175,6 @@ packer.startup(function(use)
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       }
-    end
-  }
-
-  use { 'anuvyklack/hydra.nvim'  }
-
-  use{
-    'rcarriga/nvim-notify',
-    config = function()
-      _, notify = pcall(require, 'notify')
-      notify.setup({
-        background_colour = "#000000"
-      })
-      vim.notify = notify
     end
   }
 
