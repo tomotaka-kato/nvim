@@ -224,6 +224,10 @@ packer.startup(function(use)
   -- 置換を便利に行えるやつ
   use { 'nvim-pack/nvim-spectre' }
 
+  -- markdownをターミナル内でプレビューできる
+  -- Glow [path-to-md-file] で起動できる
+  -- q or Esc でぬけるが、ターミナルとして開いてるので一度ターミナルのインサートモードから抜けること
+  use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
 
 end)
 
