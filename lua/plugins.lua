@@ -232,13 +232,26 @@ packer.startup(function(use)
 
   -- ページ移動を滑らかなスクロールにする
   -- ctrl-b や ctrl-f には効くが gg や Shift-g には効かない
-  use {
-    'karb94/neoscroll.nvim',
-    config = function ()
-      require('neoscroll').setup()
-    end
-  }
-
+  -- PCのスペックしょぼいとめっちゃ重い
+  -- use { 
+  --   'karb94/neoscroll.nvim',
+  --   config = function ()
+  --     require('neoscroll').setup({ })
+  --     local t = {}
+  --     -- Syntax: t[keys] = {function, {function arguments}}
+  --     t['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '10'}}
+  --     t['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '10'}}
+  --     t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '10'}}
+  --     t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '10'}}
+  --     t['<C-y>'] = {'scroll', {'-0.10', 'false', '10'}}
+  --     t['<C-e>'] = {'scroll', { '0.10', 'false', '10'}}
+  --     t['zt']    = {'zt', {'10'}}
+  --     t['zz']    = {'zz', {'10'}}
+  --     t['zb']    = {'zb', {'10'}}
+  --
+  --     require('neoscroll.config').set_mappings(t)
+  --   end
+  -- }
 end)
 
 vim.cmd([[colorscheme onedark]])
