@@ -4,6 +4,11 @@ if (not status) then
     return
 end
 local lspkind = require 'lspkind'
+lspkind.init({
+  symbol_map = {
+    Copilot = "",
+  },
+})
 
 capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 cmp.setup({
@@ -29,6 +34,7 @@ cmp.setup({
         { name = 'path' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'luasnip' },
+        { name = 'copilot' },
     }, {
         { name = 'buffer' },
     }),
@@ -36,6 +42,7 @@ cmp.setup({
         format = lspkind.cmp_format({
             mode = 'symbol', -- show only symbol annotations
             maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            symbol_map = { Copilot = "" },
         })
     }
 
