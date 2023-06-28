@@ -32,7 +32,10 @@ packer.startup(function(use)
     }
   })
   use("folke/lsp-colors.nvim") -- LSPの色表示改善
-  use("j-hui/fidget.nvim") -- LSPのプログレス表示
+  use{
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+  } -- LSPのプログレス表示
   use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
   use('ray-x/lsp_signature.nvim')
   -- use({ -- virtual textで表示すると画面がごちゃごちゃするのでいったん無効
