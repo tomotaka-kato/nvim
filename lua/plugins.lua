@@ -53,22 +53,12 @@ packer.startup(function(use)
   use('L3MON4D3/LuaSnip')
   use("saadparwaiz1/cmp_luasnip")
   use "rafamadriz/friendly-snippets"
-  -- use {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require("copilot").setup({})
-  --   end,
-  -- }
-  use { "github/copilot.vim" }
-  -- use {
-  --   "zbirenbaum/copilot-cmp",
-  --   after = { "copilot.lua" },
-  --   config = function ()
-  --     require("copilot_cmp").setup()
-  --   end
-  -- }
+  use {
+    "github/copilot.vim",
+    config = function()
+      vim.g.copilot_filetypes = {markdown = true}
+    end
+  }
   -- [end]補完
   -- ファジーファインダ
   use {
