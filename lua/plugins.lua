@@ -56,7 +56,12 @@ packer.startup(function(use)
   use {
     "github/copilot.vim",
     config = function()
-      vim.g.copilot_filetypes = {markdown = true}
+      vim.cmd [[
+        let g:copilot_filetypes = {
+              \ '*': v:true,
+              \ 'xml': v:false,
+              \ }
+      ]]
     end
   }
   -- [end]補完
