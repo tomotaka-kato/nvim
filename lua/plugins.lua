@@ -32,15 +32,15 @@ packer.startup(function(use)
     }
   })
   use("folke/lsp-colors.nvim") -- LSPの色表示改善
-  use{
+  use{ -- LSPのプログレス表示
     "j-hui/fidget.nvim",
-    tag = "legacy",
-  } -- LSPのプログレス表示
+    tag = "legacy", -- 破壊的変更が入るのでいったん固定
+  }
   use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
   use('ray-x/lsp_signature.nvim')
-  -- use({ -- virtual textで表示すると画面がごちゃごちゃするのでいったん無効
-  --     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  -- })
+  use({ -- エラーのある個所の下にvertual textでエラー内容を表示
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  })
   -- [end] LSP
   -- [begin]補完
   use("hrsh7th/nvim-cmp")
@@ -72,7 +72,6 @@ packer.startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
   -- use('nvim-telescope/telescope-file-browser.nvim')
-  use ('nvim-telescope/telescope-media-files.nvim')
 
   -- [begin] treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -132,6 +131,8 @@ packer.startup(function(use)
     end
   }
 
+  -- vueのシンタックスハイライト
+  -- vue用のtreesitterはまだ安定してないので使わない
   use { 'leafOfTree/vim-vue-plugin' }
   use {
     'heavenshell/vim-jsdoc',
@@ -232,7 +233,7 @@ packer.startup(function(use)
 
   -- カーソルの下の単語と同じ単語をハイライトする
   -- インストールしただけなので設定は確認する
-  use { "RRethy/vim-illuminate" }
+  -- use { "RRethy/vim-illuminate" }
 
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 

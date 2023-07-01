@@ -5,7 +5,7 @@ if not status_telescope then
     return
 end
 
-require('telescope').load_extension('media_files')
+-- require('telescope').load_extension('media_files')
 
 telescope.setup({
     defaults = {
@@ -16,13 +16,13 @@ telescope.setup({
     },
     extensions = {
         -- 動いてない。。。
-        media_files = {
-            -- filetypes whitelist
-            -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-            filetypes = {"png", "webp", "jpg", "jpeg"},
-            -- find command (defaults to `fd`)
-            find_cmd = "rg"
-        }
+        -- media_files = {
+        --     -- filetypes whitelist
+        --     -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+        --     filetypes = {"png", "webp", "jpg", "jpeg"},
+        --     -- find command (defaults to `fd`)
+        --     find_cmd = "rg"
+        -- }
     },
 })
 
