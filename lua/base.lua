@@ -79,7 +79,7 @@ augroup END
 ]])
 
 vim.diagnostic.config({
-  virtual_text = false,
+  -- virtual_text = false,
 })
 
 -- :Tでnvim標準のターミナルを現在のウィンドウの下に開く
