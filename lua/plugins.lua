@@ -53,10 +53,12 @@ packer.startup(function(use)
   use('L3MON4D3/LuaSnip')
   use("saadparwaiz1/cmp_luasnip")
   use "rafamadriz/friendly-snippets"
-  use {
+  use { -- バインドなどの変更方法： https://rcmdnk.com/blog/2022/09/28/computer-vim/
     "github/copilot.vim",
     config = function()
       vim.cmd [[
+        let g:copilot_no_tab_map = v:true
+        imap <silent><script><expr> <C-e> copilot#Accept("\<CR>")
         let g:copilot_filetypes = {
               \ '*': v:true,
               \ 'xml': v:false,
