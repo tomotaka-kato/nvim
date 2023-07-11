@@ -16,7 +16,7 @@ ts.setup {
     auto_install = false,
 
     -- List of parsers to ignore installing (for "all")
-    ignore_install = {},
+    ignore_install = {"all"},
 
     highlight = {
         -- `false` will disable the whole extension
