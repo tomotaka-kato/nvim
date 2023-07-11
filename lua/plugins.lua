@@ -34,7 +34,7 @@ packer.startup(function(use)
   use("folke/lsp-colors.nvim") -- LSPの色表示改善
   use{ -- LSPのプログレス表示
     "j-hui/fidget.nvim",
-    tag = "legacy", -- 破壊的変更が入るのでいったん固定
+    -- tag = "legacy", -- 破壊的変更が入るのでいったん固定。のはずがこいつ入れるとインストールに失敗する。。。
   }
   use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
   use('ray-x/lsp_signature.nvim')
@@ -208,29 +208,6 @@ packer.startup(function(use)
     end
   }
 
-  use {
-    "nvim-neorg/neorg",
-    tag = "*",
-    ft = "norg",
-    after = "nvim-treesitter", -- You may want to specify Telescope here as well
-    run = ':Neorg sync-parsers',
-    config = function()
-      require('neorg').setup {
-        load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-              -- workspaces = {
-              --     notes = "~/notes",
-              -- },
-            },
-          },
-        },
-      }
-    end
-
-  }
   use {"uga-rosa/ccc.nvim"} -- :CccPickでカラーピッカーが表示される
 
   -- カーソルの下の単語と同じ単語をハイライトする
