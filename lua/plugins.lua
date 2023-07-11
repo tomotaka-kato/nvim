@@ -34,7 +34,7 @@ packer.startup(function(use)
   use("folke/lsp-colors.nvim") -- LSPの色表示改善
   use{ -- LSPのプログレス表示
     "j-hui/fidget.nvim",
-    -- tag = "legacy", -- 破壊的変更が入るのでいったん固定。のはずがこいつ入れるとインストールに失敗する。。。
+    tag = "legacy", -- 破壊的変更が入るのでいったん固定。のはずがこいつ入れるとインストールに失敗する。。。
   }
   use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
   use('ray-x/lsp_signature.nvim')
