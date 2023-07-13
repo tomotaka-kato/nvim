@@ -31,7 +31,6 @@ packer.startup(function(use)
       {"nvim-treesitter/nvim-treesitter"}
     }
   })
-  use("folke/lsp-colors.nvim") -- LSPの色表示改善
   use{ -- LSPのプログレス表示
     "j-hui/fidget.nvim",
     tag = "legacy", -- 破壊的変更が入るのでいったん固定。のはずがこいつ入れるとインストールに失敗する。。。
