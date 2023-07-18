@@ -41,9 +41,9 @@ keymap.set("n", "<leader>ca", ":Lspsaga code_action<cr>", { silent = true })
 
 -- [begin] diagnosticをvirtual_textではなくhoverで表示するように変更
 -- lsp_lineを使ってみてるのでいったんオフにする -> ちょいと画面がごちゃごちゃするのでこっちに戻してみる
-vim.api.nvim_set_option('updatetime', 300)
-vim.api.nvim_create_autocmd("CursorHold", {
-    pattern = "*",
-    command = 'Lspsaga show_cursor_diagnostics ++unfocus',
-})
+-- vim.api.nvim_set_option('updatetime', 300)
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--     pattern = "*",
+--     command = 'Lspsaga show_cursor_diagnostics ++unfocus',
+-- })
 -- [end] diagnosticをvirtual_textではなくhoverで表示するように変更
