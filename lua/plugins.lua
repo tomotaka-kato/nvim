@@ -36,7 +36,12 @@ packer.startup(function(use)
     tag = "legacy", -- 破壊的変更が入るのでいったん固定。のはずがこいつ入れるとインストールに失敗する。。。
   }
   use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
-  use('ray-x/lsp_signature.nvim')
+  use {
+    'ray-x/lsp_signature.nvim',
+    config = function()
+      require('lsp_signature').setup()
+    end
+  }
   use({ -- エラーのある個所の下にvertual textでエラー内容を表示
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   })
@@ -141,6 +146,7 @@ packer.startup(function(use)
   }
 
   use { 'nvim-tree/nvim-tree.lua' }
+  -- TODO: neo-treeへの移行検討
 
   use { 'mzlogin/vim-markdown-toc' }
 
@@ -199,7 +205,7 @@ packer.startup(function(use)
   use{
     'rcarriga/nvim-notify',
     config = function()
-      _, notify = pcall(require, 'notify')
+      local _, notify = pcall(require, 'notify')
       notify.setup({
         background_colour = "#000000"
       })
@@ -218,33 +224,6 @@ packer.startup(function(use)
   -- 置換を便利に行えるやつ
   use { 'nvim-pack/nvim-spectre' }
 
-  -- markdownをターミナル内でプレビューできる
-  -- Glow [path-to-md-file] で起動できる
-  -- q or Esc でぬけるが、ターミナルとして開いてるので一度ターミナルのインサートモードから抜けること
-  use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
-
-  -- ページ移動を滑らかなスクロールにする
-  -- ctrl-b や ctrl-f には効くが gg や Shift-g には効かない
-  -- PCのスペックしょぼいとめっちゃ重い
-  -- use { 
-  --   'karb94/neoscroll.nvim',
-  --   config = function ()
-  --     require('neoscroll').setup({ })
-  --     local t = {}
-  --     -- Syntax: t[keys] = {function, {function arguments}}
-  --     t['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '10'}}
-  --     t['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '10'}}
-  --     t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '10'}}
-  --     t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '10'}}
-  --     t['<C-y>'] = {'scroll', {'-0.10', 'false', '10'}}
-  --     t['<C-e>'] = {'scroll', { '0.10', 'false', '10'}}
-  --     t['zt']    = {'zt', {'10'}}
-  --     t['zz']    = {'zz', {'10'}}
-  --     t['zb']    = {'zb', {'10'}}
-  --
-  --     require('neoscroll.config').set_mappings(t)
-  --   end
-  -- }
 end)
 
 vim.cmd([[colorscheme onedark]])
