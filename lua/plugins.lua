@@ -18,7 +18,7 @@ packer.startup(function(use)
   use('williamboman/mason-lspconfig.nvim')
   use("tamago324/nlsp-settings.nvim") -- プロジェクト固有のLSP設定をできるようにする
   use({
-    "glepnir/lspsaga.nvim",
+    "glepnir/lspsaga.nvim", -- Breadcrumbsはこれが出してる
     -- opt = true,
     branch = "main",
     -- event = "LspAttach",
