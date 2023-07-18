@@ -7,7 +7,7 @@ end
 saga.setup ({
   code_action = {
     num_shortcut = true,
-    show_server_name = false,
+    show_server_name = true,
     extend_gitsigns = true,
     keys = {
       -- string | table type
@@ -26,6 +26,7 @@ saga.setup ({
 
 local keymap = vim.keymap
 
+-- TODO: 動かないところがいくつかあるので最新のドキュメントを見てコマンドの修正をする。
 -- key maps
 local opts = { noremap = true, silent = true }
 keymap.set('n', ';dj', '<Cmd>Lspsaga diagnostic_jump_next<cr>', opts)
