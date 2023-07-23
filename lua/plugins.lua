@@ -70,27 +70,7 @@ packer.startup(function(use)
   --     ]]
   --   end
   -- }
-  use {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-        -- snippet = {
-        --   expand = "<C-e>",
-        -- },
-      })
-    end,
-  }
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function ()
-      require("copilot_cmp").setup()
-    end
-  }
+  use { "zbirenbaum/copilot.lua" }
   -- [end]補完
   -- ファジーファインダ
   use {
