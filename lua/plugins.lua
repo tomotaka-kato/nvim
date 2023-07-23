@@ -31,9 +31,9 @@ packer.startup(function(use)
       {"nvim-treesitter/nvim-treesitter"}
     }
   })
-  use{ -- LSPのプログレス表示
-    "j-hui/fidget.nvim"
-    -- tag = "legacy", -- 破壊的変更が入るのでいったん固定。のはずがこいつ入れるとインストールに失敗する。。。
+  use {
+    'j-hui/fidget.nvim',
+    tag = 'legacy',
   }
   use('jose-elias-alvarez/null-ls.nvim') -- formatter, linter
   use {
