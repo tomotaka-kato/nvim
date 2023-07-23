@@ -8,7 +8,7 @@ copilot.setup({
   require('copilot').setup({
     panel = {
       enabled = true,
-      auto_refresh = false,
+      auto_refresh = true,
       keymap = {
         jump_prev = "[[",
         jump_next = "]]",
@@ -35,14 +35,14 @@ copilot.setup({
       },
     },
     filetypes = {
-      yaml = false,
-      markdown = false,
-      help = false,
-      gitcommit = false,
-      gitrebase = false,
-      hgcommit = false,
-      svn = false,
-      cvs = false,
+      -- yaml = false,
+      -- markdown = false,
+      -- help = false,
+      -- gitcommit = false,
+      -- gitrebase = false,
+      -- hgcommit = false,
+      -- svn = false,
+      -- cvs = false,
       ["."] = false,
     },
     copilot_node_command = 'node', -- Node.js version must be > 16.x
