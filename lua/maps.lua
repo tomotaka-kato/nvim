@@ -5,8 +5,9 @@ vim.g.mapleader = " "
 
 local noramap = { noremap = true }
 
--- 0を^にする
+-- 0と^を入れ替える
 keymap.set('n', '0', '^', noramap)
+keymap.set('n', '^', '0', noramap)
 
 -- window移動
 keymap.set('n', '<C-j>', '<C-w>j', noramap)
