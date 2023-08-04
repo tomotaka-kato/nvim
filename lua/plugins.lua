@@ -222,6 +222,28 @@ packer.startup(function(use)
 
   use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 
+  -- use {
+  --   'akinsho/bufferline.nvim',
+  --   tag = '*',
+  --   config = function ()
+  --     require('bufferline').setup({
+  --       options = {
+  --         numbers = "none",
+  --         diagnostics = "nvim_lsp",
+  --         diagnostics_indicator = function(count, level, diagnostics_dict, context)
+  --           return "("..count..")"
+  --         end,
+  --         show_buffer_close_icons = false,
+  --         show_close_icon = false,
+  --         show_tab_indicators = false,
+  --         separator_style = "thin",
+  --         always_show_bufferline = false,
+  --         sort_by = 'id',
+  --       }
+  --     })
+  --   end
+  -- }
+
   -- 置換を便利に行えるやつ
   use { 'nvim-pack/nvim-spectre' }
 
