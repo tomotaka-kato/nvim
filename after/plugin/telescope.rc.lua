@@ -14,16 +14,7 @@ telescope.setup({
             vertical = { width = 0.9 }
         },
     },
-    extensions = {
-        -- 動いてない。。。
-        -- media_files = {
-        --     -- filetypes whitelist
-        --     -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-        --     filetypes = {"png", "webp", "jpg", "jpeg"},
-        --     -- find command (defaults to `fd`)
-        --     find_cmd = "rg"
-        -- }
-    },
+    extensions = { },
 })
 
 vim.cmd [[autocmd User TelescopePreviewerLoaded setlocal wrap]]

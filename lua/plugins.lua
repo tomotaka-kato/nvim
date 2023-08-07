@@ -247,6 +247,13 @@ packer.startup(function(use)
   -- 置換を便利に行えるやつ
   use { 'nvim-pack/nvim-spectre' }
 
+  use {
+    'https://codeberg.org/esensar/nvim-dev-container',
+    config = function ()
+      require("devcontainer").setup({})
+    end
+  }
+
 end)
 
 vim.cmd([[colorscheme onedark]])
