@@ -76,6 +76,8 @@ local setup_emmet = function()
     }
 end
 
+-- null-lsに移行したのでコメントアウト
+-- ただnull-lsはアーカイブされるので戻ってくるかも？
 -- local setup_efm = function()
 --     -- Linter, Formatterはefmで行うのでその設定
 --     nvim_lsp.efm.setup {
