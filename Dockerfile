@@ -24,6 +24,7 @@ RUN sudo apt-get update \
     wget \
     unzip \
     tar \
+    gcc \
     gzip \
     ripgrep
 
@@ -42,5 +43,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash - \
  && sudo apt-get install -y nodejs \
  && sudo npm install -g yarn neovim
 
+# nvim settings
+RUN git clone https://github.com/tomotaka-kato/nvim.git ~/.config/nvim \
+  && git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 
+WORKDIR /app
