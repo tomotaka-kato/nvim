@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM rust:latest
 
 # Create the user as docker
 ARG USERNAME=docker
