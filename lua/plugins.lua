@@ -254,6 +254,27 @@ packer.startup(function(use)
     end
   }
 
+  use {
+    'nvim-neorg/neorg',
+    run = ':Neorg sync-parsers',
+    config = function ()
+      require('neorg').setup {
+        -- Tell Neorg what modules to load
+        load = {
+          ["core.defaults"] = {}, -- Load all the default modules
+          ["core.concealer"] = {}, -- Allows for use of icons
+          -- ["core.norg.dirman"] = { -- Manage your directories with Neorg
+          --   config = {
+          --     workspaces = {
+          --       my_workspace = "~/neorg"
+          --     }
+          --   }
+          -- }
+        },
+      }
+    end
+  }
+
 end)
 
 vim.cmd([[colorscheme onedark]])
