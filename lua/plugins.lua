@@ -262,7 +262,20 @@ packer.startup(function(use)
         -- Tell Neorg what modules to load
         load = {
           ["core.defaults"] = {}, -- Load all the default modules
-          ["core.concealer"] = {}, -- Allows for use of icons
+          ["core.integrations.treesitter"] = {},
+          ["core.concealer"] = {
+            config = {
+              dim_code_blocks = {
+                width = 'content'
+              }
+            }
+          }, -- Allows for use of icons
+          ["core.completion"] = {
+            config = {
+              engine = 'nvim-cmp'
+            }
+          },
+          ["core.export"] = {},
           -- ["core.norg.dirman"] = { -- Manage your directories with Neorg
           --   config = {
           --     workspaces = {
