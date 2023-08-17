@@ -2,5 +2,4 @@ require 'base'
 require 'maps'
 
 -- プラグイン設定
-require 'plugins'
-
+require 'lazy_nvim'
