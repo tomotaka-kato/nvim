@@ -272,7 +272,8 @@ packer.startup(function(use)
           }, -- Allows for use of icons
           ["core.completion"] = {
             config = {
-              engine = 'nvim-cmp'
+              engine = 'nvim-cmp',
+              name = '[Neorg]'
             }
           },
           ["core.export"] = {},
