@@ -19,7 +19,6 @@ return {
   { 'editorconfig/editorconfig-vim', lazy = true },
   {
     "folke/which-key.nvim",
-    lazy = true,
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
@@ -122,12 +121,12 @@ return {
   { 'nvim-treesitter/nvim-treesitter', lazy = true, build = ':TSUpdate' },
   { "yioneko/nvim-yati", dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- インデントをいい感じに
   { 'p00f/nvim-ts-rainbow', dependencies = { 'nvim-treesitter/nvim-treesitter' }  }, -- カッコを色分け
+  { 'numToStr/Comment.nvim' }, -- 下記プラグインへコマンドだけ提供する
   {
     -- gccでコメントアウト
     'JoosepAlviste/nvim-ts-context-commentstring',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'numToStr/Comment.nvim' }
   },
-  { 'numToStr/Comment.nvim' }, -- 上記プラグインへコマンドだけ提供する
   { 'm-demare/hlargs.nvim', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- 引数で渡された変数に色をつける
   -- [end] treesitter
   -- [begin] text object
