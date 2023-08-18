@@ -9,36 +9,27 @@ return {
     "folke/todo-comments.nvim",
     dependencies = {"nvim-lua/plenary.nvim"},
     lazy = false,
-    -- config = function()
-      -- require("todo-comments").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      -- }
-    -- end
+    config = true
   },
-  { 'editorconfig/editorconfig-vim', lazy = true },
+  -- ファイルタイプで絞ってもいいかもしれない
+  { 'editorconfig/editorconfig-vim', lazy = false },
   {
     "folke/which-key.nvim",
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
-      require("which-key").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
+      require("which-key").setup {}
     end,
   },
   { 'anuvyklack/hydra.nvim', lazy = true },
-  { "uga-rosa/ccc.nvim", lazy = true }, -- :CccPickでカラーピッカーが表示される
+  { "uga-rosa/ccc.nvim", lazy = true, cmd="CccPick" }, -- :CccPickでカラーピッカーが表示される
   -- 置換を便利に行えるやつ
   { 'nvim-pack/nvim-spectre', lazy = true },
   { 'https://codeberg.org/esensar/nvim-dev-container', lazy = true, },
   -- [end] util
   -- [begin] アイコン
-  { 'nvim-tree/nvim-web-devicons', lazy = true },
-  { 'onsails/lspkind-nvim', lazy = true }, -- 補完にアイコンがつく
+  { 'nvim-tree/nvim-web-devicons', lazy = false },
+  { 'onsails/lspkind-nvim', lazy = false }, -- 補完にアイコンがつく
   -- [end] アイコン
   -- [begin] 見た目
   {
