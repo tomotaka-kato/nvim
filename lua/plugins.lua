@@ -3,13 +3,7 @@ return {
   { 'nvim-lua/plenary.nvim', lazy = true },
   -- [end] library
   -- [begin] util
-  {
-    'petertriho/nvim-scrollbar',
-    lazy = false,
-    config = function()
-      require("scrollbar").setup()
-    end
-  },
+  { 'petertriho/nvim-scrollbar', lazy = false, config = true },
   { 'nvim-tree/nvim-tree.lua', lazy = true },
   {
     "folke/todo-comments.nvim",
