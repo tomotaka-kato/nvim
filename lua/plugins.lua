@@ -1,13 +1,20 @@
 return {
   -- [begin] library
-  { 'nvim-lua/plenary.nvim', lazy = false },
+  { 'nvim-lua/plenary.nvim', lazy = true },
+  -- [end] library
   -- [begin] util
-  { 'petertriho/nvim-scrollbar', lazy = true },
+  {
+    'petertriho/nvim-scrollbar',
+    lazy = false,
+    config = function()
+      require("scrollbar").setup()
+    end
+  },
   { 'nvim-tree/nvim-tree.lua', lazy = true },
   {
     "folke/todo-comments.nvim",
     dependencies = {"nvim-lua/plenary.nvim"},
-    lazy = true,
+    lazy = false,
     -- config = function()
       -- require("todo-comments").setup {
         -- your configuration comes here
