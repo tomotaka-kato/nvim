@@ -78,14 +78,14 @@ return {
     'j-hui/fidget.nvim',
     tag = 'legacy',
   },
-  { 'jose-elias-alvarez/null-ls.nvim', lazy = true }, -- formatter, linter
+  { 'jose-elias-alvarez/null-ls.nvim', lazy = false }, -- formatter, linter
   {
     "folke/lsp-trouble.nvim",
     dependencies = {"nvim-tree/nvim-web-devicons"},
   },
   -- [end] LSP
   -- [begin] 補完
-  { 'hrsh7th/nvim-cmp', lazy = true },
+  { 'hrsh7th/nvim-cmp', lazy = true, event = 'InsertEnter' },
   { 'hrsh7th/cmp-nvim-lsp', dependencies = { 'hrsh7th/nvim-cmp' } },
   { 'hrsh7th/cmp-buffer', dependencies = { 'hrsh7th/nvim-cmp' } },
   {
@@ -98,7 +98,7 @@ return {
   { 'L3MON4D3/LuaSnip', dependencies = { 'hrsh7th/nvim-cmp' } },
   { 'saadparwaiz1/cmp_luasnip', dependencies = { 'hrsh7th/nvim-cmp' } },
   { 'rafamadriz/friendly-snippets', dependencies = { 'hrsh7th/nvim-cmp' } } ,
-  { "zbirenbaum/copilot.lua", lazy = true },
+  { "zbirenbaum/copilot.lua", lazy = true, event = 'InsertEnter' },
   { 'windwp/nvim-autopairs', event = "InsertEnter" },
   { 'windwp/nvim-ts-autotag', event = "InsertEnter" },
   -- [end] 補完
@@ -113,7 +113,7 @@ return {
   { 'nvim-treesitter/nvim-treesitter', lazy = true, build = ':TSUpdate' },
   { "yioneko/nvim-yati", dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- インデントをいい感じに
   { 'p00f/nvim-ts-rainbow', dependencies = { 'nvim-treesitter/nvim-treesitter' }  }, -- カッコを色分け
-  { 'numToStr/Comment.nvim' }, -- 下記プラグインへコマンドだけ提供する
+  { 'numToStr/Comment.nvim', config = true }, -- 下記プラグインへコマンドだけ提供する
   {
     -- gccでコメントアウト
     'JoosepAlviste/nvim-ts-context-commentstring',
@@ -125,17 +125,13 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
+    config = true
   },
   { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- テキストオブジェクトを追加
   { 'David-Kunz/treesitter-unit', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
   -- [end] text object
   -- [begin] move
-  {'yutkat/wb-only-current-line.vim', lazy = true}, -- b, wが行を跨がない
+  {'yutkat/wb-only-current-line.vim', lazy = false}, -- b, wが行を跨がない
   { -- easy motionのlua版みたいなもの
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
@@ -144,25 +140,27 @@ return {
   -- [end] move
   -- [begin] git
   { 'lewis6991/gitsigns.nvim', lazy = true },
-  { 'tpope/vim-fugitive', lazy = true },
+  { 'tpope/vim-fugitive', lazy = true, event = 'CmdlineEnter' },
   -- [end] git
   -- [begin] language 
-  { 'kevinhwang91/nvim-bqf', ft = 'qf' },
+  { 'kevinhwang91/nvim-bqf', lazy = true, ft = 'qf' },
   -- vueのシンタックスハイライト
   -- vue用のtreesitterはまだ安定してないので使わない
-  { 'leafOfTree/vim-vue-plugin', ft = 'vue' },
+  { 'leafOfTree/vim-vue-plugin', lazy = true, ft = 'vue' },
   {
     'heavenshell/vim-jsdoc',
     build = 'make install',
+    lazy = true,
     ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'veu' }
   },
-  { 'mzlogin/vim-markdown-toc', ft = 'markdown' },
+  { 'mzlogin/vim-markdown-toc', lazy = true, ft = 'markdown' },
   {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install",
     setup = function()
       vim.g.mkdp_filetypes = { "markdown" }
     end,
+    lazy = true,
     ft = "markdown",
   },
   {
