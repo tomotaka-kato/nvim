@@ -26,6 +26,12 @@ return {
   -- 置換を便利に行えるやつ
   { 'nvim-pack/nvim-spectre', lazy = true },
   { 'https://codeberg.org/esensar/nvim-dev-container', lazy = true, },
+  {
+    "m4xshen/smartcolumn.nvim",
+    opts = {
+      colorcolumn = "120"
+    }
+  },
   -- [end] util
   -- [begin] アイコン
   { 'nvim-tree/nvim-web-devicons', lazy = false },
