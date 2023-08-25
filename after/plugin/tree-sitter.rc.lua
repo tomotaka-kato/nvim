@@ -39,7 +39,6 @@ ts.setup {
     },
     yati = {
         enable = true,
-        -- disable = { 'vue', 'typescriptreact' } -- treesitterのindentがイケてないやつはOFFにする
         disable = { 'vue' } -- treesitterのindentがイケてないやつはOFFにする
     },
     rainbow = {
