@@ -96,6 +96,8 @@ return {
       vim.diagnostic.config({
         virtual_text = false
       })
+      -- lsp_line
+      vim.keymap.set('n', '<leader>ll', require('lsp_lines').toggle, { noremap = true })
     end
   },
   -- [end] LSP
