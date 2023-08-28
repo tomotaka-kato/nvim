@@ -97,7 +97,11 @@ return {
         virtual_text = false
       })
       -- lsp_line
-      vim.keymap.set('n', '<leader>ll', require('lsp_lines').toggle, { noremap = true })
+      vim.keymap.set(
+        'n',
+        '<leader>ll',
+        require('lsp_lines').toggle,
+        { noremap = true, desc = 'toggle lsp_lines' })
     end
   },
   -- [end] LSP
