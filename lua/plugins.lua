@@ -89,6 +89,15 @@ return {
     "folke/lsp-trouble.nvim",
     dependencies = {"nvim-tree/nvim-web-devicons"},
   },
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    confit = function ()
+      require('lsp_lines').setup()
+      vim.diagnostic.config({
+        virtual_text = false
+      })
+    end
+  },
   -- [end] LSP
   -- [begin] 補完
   { 'hrsh7th/nvim-cmp', lazy = true, event = 'InsertEnter' },
