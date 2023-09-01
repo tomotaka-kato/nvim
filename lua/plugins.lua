@@ -46,6 +46,14 @@ return {
       vim.cmd([[colorscheme onedark]])
     end,
   },
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme tokyonight-night]])
+    end,
+  },
   { 'xiyaowong/transparent.nvim', priority = 1000 },
   -- ステータスライン
   { 'nvim-lualine/lualine.nvim', priority = 1000 },
