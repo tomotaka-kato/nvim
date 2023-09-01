@@ -43,7 +43,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme onedark]])
+      -- vim.cmd([[colorscheme onedark]])
     end,
   },
   {
@@ -51,6 +51,18 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+      require('tokyonight').setup({
+        style = 'night',
+        transparent = true,
+        commentStyle = 'italic',
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+          sidebars = 'dark', -- or transparent
+          floats = 'dark' -- or transparent
+        },
+        sidebars = { 'qf', 'vista_kind', 'terminal', 'nvim-tree' },
+      })
       vim.cmd([[colorscheme tokyonight-night]])
     end,
   },
