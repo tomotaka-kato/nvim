@@ -58,8 +58,8 @@ return {
         styles = {
           comments = { italic = true },
           keywords = { italic = true },
-          sidebars = 'dark', -- or transparent
-          floats = 'dark' -- or transparent
+          sidebars = 'dark', -- transparentよりも色がついてる方が見やすい
+          floats = 'dark' -- transparentよりも色がついてる方が見やすい
         },
         sidebars = { 'qf', 'vista_kind', 'terminal', 'nvim-tree' },
       })
