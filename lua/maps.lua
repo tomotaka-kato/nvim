@@ -6,9 +6,8 @@ vim.g.mapleader = " "
 local noramap = { noremap = true }
 
 -- 0と^を入れ替える
--- 一番左まで画面をスクロールしたいので、^ではなくて一度0を実施してからbを行う
--- wじゃないのは、一番左から文字入力がされている場合に二つ目の単語に移動してしまうため
-keymap.set('n', '0', '0b', noramap) 
+-- 一番左まで画面をスクロールしたいので、一度0を実施してから^を行う
+keymap.set('n', '0', '0^', noramap)
 keymap.set('n', '^', '0', noramap)
 
 -- window移動
