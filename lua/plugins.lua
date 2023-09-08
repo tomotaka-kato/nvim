@@ -237,6 +237,13 @@ return {
         },
       }
     end
+  },
+  { -- markdownやneorgなどに対応したシンタックスハイライト
+    'lukas-reineke/headlines.nvim',
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true, -- or `opts = {}`
+    lazy = true,
+    ft = { 'markdown', 'norg', 'org' }
   }
   -- [end] language
 }
