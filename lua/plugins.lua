@@ -146,7 +146,7 @@ return {
   -- [begin] ファジーファインダー
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.x',
+    tag = '0.1.2',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   -- [end] ファジーファインダー
