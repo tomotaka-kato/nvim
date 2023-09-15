@@ -238,7 +238,14 @@ return {
       }
     end
   },
-  { 'rust-lang/rust.vim', lazy = true, ft = {'rust'} }
+  {
+    'rust-lang/rust.vim',
+    lazy = true,
+    ft = {'rust'},
+    config = function ()
+      vim.rustfmt_autosave = 1
+    end
+  }
   -- { -- markdownやneorgなどに対応したシンタックスハイライト
   --   -- neorgで使うと若干微妙かも。。。
   --   'lukas-reineke/headlines.nvim',
