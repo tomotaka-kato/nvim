@@ -243,7 +243,7 @@ return {
     lazy = true,
     ft = {'rust'},
     config = function ()
-      vim.rustfmt_autosave = 1
+      vim.g.rustfmt_autosave = 1
     end
   }
   -- { -- markdownやneorgなどに対応したシンタックスハイライト
