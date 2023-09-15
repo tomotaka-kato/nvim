@@ -238,6 +238,7 @@ return {
       }
     end
   },
+  { 'rust-lang/rust.vim', lazy = true, ft = {'rust'} }
   -- { -- markdownやneorgなどに対応したシンタックスハイライト
   --   -- neorgで使うと若干微妙かも。。。
   --   'lukas-reineke/headlines.nvim',
