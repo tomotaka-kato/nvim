@@ -125,31 +125,6 @@ local setup_lua_ls = function()
     }
 end
 
-local setup_rust_ls = function()
-  nvim_lsp.rust_analyzer.setup {
-    on_attach = on_attach,
-    settings = {
-      ["rust-analyzer"] = {
-        imports = {
-          granularity = {
-            group = "module",
-          },
-          prefix = "self",
-        },
-        cargo = {
-          buildScripts = {
-            enable = true,
-          },
-        },
-        procMacro = {
-          enable = true
-        },
-      }
-    }
-  }
-end
-
-
 mason_lspconfig.setup_handlers({ function(server_name)
   if server_name == 'emmet' then
     setup_emmet()
@@ -161,8 +136,6 @@ mason_lspconfig.setup_handlers({ function(server_name)
     setup_cssls()
   elseif server_name == 'lua_ls' then
     setup_lua_ls()
-  elseif server_name == 'rust_analyzer' then
-    setup_rust_ls()
   else
     nvim_lsp[server_name].setup {
       on_attach = on_attach,

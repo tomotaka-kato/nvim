@@ -109,21 +109,21 @@ return {
     "folke/lsp-trouble.nvim",
     dependencies = {"nvim-tree/nvim-web-devicons"},
   },
-  {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function ()
-      require('lsp_lines').setup()
-      vim.diagnostic.config({
-        virtual_text = false
-      })
-      -- lsp_line
-      vim.keymap.set(
-        'n',
-        '<leader>ll',
-        require('lsp_lines').toggle,
-        { noremap = true, desc = 'toggle lsp_lines' })
-    end
-  },
+  -- {
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --   config = function ()
+  --     require('lsp_lines').setup()
+  --     vim.diagnostic.config({
+  --       virtual_text = false
+  --     })
+  --     -- lsp_line
+  --     vim.keymap.set(
+  --       'n',
+  --       '<leader>ll',
+  --       require('lsp_lines').toggle,
+  --       { noremap = true, desc = 'toggle lsp_lines' })
+  --   end
+  -- },
   -- [end] LSP
   -- [begin] 補完
   { 'hrsh7th/nvim-cmp', lazy = true, event = 'InsertEnter' },
