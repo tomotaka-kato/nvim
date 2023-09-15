@@ -46,4 +46,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash - \
 # nvim settings
 RUN git clone https://github.com/tomotaka-kato/nvim.git ~/.config/nvim 
 
+# bashの設定
+RUN echo "export TERM=screen-256color" >> ~/.bashrc
+RUN echo "alias vim=nvim" >> ~/.bashrc
+
 WORKDIR /app
