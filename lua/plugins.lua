@@ -153,7 +153,7 @@ return {
   -- [begin] treesitter
   { 'nvim-treesitter/nvim-treesitter', lazy = true, build = ':TSUpdate' },
   { "yioneko/nvim-yati", dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- インデントをいい感じに
-  { 'p00f/nvim-ts-rainbow', dependencies = { 'nvim-treesitter/nvim-treesitter' }  }, -- カッコを色分け
+  { 'HiPhish/rainbow-delimiters.nvim', dependencies = { 'nvim-treesitter/nvim-treesitter' }  }, -- カッコを色分け
   { 'numToStr/Comment.nvim', config = true }, -- 下記プラグインへコマンドだけ提供する
   {
     -- gccでコメントアウト
