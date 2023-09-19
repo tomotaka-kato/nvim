@@ -6,7 +6,7 @@ vim.o.title = true
 vim.o.backup = false
 vim.o.writebackup = false
 -- vim.o.undofile = false -- 容量を食うので一旦なしにする。欲しくなったら再検討
-vim.o.undofile = true -- 容量を食うので一旦なしにする。欲しくなったら再検討
+vim.o.undofile = true
 vim.cmd [[set undodir=$HOME/.config/nvim/tmp/undo]]
 vim.o.swapfile = false
 
@@ -19,8 +19,9 @@ vim.o.fileencoding = 'utf-8'
 vim.o.number = true
 vim.o.hlsearch = true
 vim.o.laststatus = 2
-vim.cmd [[let loaded_matchparen = 1]] -- 括弧のハイライトをなくす
 vim.o.termguicolors = true
+vim.cmd [[let loaded_matchparen = 1]] -- 括弧のハイライトをなくす
+vim.cmd [[set nofoldenable]] -- 折りたたみをなくす
 
 -- 改行コード、半角スペース、タブの可視化
 vim.o.list = true
