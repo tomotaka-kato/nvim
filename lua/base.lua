@@ -20,7 +20,7 @@ vim.o.number = true
 vim.o.hlsearch = true
 vim.o.laststatus = 2
 vim.o.termguicolors = true
-vim.cmd [[let loaded_matchparen = 1]] -- 括弧のハイライトをなくす
+-- vim.cmd [[let loaded_matchparen = 1]] -- 括弧のハイライトをなくす
 vim.cmd [[set nofoldenable]] -- 折りたたみをなくす
 
 -- 改行コード、半角スペース、タブの可視化
