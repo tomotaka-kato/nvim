@@ -29,8 +29,8 @@ local keymap = vim.keymap
 -- TODO: 動かないところがいくつかあるので最新のドキュメントを見てコマンドの修正をする。
 -- key maps
 local opts = { noremap = true, silent = true }
-keymap.set('n', ';dj', '<Cmd>Lspsaga diagnostic_jump_next<cr>', opts)
-keymap.set('n', ';dk', '<Cmd>Lspsaga diagnostic_jump_prev<cr>', opts)
+keymap.set('n', 'gdj', '<Cmd>Lspsaga diagnostic_jump_next<cr>', opts)
+keymap.set('n', 'gdk', '<Cmd>Lspsaga diagnostic_jump_prev<cr>', opts)
 keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<cr>', opts)
 keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<cr>', opts)
 keymap.set('n', '<leader>rn<cr>', '<Cmd>Lspsaga rename<cr>', opts)
