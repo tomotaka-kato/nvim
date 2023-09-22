@@ -39,6 +39,14 @@ return {
   -- [end] アイコン
   -- [begin] 見た目
   {
+    'sainnhe/everforest',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme everforest]])
+    end,
+  },
+  {
     'joshdick/onedark.vim',
     lazy = false,
     priority = 1000,
@@ -63,7 +71,7 @@ return {
         },
         sidebars = { 'qf', 'vista_kind', 'terminal', 'nvim-tree' },
       })
-      vim.cmd([[colorscheme tokyonight-night]])
+      -- vim.cmd([[colorscheme tokyonight-night]])
     end,
   },
   { 'xiyaowong/transparent.nvim', priority = 1000 },
