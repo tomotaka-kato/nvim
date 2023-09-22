@@ -21,7 +21,7 @@ vim.o.hlsearch = true
 vim.o.laststatus = 2
 vim.o.termguicolors = true
 -- vim.cmd [[let loaded_matchparen = 1]] -- 括弧のハイライトをなくす
-vim.cmd [[set nofoldenable]] -- 折りたたみをなくす
+vim.cmd [[set nofoldenable]] -- foldによる折りたたみをなくす
 
 -- 改行コード、半角スペース、タブの可視化
 vim.o.list = true
@@ -82,11 +82,6 @@ augroup END
 vim.diagnostic.config({
   -- virtual_text = false,
 })
-
--- :Tでnvim標準のターミナルを現在のウィンドウの下に開く
-vim.cmd([[command! -nargs=* T split | wincmd j | resize 20 | terminal <args>]])
--- ターミナルを開いたら自動でインサートモードになるようにする
-vim.cmd([[autocmd TermOpen * startinsert]])
 
 -- ubuntu環境ではnodeのバージョンが古いのでバイナリの場所を指定する
 -- 古いnodeだとvolarが動かないため
