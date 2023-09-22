@@ -172,9 +172,7 @@ return {
   { 'David-Kunz/treesitter-unit', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
   -- [end] text object
   -- [begin] move
-  -- eが対応してないので、eで行をまたいじゃった時にbで戻れないのが不便なのでいったん消す。
-  -- プラグイン自体はたいして大きくないので、フォークしてeに対応させるのもありかもしれない
-  -- {'yutkat/wb-only-current-line.vim', lazy = false}, -- b, wが行を跨がない
+  {'tomotaka-kato/wb-only-current-line.nvim', lazy = false}, -- b, w, eが行を跨がない
   { -- easy motionのlua版みたいなもの
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
