@@ -128,8 +128,6 @@ end
 mason_lspconfig.setup_handlers({ function(server_name)
   if server_name == 'emmet' then
     setup_emmet()
-    -- elseif server_name == 'efm' then
-    --     setup_efm()
   elseif server_name == 'html' then
     setup_html()
   elseif server_name == 'cssls' then
@@ -139,6 +137,7 @@ mason_lspconfig.setup_handlers({ function(server_name)
   else
     nvim_lsp[server_name].setup {
       on_attach = on_attach,
+      capabilities = capabilities
     }
   end
 end })
