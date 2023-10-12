@@ -14,6 +14,7 @@ vim.o.swapfile = false
 vim.scriptencodeing = 'utf-8'
 vim.o.encoding = 'utf-8'
 vim.o.fileencoding = 'utf-8'
+vim.o.fileformat = 'unix'
 
 -- 表示
 vim.o.number = true
