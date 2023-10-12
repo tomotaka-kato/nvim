@@ -62,25 +62,25 @@ vim.cmd [[
 vim.o.confirm = true
 
 -- 現在行の表示をアンダーラインにする
-vim.cmd([[
-augroup highlight_current_line
-  autocmd!
-  autocmd WinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-  " autocmd CursorMoved * if &cursorline | setlocal nocursorline | endif
-  " autocmd CursorMovedI * if &cursorline | setlocal nocursorline | endif
-  autocmd InsertEnter * setlocal nocursorline
-  autocmd InsertLeave * setlocal cursorline
-  autocmd VimEnter * setlocal cursorline
-  autocmd VimLeave * setlocal nocursorline
-  autocmd BufEnter * highlight CursorLine cterm=underline gui=underline guibg=none ctermbg=none
-  autocmd BufLeave * highlight CursorLine cterm=none gui=none
-  " autocmd WinEnter,BufWinEnter * highlight CursorLine cterm=underline gui=underline guibg=#101010 ctermbg=233
-  " autocmd WinLeave,BufWinLeave * highlight CursorLine cterm=none gui=none
-  autocmd WinEnter * highlight CursorLine cterm=underline gui=underline guibg=none ctermbg=none
-  autocmd WinLeave * highlight CursorLine cterm=none gui=none
-augroup END
-]])
+-- vim.cmd([[
+-- augroup highlight_current_line
+--   autocmd!
+--   autocmd WinEnter * setlocal cursorline
+--   autocmd WinLeave * setlocal nocursorline
+--   " autocmd CursorMoved * if &cursorline | setlocal nocursorline | endif
+--   " autocmd CursorMovedI * if &cursorline | setlocal nocursorline | endif
+--   autocmd InsertEnter * setlocal nocursorline
+--   autocmd InsertLeave * setlocal cursorline
+--   autocmd VimEnter * setlocal cursorline
+--   autocmd VimLeave * setlocal nocursorline
+--   autocmd BufEnter * highlight CursorLine cterm=underline gui=underline guibg=none ctermbg=none
+--   autocmd BufLeave * highlight CursorLine cterm=none gui=none
+--   " autocmd WinEnter,BufWinEnter * highlight CursorLine cterm=underline gui=underline guibg=#101010 ctermbg=233
+--   " autocmd WinLeave,BufWinLeave * highlight CursorLine cterm=none gui=none
+--   autocmd WinEnter * highlight CursorLine cterm=underline gui=underline guibg=none ctermbg=none
+--   autocmd WinLeave * highlight CursorLine cterm=none gui=none
+-- augroup END
+-- ]])
 
 vim.diagnostic.config({
   -- virtual_text = false,
