@@ -243,6 +243,8 @@ return {
   {
     'nvim-neorg/neorg',
     build = ':Neorg sync-parsers',
+    lazy = true,
+    ft = {'neorg'},
     config = function ()
       require('neorg').setup {
         -- Tell Neorg what modules to load
