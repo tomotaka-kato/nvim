@@ -39,16 +39,16 @@ null_ls.setup({
             end, { buffer = bufnr, desc = "[lsp] format" })
 
             -- format on save
-            -- 影響範囲が大きくなってしまうのでいったんなし
-            -- vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
-            -- vim.api.nvim_create_autocmd(event, {
-            --     buffer = bufnr,
-            --     group = group,
-            --     callback = function()
-            --         vim.lsp.buf.format({ bufnr = bufnr, async = async })
-            --     end,
-            --     desc = "[lsp] format on save",
-            -- })
+            -- TODO: language毎に設定するかを変える？
+            vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
+            vim.api.nvim_create_autocmd(event, {
+                buffer = bufnr,
+                group = group,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = bufnr, async = async })
+                end,
+                desc = "[lsp] format on save",
+            })
         end
 
         if client.supports_method("textDocument/rangeFormatting") then
