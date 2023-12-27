@@ -241,42 +241,6 @@ return {
     ft = "markdown",
   },
   {
-    'nvim-neorg/neorg',
-    build = ':Neorg sync-parsers',
-    lazy = true,
-    ft = {'neorg'},
-    config = function ()
-      require('neorg').setup {
-        -- Tell Neorg what modules to load
-        load = {
-          ["core.defaults"] = {}, -- Load all the default modules
-          ["core.integrations.treesitter"] = {},
-          ["core.concealer"] = {
-            config = {
-              dim_code_blocks = {
-                width = 'content'
-              }
-            }
-          }, -- Allows for use of icons
-          ["core.completion"] = {
-            config = {
-              engine = 'nvim-cmp',
-              name = '[Neorg]'
-            }
-          },
-          ["core.export"] = {},
-          -- ["core.norg.dirman"] = { -- Manage your directories with Neorg
-          --   config = {
-          --     workspaces = {
-          --       my_workspace = "~/neorg"
-          --     }
-          --   }
-          -- }
-        },
-      }
-    end
-  },
-  {
     'rust-lang/rust.vim',
     lazy = true,
     ft = {'rust'},
