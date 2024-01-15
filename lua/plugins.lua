@@ -194,7 +194,10 @@ return {
   {
     -- gccでコメントアウト
     'JoosepAlviste/nvim-ts-context-commentstring',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'numToStr/Comment.nvim' }
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'numToStr/Comment.nvim' },
+    config = function()
+      vim.g.skip_ts_context_commentstring_module = true
+    end
   },
   { 'm-demare/hlargs.nvim', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- 引数で渡された変数に色をつける
   -- [end] treesitter
