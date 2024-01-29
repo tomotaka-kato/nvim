@@ -235,15 +235,6 @@ return {
   },
   { 'mzlogin/vim-markdown-toc', lazy = true, ft = 'markdown' },
   {
-    "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
-    setup = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    lazy = true,
-    ft = "markdown",
-  },
-  {
     'rust-lang/rust.vim',
     lazy = true,
     ft = {'rust'},
