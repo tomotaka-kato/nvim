@@ -24,7 +24,8 @@ vim.o.termguicolors = true
 -- vim.cmd [[let loaded_matchparen = 1]] -- 括弧のハイライトをなくす
 vim.cmd [[set nofoldenable]] -- foldによる折りたたみをなくす
 -- vim.opt.winblend = 20 --フロートウィンドウなどを若干透明に
-vim.opt.winblend = 0 --フロートウィンドウなどを若干透明に
+vim.o.winblend = 0 --フロートウィンドウなどを若干透明に
+vim.o.scrolloff = 5
 
 -- 改行コード、半角スペース、タブの可視化
 vim.o.list = true
