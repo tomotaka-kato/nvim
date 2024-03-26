@@ -25,7 +25,7 @@ vim.o.termguicolors = true
 vim.cmd [[set nofoldenable]] -- foldによる折りたたみをなくす
 -- vim.opt.winblend = 20 --フロートウィンドウなどを若干透明に
 vim.o.winblend = 0 --フロートウィンドウなどを若干透明に
-vim.o.scrolloff = 5
+vim.o.scrolloff = 3
 
 -- 改行コード、半角スペース、タブの可視化
 vim.o.list = true
@@ -98,7 +98,7 @@ local user = f:read("*l")
 f.close()
 if user:find('ubuntu') then
 vim.cmd([[
-    let $PATH='/home/ubuntu/.nvm/versions/node/v16.19.1/bin:' . $PATH
+    let $PATH='/home/ubuntu/.nvm/versions/node/v20.11.1/bin:' . $PATH
 ]])
 end
 
