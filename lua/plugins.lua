@@ -268,6 +268,12 @@ return {
     config = function ()
       vim.g.rustfmt_autosave = 1
     end
+  },
+  {
+    'akinsho/flutter-tools.nvim',
+    requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
+    ft = { 'dart' },
+    config = true
   }
   -- { -- markdownやneorgなどに対応したシンタックスハイライト
   --   -- neorgで使うと若干微妙かも。。。
