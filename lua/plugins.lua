@@ -274,6 +274,13 @@ return {
     requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
     ft = { 'dart' },
     config = true
+  },
+  {
+    'dart-lang/dart-vim-plugin',
+    ft = { 'dart' },
+    config = function ()
+      vim.g.dart_format_on_save = 1
+    end
   }
   -- { -- markdownやneorgなどに対応したシンタックスハイライト
   --   -- neorgで使うと若干微妙かも。。。

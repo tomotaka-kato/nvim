@@ -32,7 +32,7 @@ vim.o.list = true
 vim.o.listchars = 'tab:»-,trail:-,eol:¬'
 
 -- クリップボードを共有する
--- vim.o.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus"
 
 -- フォーマット
 vim.o.smarttab = true
