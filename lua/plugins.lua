@@ -141,7 +141,7 @@ return {
     'j-hui/fidget.nvim',
     tag = 'legacy',
   },
-  { 'jose-elias-alvarez/null-ls.nvim', lazy = false }, -- formatter, linter
+  { 'nvimtools/none-ls.nvim', lazy = false }, -- formatter, linter
   {
     "folke/lsp-trouble.nvim",
     dependencies = {"nvim-tree/nvim-web-devicons"},
