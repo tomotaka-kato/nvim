@@ -14,10 +14,7 @@ chat.setup({
 })
 
 function CopilotChatBuffer()
-	local input = vim.fn.input("Quick Chat: ")
-	if input ~= "" then
-		require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-	end
+	require("CopilotChat").open({ selection = require("CopilotChat.select").buffer })
 end
 
 vim.api.nvim_set_keymap("n", "<leader>ccb<cr>", "<cmd>lua CopilotChatBuffer()<cr>", { noremap = true, silent = true })
