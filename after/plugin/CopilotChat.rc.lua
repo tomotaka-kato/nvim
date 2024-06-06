@@ -18,3 +18,4 @@ function CopilotChatBuffer()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>ccb<cr>", "<cmd>lua CopilotChatBuffer()<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>lua CopilotChatBuffer()<cr>", { noremap = true, silent = true })
