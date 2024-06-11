@@ -13,9 +13,9 @@ chat.setup({
 	},
 })
 
--- バッファを選択して CopilotChat を開く
-function CopilotChatBuffer()
-	require("CopilotChat").open({ selection = require("CopilotChat.select").buffer })
+-- 選択範囲に対して CopilotChat を開く
+function CopilotChatQuich()
+	require("CopilotChat").open({ selection = require("CopilotChat.select").visual })
 end
 
 -- telescope を使ってアクションプロンプトを表示する
@@ -26,8 +26,9 @@ end
 
 -- キーマッピング
 -- <C-c> で CopilotChat を開く
-vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>lua CopilotChatBuffer()<cr>", { noremap = true, silent = true })
--- <leader>ccp (Copilot Chat Prompt の略) でアクションプロンプトを表示する
+vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>lua CopilotChatQuich()<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<C-c>", "<Esc><cmd>lua CopilotChatQuich()<cr>", { noremap = true, silent = true })
+-- <leader><C-p> でアクションプロンプトを表示する
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader><C-p>",
