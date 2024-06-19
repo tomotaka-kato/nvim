@@ -5,6 +5,9 @@ vim.g.mapleader = " "
 
 local noramap = { noremap = true }
 
+-- leader + a で全選択
+keymap.set("n", "<leader>a", "ggVG", noramap)
+
 -- 0と^を入れ替える
 -- 一番左まで画面をスクロールしたいので、一度0を実施してから^を行う
 keymap.set("n", "0", "0^", noramap)
