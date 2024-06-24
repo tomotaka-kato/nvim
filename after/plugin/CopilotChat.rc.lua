@@ -4,11 +4,41 @@ if not status then
 	return
 end
 
+local select = require("CopilotChat.select")
+
 chat.setup({
 	mappings = {
 		reset = {
 			normal = "<leader><C-l>",
 			insert = "<C-l>",
+		},
+	},
+	prompts = {
+		Fix = {
+			prompt = "/COPILOT_GENERATE There is a problem in this code. Rewrite the code to show it with the bug fixed.",
+		},
+		Optimize = {
+			prompt = "/COPILOT_GENERATE Optimize the selected code to improve performance and readablilty.",
+		},
+		Docs = {
+			prompt = "/COPILOT_GENERATE Please add documentation comment for the selection.",
+		},
+		Tests = {
+			prompt = "/COPILOT_GENERATE Please generate tests for my code.",
+		},
+		FixDiagnostic = {
+			prompt = "Please assist with the following diagnostic issue in file:",
+			selection = select.diagnostics,
+		},
+		Commit = {
+			prompt = "Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.",
+			selection = select.gitdiff,
+		},
+		CommitStaged = {
+			prompt = "Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.",
+			selection = function(source)
+				return select.gitdiff(source, true)
+			end,
 		},
 	},
 })
