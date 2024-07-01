@@ -1,5 +1,8 @@
+-- vim.cmd("set verbosefile=~/.config/nvim/log")
+-- vim.opt.verbose = 1
+
 -- マウス有効化
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 vim.o.title = true
 
 -- backup, undo, swap
@@ -7,14 +10,14 @@ vim.o.backup = false
 vim.o.writebackup = false
 -- vim.o.undofile = false -- 容量を食うので一旦なしにする。欲しくなったら再検討
 vim.o.undofile = true
-vim.cmd [[set undodir=$HOME/.config/nvim/tmp/undo]]
+vim.cmd([[set undodir=$HOME/.config/nvim/tmp/undo]])
 vim.o.swapfile = false
 
 -- エンコード
-vim.scriptencodeing = 'utf-8'
-vim.o.encoding = 'utf-8'
-vim.o.fileencoding = 'utf-8'
-vim.o.fileformat = 'unix'
+vim.scriptencodeing = "utf-8"
+vim.o.encoding = "utf-8"
+vim.o.fileencoding = "utf-8"
+vim.o.fileformat = "unix"
 
 -- 表示
 vim.o.number = true
@@ -22,14 +25,14 @@ vim.o.hlsearch = true
 vim.o.laststatus = 2
 vim.o.termguicolors = true
 -- vim.cmd [[let loaded_matchparen = 1]] -- 括弧のハイライトをなくす
-vim.cmd [[set nofoldenable]] -- foldによる折りたたみをなくす
+vim.cmd([[set nofoldenable]]) -- foldによる折りたたみをなくす
 -- vim.opt.winblend = 20 --フロートウィンドウなどを若干透明に
 vim.o.winblend = 0 --フロートウィンドウなどを若干透明に
 vim.o.scrolloff = 3
 
 -- 改行コード、半角スペース、タブの可視化
 vim.o.list = true
-vim.o.listchars = 'tab:»-,trail:-,eol:¬'
+vim.o.listchars = "tab:»-,trail:-,eol:¬"
 
 -- クリップボードを共有する
 vim.o.clipboard = "unnamedplus"
@@ -45,19 +48,19 @@ vim.o.signcolumn = "yes"
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorline = true
-vim.o.virtualedit = 'block' ---空白文字まで矩形選択できるようにする
+vim.o.virtualedit = "block" ---空白文字まで矩形選択できるようにする
 
 -- コメント行で改行をしてもコメントが続かないようにする
-vim.cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
+vim.cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 
-vim.cmd [[
+vim.cmd([[
     if system('uname -a } grep microsoft') != ''
         augroup myYank
             autocmd!
             autocmd TextyankPost * :call system('clip.exe', @")
         augroup END
     endif"
-]]
+]])
 
 -- 終了時に保存確認
 vim.o.confirm = true
@@ -84,20 +87,20 @@ vim.o.confirm = true
 -- ]])
 
 vim.diagnostic.config({
-  -- virtual_text = false,
+	-- virtual_text = false,
 })
 
 -- ubuntu環境ではnodeのバージョンが古いのでバイナリの場所を指定する
 -- 古いnodeだとvolarが動かないため
 local f = io.popen("whoami")
 if f == nil then
-    return
+	return
 end
 local user = f:read("*l")
 ---@diagnostic disable-next-line: missing-parameter
 f.close()
-if user:find('ubuntu') then
-vim.cmd([[
+if user:find("ubuntu") then
+	vim.cmd([[
     let $PATH='/home/ubuntu/.nvm/versions/node/v20.11.1/bin:' . $PATH
 ]])
 end
