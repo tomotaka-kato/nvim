@@ -42,10 +42,10 @@ mason.setup({
 
 local on_attach = function(client, bufnr)
 	-- 保存時に自動でフォーマットをかける
-	-- vim.api.nvim_command [[augroup Format]]
-	-- vim.api.nvim_command [[autocmd! * <buffer>]]
-	-- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-	-- vim.api.nvim_command [[augroup END]]
+	vim.api.nvim_command([[augroup Format]])
+	vim.api.nvim_command([[autocmd! * <buffer>]])
+	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
+	vim.api.nvim_command([[augroup END]])
 
 	-- キーマップ
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -69,27 +69,6 @@ local setup_emmet = function()
 		on_attach = on_attach,
 	})
 end
-
--- null-lsに移行したのでコメントアウト
--- ただnull-lsはアーカイブされるので戻ってくるかも？
--- local setup_efm = function()
---     -- Linter, Formatterはefmで行うのでその設定
---     nvim_lsp.efm.setup {
---         -- flags = {
---         --     debounce_text_changes = 150,
---         -- },
---         init_options = { documentFormatting = true },
---         filetypes = { "python" },
---         settings = {
---             rootMarkers = { ".git/" },
---             languages = {
---                 python = {
---                     { formatCommand = "black --quiet -", formatStdin = true }
---                 }
---             }
---         }
---     }
--- end
 
 local setup_cssls = function()
 	nvim_lsp.cssls.setup({
@@ -131,6 +110,14 @@ local setup_omnisharp = function()
 		cmd = { "omnisharp", "--languageserver" },
 		capabilities = capabilities,
 		on_attach = on_attach,
+		settings = {
+			omnisharp = {
+				formattingOptions = {
+					EnableEditorConfigSupport = true,
+					TabSize = 20,
+				},
+			},
+		},
 	})
 end
 
