@@ -275,14 +275,6 @@ return {
 			vim.g.dart_format_on_save = 1
 		end,
 	},
-	{
-		"OmniSharp/omnisharp-vim",
-		ft = { "cs" },
-		config = function()
-			vim.g.OmniSharp_server_use_mono = 0
-			vim.g.OmniSharp_server_use_net6 = 1
-		end,
-	},
 	-- { -- markdownやneorgなどに対応したシンタックスハイライト
 	--   -- neorgで使うと若干微妙かも。。。
 	--   'lukas-reineke/headlines.nvim',
