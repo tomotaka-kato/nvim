@@ -71,3 +71,9 @@ vim.api.nvim_set_keymap(
 	"<cmd>lua ShowCopilotChatActionPrompt()<cr>",
 	{ noremap = true, silent = true }
 )
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader><C-p>",
+	"<cmd>lua ShowCopilotChatActionPrompt()<cr>",
+	{ noremap = true, silent = true }
+)
