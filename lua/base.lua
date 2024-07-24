@@ -148,6 +148,6 @@ let g:did_indent_on             = v:true
 let g:did_load_ftplugin         = v:true
 let g:loaded_rrhelper           = v:true
 
-" }}}
+autocmd FileType cs setlocal expandtab tabstop=4 shiftwidth=4
 
 ]])
