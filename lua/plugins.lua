@@ -5,7 +5,6 @@ return {
 	-- [begin] util
 	{ "petertriho/nvim-scrollbar", lazy = false, config = true },
 	{ "nvim-tree/nvim-tree.lua", lazy = true },
-	{ "lambdalisue/vim-fern", lazy = false },
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
