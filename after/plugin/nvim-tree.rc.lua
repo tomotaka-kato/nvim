@@ -47,8 +47,8 @@ function M.on_attach(bufnr)
 	vim.keymap.set("n", "gy", api.fs.copy.absolute_path, opts("Copy Absolute Path", bufnr))
 	vim.keymap.set("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Dotfiles", bufnr))
 	vim.keymap.set("n", "I", api.tree.toggle_gitignore_filter, opts("Toggle Git Ignore", bufnr))
-	vim.keymap.set("n", "J", api.node.navigate.sibling.last, opts("Last Sibling", bufnr))
-	vim.keymap.set("n", "K", api.node.navigate.sibling.first, opts("First Sibling", bufnr))
+	-- vim.keymap.set("n", "J", api.node.navigate.sibling.last, opts("Last Sibling", bufnr))
+	-- vim.keymap.set("n", "K", api.node.navigate.sibling.first, opts("First Sibling", bufnr))
 	vim.keymap.set("n", "m", api.marks.toggle, opts("Toggle Bookmark", bufnr))
 	vim.keymap.set("n", "o", api.node.open.edit, opts("Open", bufnr))
 	vim.keymap.set("n", "O", api.node.open.no_window_picker, opts("Open: No Window Picker", bufnr))
@@ -66,6 +66,14 @@ function M.on_attach(bufnr)
 	vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy Relative Path", bufnr))
 	vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open", bufnr))
 	vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD", bufnr))
+	-- preview機能のextensionを読み込む
+	local preview_status, preview = pcall(require, "nvim-tree-preview")
+	if not preview_status then
+		print("nvim-tree-preview.lua is note installed")
+		return
+	end
+	vim.keymap.set("n", "K", preview.watch, opts("Preview (Watch)"))
+	vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
 end
 
 tree.setup({

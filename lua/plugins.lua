@@ -6,6 +6,22 @@ return {
 	{ "petertriho/nvim-scrollbar", lazy = false, config = true },
 	{ "nvim-tree/nvim-tree.lua", lazy = true },
 	{
+		"antosha417/nvim-lsp-file-operations",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-tree.lua",
+		},
+		config = function()
+			require("lsp-file-operations").setup()
+		end,
+	},
+	{
+		"kyazdani42/nvim-tree.lua",
+		dependencies = {
+			"b0o/nvim-tree-preview.lua",
+		},
+	},
+	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		lazy = false,
