@@ -5,6 +5,7 @@ return {
 	-- [begin] util
 	{ "petertriho/nvim-scrollbar", lazy = false, config = true },
 	{ "nvim-tree/nvim-tree.lua", lazy = true },
+	{ "lambdalisue/vim-fern", lazy = false },
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -22,7 +23,7 @@ return {
 		end,
 	},
 	{ "anuvyklack/hydra.nvim", lazy = true },
-	{ "uga-rosa/ccc.nvim", lazy = true, cmd = "CccPick" }, -- :CccPickでカラーピッカーが表示される
+	{ "uga-rosa/ccc.nvim", lazy = true, cmd = "CccPick", config = true }, -- :CccPickでカラーピッカーが表示される
 	-- 置換を便利に行えるやつ
 	{ "nvim-pack/nvim-spectre", lazy = true },
 	{ "https://codeberg.org/esensar/nvim-dev-container", lazy = true },
