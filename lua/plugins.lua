@@ -48,6 +48,59 @@ return {
 			colorcolumn = "120",
 		},
 	},
+	{
+		"monaqa/dial.nvim",
+		lazy = false,
+		config = function()
+			-- この設定は公式からコピペしただけ
+			-- TODO: 別ファイルへ移動 and 自分に合った設定に変更
+			local augend = require("dial.augend")
+			require("dial.config").augends:register_group({
+				default = {
+					augend.integer.alias.decimal,
+					augend.integer.alias.hex,
+					augend.date.alias["%Y/%m/%d"],
+				},
+				typescript = {
+					augend.integer.alias.decimal,
+					augend.integer.alias.hex,
+					augend.constant.new({ elements = { "let", "const" } }),
+				},
+				visual = {
+					augend.integer.alias.decimal,
+					augend.integer.alias.hex,
+					augend.date.alias["%Y/%m/%d"],
+					augend.constant.alias.alpha,
+					augend.constant.alias.Alpha,
+				},
+			})
+
+			vim.keymap.set("n", "<C-a>", function()
+				require("dial.map").manipulate("increment", "normal")
+			end)
+			vim.keymap.set("n", "<C-x>", function()
+				require("dial.map").manipulate("decrement", "normal")
+			end)
+			vim.keymap.set("n", "g<C-a>", function()
+				require("dial.map").manipulate("increment", "gnormal")
+			end)
+			vim.keymap.set("n", "g<C-x>", function()
+				require("dial.map").manipulate("decrement", "gnormal")
+			end)
+			vim.keymap.set("v", "<C-a>", function()
+				require("dial.map").manipulate("increment", "visual")
+			end)
+			vim.keymap.set("v", "<C-x>", function()
+				require("dial.map").manipulate("decrement", "visual")
+			end)
+			vim.keymap.set("v", "g<C-a>", function()
+				require("dial.map").manipulate("increment", "gvisual")
+			end)
+			vim.keymap.set("v", "g<C-x>", function()
+				require("dial.map").manipulate("decrement", "gvisual")
+			end)
+		end,
+	},
 	-- [end] util
 	-- [begin] アイコン
 	{ "nvim-tree/nvim-web-devicons", lazy = false },
