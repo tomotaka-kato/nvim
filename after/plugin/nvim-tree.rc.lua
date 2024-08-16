@@ -72,8 +72,8 @@ function M.on_attach(bufnr)
 		print("nvim-tree-preview.lua is note installed")
 		return
 	end
-	vim.keymap.set("n", "K", preview.watch, opts("Preview (Watch)"))
-	vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
+	-- vim.keymap.set("n", "K", preview.watch, opts("Preview (Watch)")) -- これLSPのhoverとぶつかるので考え直す
+	-- vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
 end
 
 tree.setup({
