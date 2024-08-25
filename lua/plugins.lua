@@ -101,6 +101,7 @@ return {
 			end)
 		end,
 	},
+	{ "thinca/vim-partedit", lazy = false },
 	-- [end] util
 	-- [begin] アイコン
 	{ "nvim-tree/nvim-web-devicons", lazy = false },
