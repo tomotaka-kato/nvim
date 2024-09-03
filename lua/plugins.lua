@@ -253,11 +253,13 @@ return {
 		"CopilotC-Nvim/CopilotChat.nvim",
 		branch = "canary",
 		build = "make tiktoken",
+		opt = {
+			debug = true,
+		},
 		dependencies = {
 			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 		},
-
 		-- See Commands section for default commands if you want to lazy load on them
 	},
 	{ "windwp/nvim-autopairs", event = "InsertEnter" },
