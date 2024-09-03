@@ -247,6 +247,11 @@ return {
 	{ "hrsh7th/cmp-nvim-lsp-document-symbol", dependencies = { "hrsh7th/nvim-cmp" } },
 	{ "L3MON4D3/LuaSnip", dependencies = { "hrsh7th/nvim-cmp" } },
 	{ "saadparwaiz1/cmp_luasnip", dependencies = { "hrsh7th/nvim-cmp" } },
+	{
+		"tzachar/cmp-tabnine",
+		build = "./install.sh",
+		dependencies = "hrsh7th/nvim-cmp",
+	},
 	{ "rafamadriz/friendly-snippets", dependencies = { "hrsh7th/nvim-cmp" } },
 	{ "zbirenbaum/copilot.lua", lazy = true, event = "InsertEnter" },
 	{
