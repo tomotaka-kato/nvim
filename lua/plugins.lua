@@ -291,6 +291,7 @@ return {
 	},
 	{ "m-demare/hlargs.nvim", dependencies = { "nvim-treesitter/nvim-treesitter" } }, -- 引数で渡された変数に色をつける
 	-- [end] treesitter
+
 	-- [begin] text object
 	{
 		"kylechui/nvim-surround",
@@ -299,7 +300,9 @@ return {
 	},
 	{ "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } }, -- テキストオブジェクトを追加
 	{ "David-Kunz/treesitter-unit", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+	{ "gcmt/wildfire.vim" },
 	-- [end] text object
+
 	-- [begin] move
 	{ "tomotaka-kato/wb-only-current-line.nvim", lazy = false }, -- b, w, eが行を跨がない
 	{ -- easy motionのlua版みたいなもの

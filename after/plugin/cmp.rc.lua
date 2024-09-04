@@ -60,6 +60,7 @@ cmp.setup.cmdline(":", {
 	}),
 })
 
+-- tabnineの設定
 local status_tabnine, tabnine = pcall(require, "cmp_tabnine.config")
 if not status_tabnine then
 	print("cmp_tabnine.config is not installed.")
