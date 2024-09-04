@@ -1,8 +1,9 @@
-local status, hop = pcall(require, 'hop')
+local status, hop = pcall(require, "hop")
 if not status then
-    print('hop is not installed')
-    return
+	print("hop is not installed")
+	return
 end
 
-hop.setup { keys = 'etovxqpdygfblzhckisuran' }
-vim.api.nvim_set_keymap('', '<leader>w', "<cmd>lua require'hop'.hint_words()<cr>", { noremap = true })
+hop.setup({ keys = "etovxqpdygfblzhckisuran" })
+vim.api.nvim_set_keymap("", "<leader>w", "<cmd>HopWord<CR>", { noremap = true })
+vim.api.nvim_set_keymap("", "<leader>l", "<cmd>HopLineStart<CR>", { noremap = true })
