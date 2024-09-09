@@ -211,7 +211,13 @@ return {
 		"j-hui/fidget.nvim",
 		tag = "legacy",
 	},
-	{ "nvimtools/none-ls.nvim", lazy = false }, -- formatter, linter
+	{
+		"nvimtools/none-ls.nvim",
+		dependencies = {
+			"nvimtools/none-ls-extras.nvim",
+		},
+		lazy = false,
+	}, -- formatter, linter
 	{
 		"folke/lsp-trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
