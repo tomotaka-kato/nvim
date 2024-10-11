@@ -86,7 +86,7 @@ chat.setup({
 			prompt = "/COPILOT_GENERATE Please generate tests for my code.",
 		},
 		DocCommentJa = {
-			prompt = "/COPILOT_GENERATE ドキュメントコメントを日本語で記載してください。すでに記載されている場合、もしも実装と乖離があれば修正してください。",
+			prompt = "/COPILOT_GENERATE ドキュメントコメントを日本語で記載してください。すでに記載されている場合、もしも実装と乖離があれば修正してください。文体はですます調ではなく「だ、である」のような感じにして下さい。また返却するコードについてはコピーペーストがしやすいように行番号がない状態でお願いします。",
 		},
 		FixDiagnostic = {
 			prompt = "Please assist with the following diagnostic issue in file:",

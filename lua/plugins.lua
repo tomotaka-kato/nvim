@@ -240,18 +240,21 @@ return {
 	--   end
 	-- },
 	-- lazy.nvim
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
-		},
-	},
+	-- {
+  -- 右上にかっこよく通知が出るようになる。
+  -- デフォルトだとちょっと使いにくいので設定をしっかりするまでオフにする。
+  -- 設定しても使いにくい場合はアンインストールする。
+	-- 	"folke/noice.nvim",
+	-- 	event = "VeryLazy",
+	-- 	dependencies = {
+	-- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		-- OPTIONAL:
+	-- 		--   `nvim-notify` is only needed, if you want to use the notification view.
+	-- 		--   If not available, we use `mini` as the fallback
+	-- 		"rcarriga/nvim-notify",
+	-- 	},
+	-- },
 	-- [end] LSP
 	-- [begin] 補完
 	{ "hrsh7th/nvim-cmp", lazy = true, event = "InsertEnter" },
