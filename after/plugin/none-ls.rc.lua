@@ -1,9 +1,9 @@
-local status_nullls, null_ls = pcall(require, "null-ls")
+local status_nullls, none_ls = pcall(require, "null-ls")
 local status_package, mason_package = pcall(require, "mason-core.package")
 local status_registory, mason_registry = pcall(require, "mason-registry")
 
 if not status_nullls then
-	print("null-ls is not installed.")
+	print("none-ls is not installed.")
 	return
 end
 if not status_package then
@@ -17,20 +17,39 @@ end
 
 local null_sources = {}
 
-for _, package in ipairs(mason_registry.get_installed_packages()) do
-	local package_categories = package.spec.categories[1]
-	if package_categories == mason_package.Cat.Formatter then
-		table.insert(null_sources, null_ls.builtins.formatting[package.name])
-	end
-	if package_categories == mason_package.Cat.Linter then
-		table.insert(null_sources, null_ls.builtins.diagnostics[package.name])
-	end
+
+-- null-lsに対象のパッケージがあるかどうかをチェックする関数
+local function is_package_in_null_ls_formatting(package_name)
+    return none_ls.builtins.formatting[package_name] ~= nil
 end
+
+local function is_package_in_null_ls_diagnostics(package_name)
+    return none_ls.builtins.diagnostics[package_name] ~= nil
+end
+
+-- 既存の条件にnull-lsのチェックを追加
+for _, package in ipairs(mason_registry.get_installed_packages()) do
+    local package_categories = package.spec.categories[1]
+    if package_categories == mason_package.Cat.Formatter and is_package_in_null_ls_formatting(package.name) then
+        table.insert(null_sources, none_ls.builtins.formatting[package.name])
+    end
+    if package_categories == mason_package.Cat.Linter and is_package_in_null_ls_diagnostics(package.name) then
+        table.insert(null_sources, none_ls.builtins.diagnostics[package.name])
+    end
+end
+
+table.insert(
+  null_sources, require("none-ls.formatting.jq")
+)
 
 local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
 local event = "BufWritePre" -- or "BufWritePost"
 local async = event == "BufWritePost"
-null_ls.setup({
+none_ls.setup({
+	sources = {
+    -- null_sources,
+    require("none-ls.formatting.jq")
+  },
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.keymap.set("n", "<Leader>=", function()
@@ -56,7 +75,6 @@ null_ls.setup({
 			end, { buffer = bufnr, desc = "[lsp] format" })
 		end
 	end,
-	sources = null_sources,
 	diagnostic_config = {
 		-- see :help vim.diagnostic.config()
 		underline = true,
