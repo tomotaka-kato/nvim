@@ -241,9 +241,9 @@ return {
 	-- },
 	-- lazy.nvim
 	-- {
-  -- 右上にかっこよく通知が出るようになる。
-  -- デフォルトだとちょっと使いにくいので設定をしっかりするまでオフにする。
-  -- 設定しても使いにくい場合はアンインストールする。
+	-- 右上にかっこよく通知が出るようになる。
+	-- デフォルトだとちょっと使いにくいので設定をしっかりするまでオフにする。
+	-- 設定しても使いにくい場合はアンインストールする。
 	-- 	"folke/noice.nvim",
 	-- 	event = "VeryLazy",
 	-- 	dependencies = {
@@ -275,7 +275,27 @@ return {
 		dependencies = "hrsh7th/nvim-cmp",
 	},
 	{ "rafamadriz/friendly-snippets", dependencies = { "hrsh7th/nvim-cmp" } },
-	{ "zbirenbaum/copilot.lua", lazy = true, event = "InsertEnter" },
+	{
+		"github/copilot.vim",
+		lazy = true,
+		event = "InsertEnter",
+		config = function()
+			vim.keymap.set("i", "<C-e>", 'copilot#Accept("\\<CR>")', {
+				expr = true,
+				replace_keycodes = false,
+			})
+			vim.keymap.set("i", "<C-Space>", "copilot#Trigger()", {
+				expr = true,
+				replace_keycodes = false,
+			})
+			vim.g.copilot_no_tab_map = true
+			vim.cmd([[
+        let g:copilot_filetypes = {
+          \ '*': v:true
+        \}
+      ]])
+		end,
+	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
 		branch = "canary",
@@ -284,7 +304,7 @@ return {
 			debug = true,
 		},
 		dependencies = {
-			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+			{ "github/copilot.vim" },
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 		},
 		-- See Commands section for default commands if you want to lazy load on them

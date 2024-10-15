@@ -17,39 +17,38 @@ end
 
 local null_sources = {}
 
-
 -- null-lsに対象のパッケージがあるかどうかをチェックする関数
 local function is_package_in_null_ls_formatting(package_name)
-    return none_ls.builtins.formatting[package_name] ~= nil
+	return none_ls.builtins.formatting[package_name] ~= nil
 end
 
 local function is_package_in_null_ls_diagnostics(package_name)
-    return none_ls.builtins.diagnostics[package_name] ~= nil
+	return none_ls.builtins.diagnostics[package_name] ~= nil
 end
 
 -- 既存の条件にnull-lsのチェックを追加
 for _, package in ipairs(mason_registry.get_installed_packages()) do
-    local package_categories = package.spec.categories[1]
-    if package_categories == mason_package.Cat.Formatter and is_package_in_null_ls_formatting(package.name) then
-        table.insert(null_sources, none_ls.builtins.formatting[package.name])
-    end
-    if package_categories == mason_package.Cat.Linter and is_package_in_null_ls_diagnostics(package.name) then
-        table.insert(null_sources, none_ls.builtins.diagnostics[package.name])
-    end
+	local package_categories = package.spec.categories[1]
+	if package_categories == mason_package.Cat.Formatter and is_package_in_null_ls_formatting(package.name) then
+		table.insert(null_sources, none_ls.builtins.formatting[package.name])
+	end
+	if package_categories == mason_package.Cat.Linter and is_package_in_null_ls_diagnostics(package.name) then
+		table.insert(null_sources, none_ls.builtins.diagnostics[package.name])
+	end
 end
 
-table.insert(
-  null_sources, require("none-ls.formatting.jq")
-)
+-- table.insert(
+--   null_sources, require("none-ls.formatting.jq")
+-- )
 
 local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
 local event = "BufWritePre" -- or "BufWritePost"
 local async = event == "BufWritePost"
 none_ls.setup({
-	sources = {
-    -- null_sources,
-    require("none-ls.formatting.jq")
-  },
+	sources = null_sources, -- {
+	-- null_sources,
+	-- require("none-ls.formatting.jq")
+	-- },
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.keymap.set("n", "<Leader>=", function()
