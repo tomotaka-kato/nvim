@@ -1,7 +1,25 @@
 return {
+	--------------------------------
 	-- [begin] library
-	{ "nvim-lua/plenary.nvim", lazy = true },
+	{ "nvim-lua/popup.nvim" },
+	{ "nvim-lua/plenary.nvim" },
+	{ "kkharji/sqlite.lua" },
+	{ "MunifTanjim/nui.nvim" },
 	-- [end] library
+	--------------------------------
+
+	--------------------------------
+	-- UI Library
+	{
+		"stevearc/dressing.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("dressing").setup()
+		end,
+	},
+	--------------------------------
+
+	--------------------------------
 	-- [begin] util
 	{ "petertriho/nvim-scrollbar", lazy = false, config = true },
 	{ "nvim-tree/nvim-tree.lua", lazy = true },
@@ -103,6 +121,8 @@ return {
 	},
 	{ "thinca/vim-partedit", lazy = false },
 	-- [end] util
+	--------------------------------
+
 	-- [begin] アイコン
 	{ "nvim-tree/nvim-web-devicons", lazy = false },
 	{ "onsails/lspkind-nvim", lazy = false }, -- 補完にアイコンがつく

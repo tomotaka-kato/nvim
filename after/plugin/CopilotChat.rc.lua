@@ -92,14 +92,14 @@ chat.setup({
 			prompt = "Please assist with the following diagnostic issue in file:",
 			selection = select.diagnostics,
 		},
-		Commit = {
-			prompt = "Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.",
-			selection = select.gitdiff,
-		},
-		CommitJa = {
-			prompt = "Write commit message for the change with commitizen convention in Japanese. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.",
-			selection = select.gitdiff,
-		},
+		-- Commit = {
+		-- 	prompt = "Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.",
+		-- 	selection = select.gitdiff,
+		-- },
+		-- CommitJa = {
+		-- 	prompt = "Write commit message for the change with commitizen convention in Japanese. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.",
+		-- 	selection = select.gitdiff,
+		-- },
 		CommitStaged = {
 			prompt = "Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.",
 			selection = function(source)
