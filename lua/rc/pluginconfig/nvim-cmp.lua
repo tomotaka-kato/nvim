@@ -222,6 +222,10 @@ cmp.setup.cmdline(":", {
 			c = cmp.mapping.abort(),
 		},
 	},
-	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" }, { { name = "cmdline_history" } } }),
+	sources = cmp.config.sources({
+    { name = "path" }
+  }, {
+    { name = "cmdline" }, {
+      { name = "cmdline_history" } } }),
 })
 

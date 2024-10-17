@@ -88,6 +88,7 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
+      { "hrsh7th/cmp-cmdline" },
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "hrsh7th/cmp-emoji" },
 			{ "hrsh7th/cmp-calc" },
@@ -111,6 +112,32 @@ return {
 	},
 
   -- Auto Completion
+  --------------------------------
+  	-- Language Server Protocol(LSP)
+	{
+		"neovim/nvim-lspconfig",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-lspconfig")
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/mason-lspconfig")
+		end,
+		dependencies = {
+			{
+				"folke/neoconf.nvim",
+				config = function()
+					require("rc/pluginconfig/neoconf")
+				end,
+			},
+			{ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
+		},
+	},
+  	-- [end] Language Server Protocol(LSP)
   --------------------------------
   --------------------------------------------------------------
 
@@ -464,11 +491,6 @@ return {
 	-- { "windwp/nvim-ts-autotag", event = "InsertEnter" },
 	-- -- [end] 補完
 	-- -- [begin] ファジーファインダー
-	-- {
-	-- 	"nvim-telescope/telescope.nvim",
-	-- 	tag = "0.1.6",
-	-- 	dependencies = { "nvim-lua/plenary.nvim" },
-	-- },
 	-- -- [end] ファジーファインダー
 	-- -- [begin] treesitter
 	-- { "nvim-treesitter/nvim-treesitter", lazy = true, build = ":TSUpdate" },
