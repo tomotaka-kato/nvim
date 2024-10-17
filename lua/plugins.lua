@@ -1,9 +1,21 @@
 return {
 	--------------------------------
+	-- External package Installer
+  {
+    "williamboman/mason.nvim",
+    event = { "VeryLazy" },
+    build = ":MasonUpdate",
+    config = function()
+      require("rc/pluginconfig/mason")
+    end,
+  },
+	-- [end] library
+	--------------------------------
+
+	--------------------------------
 	-- [begin] library
 	{ "nvim-lua/popup.nvim" },
 	{ "nvim-lua/plenary.nvim" },
-	{ "kkharji/sqlite.lua" },
 	{ "MunifTanjim/nui.nvim" },
 	-- [end] library
 	--------------------------------
@@ -14,10 +26,185 @@ return {
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("dressing").setup()
+			require("rc/pluginconfig/dressing")
 		end,
 	},
 	--------------------------------
+
+	--------------------------------
+	-- Notify
+	{
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
+		config = function()
+			require("rc/pluginconfig/nvim-notify")
+		end,
+	},	-- Notify
+	--------------------------------
+
+	--------------------------------
+  -- ColorScheme
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+      require("rc/pluginconfig/tokyonight")
+		end,
+	},
+	--------------------------------
+
+	--------------------------------
+  -- Font
+  {
+    "kyazdani42/nvim-web-devicons",
+    enabled = function()
+      return not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == "false"
+    end,
+  },
+  {
+    "delphinus/cellwidths.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("cellwidths").setup({
+        name = "cica",
+      })
+    end,
+  },
+	--------------------------------
+
+  --------------------------------------------------------------
+  -- LSP & completion
+  --------------------------------
+  -- Auto Completion
+  	{
+		"hrsh7th/nvim-cmp",
+		event = "VimEnter",
+		config = function()
+			require("rc/pluginconfig/nvim-cmp")
+		end,
+		dependencies = {
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "hrsh7th/cmp-nvim-lua" },
+			{ "hrsh7th/cmp-emoji" },
+			{ "hrsh7th/cmp-calc" },
+			{ "f3fora/cmp-spell" },
+			{ "yutkat/cmp-mocword" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{
+				"tzachar/cmp-tabnine",
+				build = "./install.sh",
+			},
+			{ "ray-x/cmp-treesitter" },
+			{ "lukas-reineke/cmp-rg" },
+			{ "lukas-reineke/cmp-under-comparator" },
+			{
+				"onsails/lspkind-nvim",
+				config = function()
+					require("rc/pluginconfig/lspkind-nvim")
+				end,
+			},
+		},
+	},
+
+  -- Auto Completion
+  --------------------------------
+  --------------------------------------------------------------
+
+  	----------------------------------
+	---- Snippet
+	{
+		"L3MON4D3/LuaSnip",
+		event = "VimEnter",
+		build = "make install_jsregexp",
+		config = function()
+			require("rc/pluginconfig/LuaSnip")
+		end,
+	},
+	{
+		"benfowler/telescope-luasnip.nvim",
+		event = "VimEnter",
+		config = function()
+			require("telescope").load_extension("luasnip")
+		end,
+	},
+
+	--------------------------------
+
+  --------------------------------------------------------------
+	-- FuzzyFinders
+
+	--------------------------------
+	-- telescope.nvim
+	{
+		"nvim-telescope/telescope.nvim",
+		event = { "VimEnter" },
+		config = function()
+			require("rc/pluginconfig/telescope")
+		end,
+		dependencies = {
+			{
+				"nvim-telescope/telescope-github.nvim",
+				config = function()
+					require("telescope").load_extension("gh")
+				end,
+			},
+			{
+				"nvim-telescope/telescope-ui-select.nvim",
+				config = function()
+					require("telescope").load_extension("ui-select")
+				end,
+			},
+			{
+				"LinArcX/telescope-changes.nvim",
+				config = function()
+					require("telescope").load_extension("changes")
+				end,
+			},
+			{
+				"nvim-telescope/telescope-live-grep-args.nvim",
+				config = function()
+					require("telescope").load_extension("live_grep_args")
+				end,
+			},
+			{
+				"nvim-telescope/telescope-smart-history.nvim",
+				config = function()
+					require("telescope").load_extension("smart_history")
+				end,
+				build = function()
+					os.execute("mkdir -p " .. vim.fn.stdpath("state") .. "databases/")
+				end,
+			},
+			{ "nvim-telescope/telescope-symbols.nvim" },
+			{
+				"debugloop/telescope-undo.nvim",
+				config = function()
+					require("telescope").load_extension("undo")
+				end,
+			},
+		},
+	},
+	{
+		"nvim-telescope/telescope-frecency.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+	},
+	{
+		"crispgm/telescope-heading.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("telescope").load_extension("heading")
+		end,
+	},
+	-- [end] telescope.nvim
+	-- --------------------------------
+
 
 	-- --------------------------------
 	-- -- [begin] util
@@ -124,46 +311,9 @@ return {
 	-- --------------------------------
 	--
 	-- -- [begin] アイコン
-	-- { "nvim-tree/nvim-web-devicons", lazy = false },
 	-- { "onsails/lspkind-nvim", lazy = false }, -- 補完にアイコンがつく
 	-- -- [end] アイコン
 	-- -- [begin] 見た目
-	-- {
-	-- 	"sainnhe/everforest",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		-- vim.cmd([[colorscheme everforest]])
-	-- 	end,
-	-- },
-	-- {
-	-- 	"joshdick/onedark.vim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		-- vim.cmd([[colorscheme onedark]])
-	-- 	end,
-	-- },
-	-- {
-	-- 	"folke/tokyonight.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("tokyonight").setup({
-	-- 			style = "night",
-	-- 			transparent = true,
-	-- 			commentStyle = "italic",
-	-- 			styles = {
-	-- 				comments = { italic = true },
-	-- 				keywords = { italic = true },
-	-- 				sidebars = "dark", -- transparentよりも色がついてる方が見やすい
-	-- 				floats = "dark", -- transparentよりも色がついてる方が見やすい
-	-- 			},
-	-- 			sidebars = { "qf", "vista_kind", "terminal", "nvim-tree" },
-	-- 		})
-	-- 		vim.cmd([[colorscheme tokyonight-night]])
-	-- 	end,
-	-- },
 	-- { "xiyaowong/transparent.nvim", priority = 1000 },
 	-- -- ステータスライン
 	-- { "nvim-lualine/lualine.nvim", priority = 1000 },
@@ -222,7 +372,6 @@ return {
 	-- 	branch = "main",
 	-- 	lazy = true,
 	-- 	dependencies = {
-	-- 		"nvim-tree/nvim-web-devicons",
 	-- 		"nvim-treesitter/nvim-treesitter",
 	-- 	},
 	-- },
@@ -277,24 +426,6 @@ return {
 	-- -- },
 	-- -- [end] LSP
 	-- -- [begin] 補完
-	-- { "hrsh7th/nvim-cmp", lazy = true, event = "InsertEnter" },
-	-- { "hrsh7th/cmp-nvim-lsp", dependencies = { "hrsh7th/nvim-cmp" } },
-	-- { "hrsh7th/cmp-buffer", dependencies = { "hrsh7th/nvim-cmp" } },
-	-- {
-	-- 	"hrsh7th/cmp-path",
-	-- 	event = "CmdlineEnter",
-	-- 	dependencies = { "hrsh7th/nvim-cmp" },
-	-- },
-	-- { "hrsh7th/cmp-cmdline", dependencies = { "hrsh7th/nvim-cmp" } },
-	-- { "hrsh7th/cmp-nvim-lsp-document-symbol", dependencies = { "hrsh7th/nvim-cmp" } },
-	-- { "L3MON4D3/LuaSnip", dependencies = { "hrsh7th/nvim-cmp" } },
-	-- { "saadparwaiz1/cmp_luasnip", dependencies = { "hrsh7th/nvim-cmp" } },
-	-- {
-	-- 	"tzachar/cmp-tabnine",
-	-- 	build = "./install.sh",
-	-- 	dependencies = "hrsh7th/nvim-cmp",
-	-- },
-	-- { "rafamadriz/friendly-snippets", dependencies = { "hrsh7th/nvim-cmp" } },
 	-- {
 	-- 	"github/copilot.vim",
 	-- 	lazy = true,
