@@ -230,8 +230,19 @@ return {
 		end,
 	},
 	-- [end] telescope.nvim
-	-- --------------------------------
+	-- -----------	--------------------------------
 
+---------------------
+	-- LSP's UI
+	{
+		"nvimdev/lspsaga.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("rc/pluginconfig/lspsaga")
+		end,
+	},
+	-- [end] LSP's UI
+---------------------
 
 	-- --------------------------------
 	-- -- [begin] util
