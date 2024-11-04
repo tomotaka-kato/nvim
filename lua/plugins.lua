@@ -49,7 +49,9 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-      require("rc/pluginconfig/tokyonight")
+			if vim.fn.has("mac") == 1 then
+			  require("rc/pluginconfig/tokyonight")
+			end
 		end,
 	},
 	--------------------------------
