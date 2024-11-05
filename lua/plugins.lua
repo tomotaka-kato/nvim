@@ -187,7 +187,7 @@ return {
         event = { "VimEnter" },
         config = function()
             ---@diagnostic disable-next-line: different-requires
-            require("rc.pluginconfig.telescope")
+            require("rc/pluginconfig/telescope")
         end,
         dependencies = {
             {
