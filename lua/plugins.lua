@@ -33,6 +33,9 @@ return {
         "stevearc/dressing.nvim",
         event = "VeryLazy",
         config = function()
+            if isVscode() then
+                return
+            end
             require("rc/pluginconfig/dressing")
         end,
     },
@@ -44,6 +47,9 @@ return {
         "rcarriga/nvim-notify",
         event = "VeryLazy",
         config = function()
+            if isVscode() then
+                return
+            end
             require("rc/pluginconfig/nvim-notify")
         end,
     }, -- Notify
@@ -57,9 +63,10 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            if vim.fn.has("mac") == 1 then
-                require("rc/pluginconfig/tokyonight")
+            if isVscode() then
+                return
             end
+            require("rc/pluginconfig/tokyonight")
         end,
     },
     --------------------------------
@@ -131,6 +138,9 @@ return {
         "neovim/nvim-lspconfig",
         event = "VimEnter",
         config = function()
+            if isVscode() then
+                return
+            end
             require("rc/pluginconfig/nvim-lspconfig")
         end,
     },
@@ -164,6 +174,9 @@ return {
         event = "VimEnter",
         build = "make install_jsregexp",
         config = function()
+            if isVscode() then
+                return
+            end
             require("rc/pluginconfig/LuaSnip")
         end,
     },
@@ -171,6 +184,9 @@ return {
         "benfowler/telescope-luasnip.nvim",
         event = "VimEnter",
         config = function()
+            if isVscode() then
+                return
+            end
             require("telescope").load_extension("luasnip")
         end,
     },
@@ -186,6 +202,9 @@ return {
         "nvim-telescope/telescope.nvim",
         event = { "VimEnter" },
         config = function()
+            if isVscode() then
+                return
+            end
             ---@diagnostic disable-next-line: different-requires
             require("rc/pluginconfig/telescope")
         end,
@@ -236,6 +255,9 @@ return {
         "nvim-telescope/telescope-frecency.nvim",
         event = "VeryLazy",
         config = function()
+            if isVscode() then
+                return
+            end
             require("telescope").load_extension("frecency")
         end,
     },
@@ -243,6 +265,9 @@ return {
         "crispgm/telescope-heading.nvim",
         event = "VeryLazy",
         config = function()
+            if isVscode() then
+                return
+            end
             require("telescope").load_extension("heading")
         end,
     },
@@ -255,12 +280,16 @@ return {
         "nvimdev/lspsaga.nvim",
         event = "VeryLazy",
         config = function()
+            if isVscode() then
+                return
+            end
             require("rc/pluginconfig/lspsaga")
         end,
     },
     -- [end] LSP's UI
     ---------------------
 
+    -- TODO: ここから再開
     -- --------------------------------
     -- -- [begin] util
     -- { "petertriho/nvim-scrollbar", lazy = false, config = true },
