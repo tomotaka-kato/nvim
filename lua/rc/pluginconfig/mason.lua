@@ -1,6 +1,3 @@
-if vim.fn.exists('g:vscode') then
-	return
-end
 require("mason").setup({})
 
 vim.api.nvim_create_user_command("MasonUpgrade", function()

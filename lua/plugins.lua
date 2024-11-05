@@ -1,3 +1,7 @@
+local function isVscode()
+    return vim.fn.exists('g:vscode') == 1
+end
+
 return {
     --------------------------------
     -- External package Installer
@@ -6,6 +10,9 @@ return {
         event = { "VeryLazy" },
         build = ":MasonUpdate",
         config = function()
+            if isVscode() then
+                return
+            end
             require("rc/pluginconfig/mason")
         end,
     },
@@ -84,6 +91,9 @@ return {
         "hrsh7th/nvim-cmp",
         event = "VimEnter",
         config = function()
+            if isVscode() then
+                return
+            end
             require("rc/pluginconfig/nvim-cmp")
         end,
         dependencies = {
@@ -128,6 +138,9 @@ return {
         "williamboman/mason-lspconfig.nvim",
         event = "VimEnter",
         config = function()
+            if isVscode() then
+                return
+            end
             require("rc/pluginconfig/mason-lspconfig")
         end,
         dependencies = {
@@ -173,7 +186,8 @@ return {
         "nvim-telescope/telescope.nvim",
         event = { "VimEnter" },
         config = function()
-            require("rc/pluginconfig/telescope")
+            ---@diagnostic disable-next-line: different-requires
+            require("rc.pluginconfig.telescope")
         end,
         dependencies = {
             {
@@ -361,34 +375,35 @@ return {
     -- -- ハイライト
     -- { "norcalli/nvim-colorizer.lua", lazy = true }, -- cssなどのカラーコードに色を付ける
     -- { -- インデントのガイドを表示
-    -- 	"lukas-reineke/indent-blankline.nvim",
-    -- 	main = "ibl",
-    -- 	config = function()
-    -- 		local highlight = {
-    -- 			"RainbowRed",
-    -- 			"RainbowYellow",
-    -- 			"RainbowBlue",
-    -- 			"RainbowOrange",
-    -- 			"RainbowGreen",
-    -- 			"RainbowViolet",
-    -- 			"RainbowCyan",
-    -- 		}
-    --
-    -- 		local hooks = require("ibl.hooks")
-    -- 		-- create the highlight groups in the highlight setup hook, so they are reset
-    -- 		-- every time the colorscheme changes
-    -- 		hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-    -- 			vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-    -- 			vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-    -- 			vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-    -- 			vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-    -- 			vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-    -- 			vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-    -- 			vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
-    -- 		end)
-    --
-    -- 		require("ibl").setup({ indent = { highlight = highlight } })
-    -- 	end,
+    -- vscodeだと色が滑らかにつながらないので使わない。
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     main = "ibl",
+    --     config = function()
+    --         local highlight = {
+    --             "RainbowRed",
+    --             "RainbowYellow",
+    --             "RainbowBlue",
+    --             "RainbowOrange",
+    --             "RainbowGreen",
+    --             "RainbowViolet",
+    --             "RainbowCyan",
+    --         }
+
+    --         local hooks = require("ibl.hooks")
+    --         -- create the highlight groups in the highlight setup hook, so they are reset
+    --         -- every time the colorscheme changes
+    --         hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    --             vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+    --             vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+    --             vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+    --             vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+    --             vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+    --             vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+    --             vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+    --         end)
+
+    --         require("ibl").setup({ indent = { highlight = highlight } })
+    --     end,
     -- },
     -- {
     -- 	"rcarriga/nvim-notify",
