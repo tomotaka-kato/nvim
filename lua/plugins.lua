@@ -1,14 +1,14 @@
 return {
 	--------------------------------
 	-- External package Installer
-  {
-    "williamboman/mason.nvim",
-    event = { "VeryLazy" },
-    build = ":MasonUpdate",
-    config = function()
-      require("rc/pluginconfig/mason")
-    end,
-  },
+	{
+		"williamboman/mason.nvim",
+		event = { "VeryLazy" },
+		build = ":MasonUpdate",
+		config = function()
+			require("rc/pluginconfig/mason")
+		end,
+	},
 	-- [end] library
 	--------------------------------
 
@@ -39,47 +39,48 @@ return {
 		config = function()
 			require("rc/pluginconfig/nvim-notify")
 		end,
-	},	-- Notify
+	}, -- Notify
 	--------------------------------
 
 	--------------------------------
-  -- ColorScheme
+
+	-- ColorScheme
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
 			if vim.fn.has("mac") == 1 then
-			  require("rc/pluginconfig/tokyonight")
+				require("rc/pluginconfig/tokyonight")
 			end
 		end,
 	},
 	--------------------------------
 
 	--------------------------------
-  -- Font
-  {
-    "kyazdani42/nvim-web-devicons",
-    enabled = function()
-      return not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == "false"
-    end,
-  },
-  {
-    "delphinus/cellwidths.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("cellwidths").setup({
-        name = "cica",
-      })
-    end,
-  },
+	-- Font
+	{
+		"kyazdani42/nvim-web-devicons",
+		enabled = function()
+			return not os.getenv("DISABLE_DEVICONS") or os.getenv("DISABLE_DEVICONS") == "false"
+		end,
+	},
+	{
+		"delphinus/cellwidths.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("cellwidths").setup({
+				name = "cica",
+			})
+		end,
+	},
 	--------------------------------
 
-  --------------------------------------------------------------
-  -- LSP & completion
-  --------------------------------
-  -- Auto Completion
-  	{
+	--------------------------------------------------------------
+	-- LSP & completion
+	--------------------------------
+	-- Auto Completion
+	{
 		"hrsh7th/nvim-cmp",
 		event = "VimEnter",
 		config = function()
@@ -90,7 +91,7 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
-      { "hrsh7th/cmp-cmdline" },
+			{ "hrsh7th/cmp-cmdline" },
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "hrsh7th/cmp-emoji" },
 			{ "hrsh7th/cmp-calc" },
@@ -113,9 +114,9 @@ return {
 		},
 	},
 
-  -- Auto Completion
-  --------------------------------
-  	-- Language Server Protocol(LSP)
+	-- Auto Completion
+	--------------------------------
+	-- Language Server Protocol(LSP)
 	{
 		"neovim/nvim-lspconfig",
 		event = "VimEnter",
@@ -139,11 +140,11 @@ return {
 			{ "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
 		},
 	},
-  	-- [end] Language Server Protocol(LSP)
-  --------------------------------
-  --------------------------------------------------------------
+	-- [end] Language Server Protocol(LSP)
+	--------------------------------
+	--------------------------------------------------------------
 
-  	----------------------------------
+	----------------------------------
 	---- Snippet
 	{
 		"L3MON4D3/LuaSnip",
@@ -163,7 +164,7 @@ return {
 
 	--------------------------------
 
-  --------------------------------------------------------------
+	--------------------------------------------------------------
 	-- FuzzyFinders
 
 	--------------------------------
@@ -234,7 +235,7 @@ return {
 	-- [end] telescope.nvim
 	-- -----------	--------------------------------
 
----------------------
+	---------------------
 	-- LSP's UI
 	{
 		"nvimdev/lspsaga.nvim",
@@ -244,7 +245,7 @@ return {
 		end,
 	},
 	-- [end] LSP's UI
----------------------
+	---------------------
 
 	-- --------------------------------
 	-- -- [begin] util
@@ -481,10 +482,10 @@ return {
 	-- 		})
 	-- 		vim.g.copilot_no_tab_map = true
 	-- 		vim.cmd([[
- --        let g:copilot_filetypes = {
- --          \ '*': v:true
- --        \}
- --      ]])
+	--        let g:copilot_filetypes = {
+	--          \ '*': v:true
+	--        \}
+	--      ]])
 	-- 	end,
 	-- },
 	-- {
