@@ -290,9 +290,18 @@ return {
     ---------------------
 
     -- TODO: ここから再開
-    -- --------------------------------
-    -- -- [begin] util
-    -- { "petertriho/nvim-scrollbar", lazy = false, config = true },
+    --------------------------------
+    -- [begin] util
+    {
+        "petertriho/nvim-scrollbar",
+        lazy = false,
+        config = function()
+            if isVscode() then
+                return
+            end
+            require('scrollbar').setup()
+        end,
+    },
     -- { "nvim-tree/nvim-tree.lua", lazy = true },
     -- {
     -- 	"antosha417/nvim-lsp-file-operations",
