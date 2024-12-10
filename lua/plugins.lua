@@ -528,40 +528,46 @@ return {
     -- -- },
     -- -- [end] LSP
     -- -- [begin] 補完
-    -- {
-    -- 	"github/copilot.vim",
-    -- 	lazy = true,
-    -- 	event = "InsertEnter",
-    -- 	config = function()
-    -- 		vim.keymap.set("i", "<C-e>", 'copilot#Accept("\\<CR>")', {
-    -- 			expr = true,
-    -- 			replace_keycodes = false,
-    -- 		})
-    -- 		vim.keymap.set("i", "<C-Space>", "copilot#Trigger()", {
-    -- 			expr = true,
-    -- 			replace_keycodes = false,
-    -- 		})
-    -- 		vim.g.copilot_no_tab_map = true
-    -- 		vim.cmd([[
-    --        let g:copilot_filetypes = {
-    --          \ '*': v:true
-    --        \}
-    --      ]])
-    -- 	end,
-    -- },
-    -- {
-    -- 	"CopilotC-Nvim/CopilotChat.nvim",
-    -- 	branch = "canary",
-    -- 	build = "make tiktoken",
-    -- 	opt = {
-    -- 		debug = true,
-    -- 	},
-    -- 	dependencies = {
-    -- 		{ "github/copilot.vim" },
-    -- 		{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    -- 	},
-    -- 	-- See Commands section for default commands if you want to lazy load on them
-    -- },
+    {
+    	"github/copilot.vim",
+    	lazy = true,
+    	event = "InsertEnter",
+    	config = function()
+    		vim.keymap.set("i", "<C-e>", 'copilot#Accept("\\<CR>")', {
+    			expr = true,
+    			replace_keycodes = false,
+    		})
+    		vim.keymap.set("i", "<C-Space>", "copilot#Trigger()", {
+    			expr = true,
+    			replace_keycodes = false,
+    		})
+    		vim.g.copilot_no_tab_map = true
+    		vim.cmd([[
+           let g:copilot_filetypes = {
+             \ '*': v:true
+           \}
+         ]])
+    	end,
+    },
+    { --NOTE: とりあえず使いたかったのでコメントを外した。時間がある時に設定の見直し
+    	"CopilotC-Nvim/CopilotChat.nvim",
+    	branch = "canary",
+    	build = "make tiktoken",
+    	opt = {
+    		debug = true,
+    	},
+    	dependencies = {
+    		{ "github/copilot.vim" },
+    		{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    	},
+      config = function()
+          if isVscode() then
+              return
+          end
+          require("rc/pluginconfig/copilotChat")
+      end,
+    	-- See Commands section for default commands if you want to lazy load on them
+    },
     -- { "windwp/nvim-autopairs", event = "InsertEnter" },
     -- { "windwp/nvim-ts-autotag", event = "InsertEnter" },
     -- -- [end] 補完
