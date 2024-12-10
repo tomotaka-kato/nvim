@@ -551,7 +551,7 @@ return {
     },
     { --NOTE: とりあえず使いたかったのでコメントを外した。時間がある時に設定の見直し
     	"CopilotC-Nvim/CopilotChat.nvim",
-    	branch = "canary",
+    	branch = "main",
     	build = "make tiktoken",
     	opt = {
     		debug = true,

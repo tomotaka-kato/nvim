@@ -68,7 +68,7 @@ chat.setup({
 		show_system_prompt = {
 			normal = "gp",
 		},
-		show_user_selection = {
+		show_context = {
 			normal = "gs",
 		},
 	},
