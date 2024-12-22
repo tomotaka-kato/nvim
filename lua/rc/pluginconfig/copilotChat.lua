@@ -13,7 +13,7 @@ chat.setup({
 	allow_insecure = false, -- Allow insecure server connections
 
 	system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use
-	model = "o1-preview",
+	model = "o1",
 	temperature = 0.1, -- GPT temperature
 
 	question_header = "## User ", -- Header to use for user questions
