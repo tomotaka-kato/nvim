@@ -4,6 +4,9 @@ if not status then
 	return
 end
 
+-- TODO: プラグインの使用が結構変わって要るっぽいので修正を行う。
+-- とくにプロンプトのところが変わっている。selectionとかじゃなくて "> xxxxx" みたいな感じで指定するように変わっている?
+
 local prompts = require("CopilotChat.prompts")
 local select = require("CopilotChat.select")
 
