@@ -313,6 +313,9 @@ return {
     {
       "nvim-tree/nvim-tree.lua",
       lazy = false,
+      dependencies = {
+        "b0o/nvim-tree-preview.lua",
+      },
       config = function()
           if isVscode() then
               return
@@ -320,22 +323,20 @@ return {
           require("rc/pluginconfig/nvim-tree")
       end,
     },
-    -- {
-    -- 	"antosha417/nvim-lsp-file-operations",
-    -- 	dependencies = {
-    -- 		"nvim-lua/plenary.nvim",
-    -- 		"nvim-tree/nvim-tree.lua",
-    -- 	},
-    -- 	config = function()
-    -- 		require("lsp-file-operations").setup()
-    -- 	end,
-    -- },
-    -- {
-    -- 	"kyazdani42/nvim-tree.lua",
-    -- 	dependencies = {
-    -- 		"b0o/nvim-tree-preview.lua",
-    -- 	},
-    -- },
+    {
+      -- nvim-treeなどでファイル名を変更したときにimport文も変更してくれる
+      "antosha417/nvim-lsp-file-operations",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-tree.lua",
+      },
+      config = function()
+        if isVscode() then
+            return
+        end
+        require("lsp-file-operations").setup()
+      end,
+    },
     -- {
     -- 	"folke/todo-comments.nvim",
     -- 	dependencies = { "nvim-lua/plenary.nvim" },
