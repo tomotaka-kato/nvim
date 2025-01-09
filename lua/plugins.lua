@@ -289,7 +289,6 @@ return {
     -- [end] LSP's UI
     ---------------------
 
-    -- TODO: ここから再開
     ---------------------
     -- Treesitter
 
@@ -337,23 +336,32 @@ return {
         require("lsp-file-operations").setup()
       end,
     },
-    -- {
-    -- 	"folke/todo-comments.nvim",
-    -- 	dependencies = { "nvim-lua/plenary.nvim" },
-    -- 	lazy = false,
-    -- 	config = true,
-    -- },
+    {
+    	"folke/todo-comments.nvim",
+    	dependencies = { "nvim-lua/plenary.nvim" },
+    	lazy = false,
+    	config = true,
+    },
     -- -- ファイルタイプで絞ってもいいかもしれない
-    -- { "editorconfig/editorconfig-vim", lazy = false },
-    -- {
-    -- 	"folke/which-key.nvim",
-    -- 	config = function()
-    -- 		vim.o.timeout = true
-    -- 		vim.o.timeoutlen = 300
-    -- 		require("which-key").setup({})
-    -- 	end,
-    -- },
-    -- { "anuvyklack/hydra.nvim", lazy = true },
+    { "editorconfig/editorconfig-vim", lazy = false },
+    {
+    	"folke/which-key.nvim",
+    	config = function()
+    		vim.o.timeout = true
+    		vim.o.timeoutlen = 300
+    		require("which-key").setup({})
+    	end,
+    },
+    {
+      "anuvyklack/hydra.nvim",
+      lazy = false,
+      config = function()
+        if isVscode() then
+            return
+        end
+        require("rc/pluginconfig/hydra")
+      end,
+    },
     -- { "uga-rosa/ccc.nvim", lazy = true, cmd = "CccPick", config = true }, -- :CccPickでカラーピッカーが表示される
     -- -- 置換を便利に行えるやつ
     -- { "nvim-pack/nvim-spectre", lazy = true },
@@ -581,8 +589,8 @@ return {
       end,
     	-- See Commands section for default commands if you want to lazy load on them
     },
-    -- { "windwp/nvim-autopairs", event = "InsertEnter" },
-    -- { "windwp/nvim-ts-autotag", event = "InsertEnter" },
+    { "windwp/nvim-autopairs", lazy = true, event = "InsertEnter", config = true },
+    { "windwp/nvim-ts-autotag", lazy = true, event = "InsertEnter", config = true },
     -- -- [end] 補完
     -- -- [begin] ファジーファインダー
     -- -- [end] ファジーファインダー

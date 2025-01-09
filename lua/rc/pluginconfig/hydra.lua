@@ -1,9 +1,4 @@
-local status, hydra = pcall(require, 'hydra')
-if not status then
-    print('hydra is not installed.')
-    return
-end
-
+local hydra = require('hydra')
 hydra({
     name = 'window resize',
     mode = 'n',
