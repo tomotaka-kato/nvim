@@ -310,7 +310,16 @@ return {
             require('scrollbar').setup()
         end,
     },
-    -- { "nvim-tree/nvim-tree.lua", lazy = true },
+    {
+      "nvim-tree/nvim-tree.lua",
+      lazy = false,
+      config = function()
+          if isVscode() then
+              return
+          end
+          require("rc/pluginconfig/nvim-tree")
+      end,
+    },
     -- {
     -- 	"antosha417/nvim-lsp-file-operations",
     -- 	dependencies = {
