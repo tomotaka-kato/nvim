@@ -622,11 +622,17 @@ return {
     --
     -- -- [begin] move
     -- { "tomotaka-kato/wb-only-current-line.nvim", lazy = false }, -- b, w, eが行を跨がない
-    -- { -- easy motionのlua版みたいなもの
-    -- 	"phaazon/hop.nvim",
-    -- 	branch = "v2", -- optional but strongly recommended
-    -- 	lazy = true,
-    -- },
+    { -- easy motionのlua版みたいなもの
+      "phaazon/hop.nvim",
+      branch = "v2", -- optional but strongly recommended
+      lazy = false,
+      config = function()
+          if isVscode() then
+              return
+          end
+          require("rc/pluginconfig/hop")
+      end,
+    },
     -- -- [end] move
     -- [begin] git
     {
