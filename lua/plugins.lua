@@ -620,10 +620,19 @@ return {
     -- 	lazy = true,
     -- },
     -- -- [end] move
-    -- -- [begin] git
-    -- { "lewis6991/gitsigns.nvim", lazy = true },
+    -- [begin] git
+    {
+      "lewis6991/gitsigns.nvim",
+      lazy = false,
+      config = function()
+        if isVscode() then
+          return
+        end
+        require("gitsigns").setup()
+      end,
+    },
     -- { "tpope/vim-fugitive", lazy = true, event = "CmdlineEnter" },
-    -- -- [end] git
+    -- [end] git
     -- -- [begin] language
     -- { "kevinhwang91/nvim-bqf", lazy = true, ft = "qf" },
     -- -- vueのシンタックスハイライト
