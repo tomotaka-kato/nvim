@@ -621,7 +621,7 @@ return {
     -- -- [end] text object
     --
     -- -- [begin] move
-    -- { "tomotaka-kato/wb-only-current-line.nvim", lazy = false }, -- b, w, eが行を跨がない
+    { "tomotaka-kato/wb-only-current-line.nvim", lazy = false }, -- b, w, eが行を跨がない
     { -- easy motionのlua版みたいなもの
       "phaazon/hop.nvim",
       branch = "v2", -- optional but strongly recommended
