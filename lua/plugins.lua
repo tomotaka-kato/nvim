@@ -432,16 +432,16 @@ return {
     -- -- [begin] 見た目
     -- { "xiyaowong/transparent.nvim", priority = 1000 },
     -- -- ステータスライン
-    {
-      "nvim-lualine/lualine.nvim",
-      config = function()
-        if isVscode() then
-            return
-        end
-          require("rc/pluginconfig/nvim-tree")
-      end,
-      priority = 1000
-    },
+    -- {
+    --   "nvim-lualine/lualine.nvim",
+    --   config = function()
+    --     if isVscode() then
+    --         return
+    --     end
+    --       require("rc/pluginconfig/nvim-tree")
+    --   end,
+    --   priority = 1000
+    -- },
     -- -- ハイライト
     -- { "norcalli/nvim-colorizer.lua", lazy = true }, -- cssなどのカラーコードに色を付ける
     { -- インデントのガイドを表示
