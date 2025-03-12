@@ -7,7 +7,7 @@ end
 -- TODO: プラグインの使用が結構変わって要るっぽいので修正を行う。
 -- とくにプロンプトのところが変わっている。selectionとかじゃなくて "> xxxxx" みたいな感じで指定するように変わっている?
 
-local prompts = require("CopilotChat.prompts")
+-- local prompts = require("CopilotChat.prompts")
 local select = require("CopilotChat.select")
 
 chat.setup({
@@ -15,7 +15,7 @@ chat.setup({
 	proxy = nil, -- [protocol://]host[:port] Use this proxy
 	allow_insecure = false, -- Allow insecure server connections
 
-	system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use
+	-- system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use
 	model = "claude-3.5-sonnet",
 	temperature = 0.1, -- GPT temperature
 

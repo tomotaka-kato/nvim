@@ -200,6 +200,7 @@ return {
     -- telescope.nvim
     {
         "nvim-telescope/telescope.nvim",
+        tag = "0.1.8",
         event = { "VimEnter" },
         config = function()
             if isVscode() then
@@ -210,45 +211,49 @@ return {
         end,
         dependencies = {
             {
-                "nvim-telescope/telescope-github.nvim",
-                config = function()
-                    require("telescope").load_extension("gh")
-                end,
+              'nvim-lua/plenary.nvim'
             },
-            {
-                "nvim-telescope/telescope-ui-select.nvim",
-                config = function()
-                    require("telescope").load_extension("ui-select")
-                end,
-            },
-            {
-                "LinArcX/telescope-changes.nvim",
-                config = function()
-                    require("telescope").load_extension("changes")
-                end,
-            },
-            {
-                "nvim-telescope/telescope-live-grep-args.nvim",
-                config = function()
-                    require("telescope").load_extension("live_grep_args")
-                end,
-            },
-            {
-                "nvim-telescope/telescope-smart-history.nvim",
-                config = function()
-                    require("telescope").load_extension("smart_history")
-                end,
-                build = function()
-                    os.execute("mkdir -p " .. vim.fn.stdpath("state") .. "databases/")
-                end,
-            },
-            { "nvim-telescope/telescope-symbols.nvim" },
-            {
-                "debugloop/telescope-undo.nvim",
-                config = function()
-                    require("telescope").load_extension("undo")
-                end,
-            },
+            -- TODO: 依存関係のせいでsqliteエラーが出るのでコメントアウトしてる。どれが悪さしてるのかとか調査する
+            -- {
+            --     "nvim-telescope/telescope-github.nvim",
+            --     config = function()
+            --         require("telescope").load_extension("gh")
+            --     end,
+            -- },
+            -- {
+            --     "nvim-telescope/telescope-ui-select.nvim",
+            --     config = function()
+            --         require("telescope").load_extension("ui-select")
+            --     end,
+            -- },
+            -- {
+            --     "LinArcX/telescope-changes.nvim",
+            --     config = function()
+            --         require("telescope").load_extension("changes")
+            --     end,
+            -- },
+            -- {
+            --     "nvim-telescope/telescope-live-grep-args.nvim",
+            --     config = function()
+            --         require("telescope").load_extension("live_grep_args")
+            --     end,
+            -- },
+            -- {
+            --     "nvim-telescope/telescope-smart-history.nvim",
+            --     config = function()
+            --         require("telescope").load_extension("smart_history")
+            --     end,
+            --     build = function()
+            --         os.execute("mkdir -p " .. vim.fn.stdpath("state") .. "databases/")
+            --     end,
+            -- },
+            -- { "nvim-telescope/telescope-symbols.nvim" },
+            -- {
+            --     "debugloop/telescope-undo.nvim",
+            --     config = function()
+            --         require("telescope").load_extension("undo")
+            --     end,
+            -- },
         },
     },
     {
@@ -600,9 +605,9 @@ return {
     -- -- [end] 補完
     -- -- [begin] ファジーファインダー
     -- -- [end] ファジーファインダー
-    -- -- [begin] treesitter
-    -- { "nvim-treesitter/nvim-treesitter", lazy = true, build = ":TSUpdate" },
-    -- { "yioneko/nvim-yati", dependencies = { "nvim-treesitter/nvim-treesitter" } }, -- インデントをいい感じに
+    -- [begin] treesitter
+    { "nvim-treesitter/nvim-treesitter", lazy = true, build = ":TSUpdate" },
+    { "yioneko/nvim-yati", dependencies = { "nvim-treesitter/nvim-treesitter" } }, -- インデントをいい感じに
     -- { "numToStr/Comment.nvim", config = true }, -- 下記プラグインへコマンドだけ提供する
     -- {
     -- 	-- gccでコメントアウト
