@@ -16,7 +16,7 @@ chat.setup({
 	allow_insecure = false, -- Allow insecure server connections
 
 	-- system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use
-	model = "claude-3.5-sonnet",
+	-- model = "claude-3.5-sonnet",
 	temperature = 0.1, -- GPT temperature
 
 	question_header = "## User ", -- Header to use for user questions
@@ -89,7 +89,7 @@ chat.setup({
 			prompt = "/COPILOT_GENERATE Please generate tests for my code.",
 		},
 		DocCommentJa = {
-			prompt = "/COPILOT_GENERATE ドキュメントコメントを日本語で記載してください。すでに記載されている場合、もしも実装と乖離があれば修正してください。文体はですます調ではなく「だ、である」のような感じにして下さい。また返却するコードについてはコピーペーストがしやすいように行番号がない状態でお願いします。",
+			prompt = "/COPILOT_GENERATE ドキュメントコメントを日本語で記載してください。すでに記載されている場合、もしも実装と乖離があれば修正してください。文体はですます調ではなく「だ、である」のような感じにして下さい。また返却するコードについてはコピーペーストがしやすいように行番号がない状態でお願いします。関数全体は不要なので、関数の説明文だけで大丈夫です。",
 		},
 		FixDiagnostic = {
 			prompt = "Please assist with the following diagnostic issue in file:",
