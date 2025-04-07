@@ -606,7 +606,17 @@ return {
     -- -- [begin] ファジーファインダー
     -- -- [end] ファジーファインダー
     -- [begin] treesitter
-    { "nvim-treesitter/nvim-treesitter", lazy = true, build = ":TSUpdate" },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      lazy = true,
+      build = ":TSUpdate",
+      config = function()
+          if isVscode() then
+              return
+          end
+          require("rc/pluginconfig/tree-sitter")
+      end,
+    },
     { "yioneko/nvim-yati", dependencies = { "nvim-treesitter/nvim-treesitter" } }, -- インデントをいい感じに
     -- { "numToStr/Comment.nvim", config = true }, -- 下記プラグインへコマンドだけ提供する
     -- {
