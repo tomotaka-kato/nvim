@@ -32,6 +32,7 @@ keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>", noramap)
 keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", noramap)
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", noramap)
 keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", noramap)
+keymap.set("n", "<leader>rf<CR>", "<cmd>Telescope lsp_refactors<CR>", noramap)
 
 -- LuaSnip
 -- インサートモードの時にTabで次の個所にジャンプする。nvimの記載方法でうまく書けなかった。。。
