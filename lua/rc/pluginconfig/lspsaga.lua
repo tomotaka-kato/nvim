@@ -45,3 +45,11 @@ vim.keymap.set("n", "<C-]>", "<cmd>lua vim.lsp.buf.implementation()<CR>", { sile
 -- vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true, noremap = true })
 -- vim.keymap.set("n", "[_Lsp]I", "<cmd>Lspsaga incoming_calls<CR>", { silent = true, noremap = true })
 -- vim.keymap.set("n", "[_Lsp]O", "<cmd>Lspsaga outgoing_calls<CR>", { silent = true, noremap = true })
+
+
+-- [begin] diagnosticをhoverで表示する
+vim.api.nvim_set_option("updatetime", 300)
+vim.api.nvim_create_autocmd("CursorHold", {
+	pattern = "*",
+	command = "Lspsaga show_cursor_diagnostics ++unfocus",
+})
