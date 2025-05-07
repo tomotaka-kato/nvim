@@ -120,21 +120,23 @@ end
 
 
 
-require("mason-lspconfig").setup_handlers({
-	function(server_name)
-		if server_name == "emmet" then
-			setup_emmet()
-		elseif server_name == "html" then
-			setup_html()
-		elseif server_name == "lua_ls" then
-			setup_lua_ls()
-		elseif server_name == "omnisharp" then
-			setup_omnisharp()
-		else
-			lspconfig[server_name].setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-		end
-	end,
-})
+-- TODO: 時間のある時に見直す（必要かも含めて
+-- エラーになるようになってしまったのでコメントアウト
+-- require("mason-lspconfig").setup_handlers({
+-- 	function(server_name)
+-- 		if server_name == "emmet" then
+-- 			setup_emmet()
+-- 		elseif server_name == "html" then
+-- 			setup_html()
+-- 		elseif server_name == "lua_ls" then
+-- 			setup_lua_ls()
+-- 		elseif server_name == "omnisharp" then
+-- 			setup_omnisharp()
+-- 		else
+-- 			lspconfig[server_name].setup({
+-- 				on_attach = on_attach,
+-- 				capabilities = capabilities,
+-- 			})
+-- 		end
+-- 	end,
+-- })
