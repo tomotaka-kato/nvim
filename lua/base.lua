@@ -16,7 +16,7 @@ vim.o.swapfile = false
 -- エンコード
 vim.scriptencodeing = "utf-8"
 vim.o.encoding = "utf-8"
-vim.o.fileencoding = "utf-8"
+vim.o.fileencoding = "utf-8,cp932"
 vim.o.fileformat = "unix"
 
 -- 表示
