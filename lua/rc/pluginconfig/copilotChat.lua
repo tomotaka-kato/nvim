@@ -123,12 +123,6 @@ function CopilotChatQuich()
 	require("CopilotChat").open({ selection = require("CopilotChat.select").visual })
 end
 
--- telescope を使ってアクションプロンプトを表示する
-function ShowCopilotChatActionPrompt()
-	local actions = require("CopilotChat.actions")
-	require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-end
-
 -- キーマッピング
 -- <C-c> で CopilotChat を開く
 vim.api.nvim_set_keymap("n", "<C-c>", "<cmd>lua CopilotChatQuich()<cr>", { noremap = true, silent = true })
@@ -137,7 +131,7 @@ vim.api.nvim_set_keymap("v", "<C-c>", "<Esc><cmd>lua CopilotChatQuich()<cr>", { 
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader><C-p>",
-	"<cmd>lua ShowCopilotChatActionPrompt()<cr>",
+	"<cmd>CopilotChatPrompts<cr>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
