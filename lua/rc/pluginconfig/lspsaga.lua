@@ -30,8 +30,8 @@ vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { silent = true, noremap 
 -- vim.keymap.set("n", "[_Lsp]d", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
 -- vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true, noremap = true })
 -- vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
--- interfaceよりも実装に飛びたいことが多いのでimplementationになるようにしている。
-vim.keymap.set("n", "<C-]>", "<cmd>lua vim.lsp.buf.implementation()<CR>", { silent = true, noremap = true })
+-- vim.keymap.set("n", "<C-]>", "<cmd>lua vim.lsp.buf.implementation()<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<C-]>", "<cmd>Lspsaga goto_definition<CR>")
 -- vim.keymap.set("n", "[_Lsp]l", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true, noremap = true })
 -- vim.keymap.set("n", "[_Lsp]c", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true, noremap = true })
 -- vim.keymap.set("n", "[_Lsp]b", "<cmd>Lspsaga show_buf_diagnostics<CR>", { silent = true, noremap = true })
