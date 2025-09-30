@@ -509,11 +509,11 @@ return {
     -- 		"nvim-treesitter/nvim-treesitter",
     -- 	},
     -- },
-    -- {
-    -- 	-- LSPのプログレスUI
-    -- 	"j-hui/fidget.nvim",
-    -- 	tag = "legacy",
-    -- },
+    {
+    	-- LSPのプログレスUI
+    	"j-hui/fidget.nvim",
+    	tag = "legacy",
+    },
     -- {
     -- 	"nvimtools/none-ls.nvim",
     -- 	dependencies = {
