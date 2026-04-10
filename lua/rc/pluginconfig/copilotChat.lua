@@ -16,7 +16,7 @@ chat.setup({
 	allow_insecure = false, -- Allow insecure server connections
 
 	-- system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use
-	model = "claude-3.7-sonnet-thought",
+	model = "Copilot",
 	temperature = 0.1, -- GPT temperature
 
 	question_header = "## User ", -- Header to use for user questions
