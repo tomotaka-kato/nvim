@@ -644,8 +644,7 @@ return {
     -- -- [begin] move
     { "tomotaka-kato/wb-only-current-line.nvim", lazy = false }, -- b, w, eが行を跨がない
     { -- easy motionのlua版みたいなもの
-      "phaazon/hop.nvim",
-      branch = "v2", -- optional but strongly recommended
+      "smoka7/hop.nvim", -- optional but strongly recommended
       lazy = false,
       config = function()
           if isVscode() then
