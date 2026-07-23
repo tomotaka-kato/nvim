@@ -1,64 +1,70 @@
-local status, ts = pcall(require, "nvim-treesitter.configs")
-if not status then
+local ok, ts = pcall(require, "nvim-treesitter")
+if not ok then
 	print("nvim-treesitter is not installed.")
 	return
 end
 
+local ensure_installed = { "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" }
+
 -- markdownでcsharpと記載されている場合にもc_sharpのparserを使うようにする
-vim.treesitter.language.register('c_sharp', 'csharp')
-ts.setup({
-	-- A list of parser names, or "all"
-	-- markdownとmarkdown_inlineはdocの表示とかに使ってるっぽい
-	ensure_installed = { "lua", "markdown", "markdown_inline" },
+vim.treesitter.language.register("c_sharp", "csharp")
 
-	-- Install parsers synchronously (only applied to `ensure_installed`)
-	sync_install = false,
+if ts.setup then
+	ts.setup({
+		install_dir = vim.fn.stdpath("data") .. "/site",
+	})
 
-	-- Automatically install missing parsers when entering buffer
-	auto_install = false,
+	ts.install(ensure_installed)
 
-	-- List of parsers to ignore installing (for "all")
-	ignore_install = { "all" },
+	local group = vim.api.nvim_create_augroup("vimrc_treesitter_start", { clear = true })
+	vim.api.nvim_create_autocmd("FileType", {
+		group = group,
+		pattern = "*",
+		callback = function(args)
+			pcall(vim.treesitter.start, args.buf)
+		end,
+	})
 
-	highlight = {
-		-- `false` will disable the whole extension
-		enable = true,
+	vim.api.nvim_create_autocmd("FileType", {
+		group = group,
+		pattern = { "c", "cpp", "css", "go", "javascript", "lua", "python", "rust", "typescript", "typescriptreact" },
+		callback = function()
+			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		end,
+	})
+else
+	local status, configs = pcall(require, "nvim-treesitter.configs")
+	if not status then
+		return
+	end
 
-		-- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-		-- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-		-- the name of the parser)
-		-- list of language that will be disabled
-		-- disable = {'vue', 'typescriptreact'}, -- vueはtree-sitterでのハイライトがうまく効かないのでOFFにする
-
-		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-		-- Using this option may slow down your editor, and you may see some duplicate highlights.
-		-- Instead of true it can also be a list of languages
-		additional_vim_regex_highlighting = false,
-	},
-	yati = {
-		enable = true,
-		-- disable = { 'vue' } -- treesitterのindentがイケてないやつはOFFにする
-	},
-	textobjects = {
-		select = {
+	configs.setup({
+		ensure_installed = ensure_installed,
+		sync_install = false,
+		auto_install = false,
+		highlight = {
 			enable = true,
-
-			-- Automatically jump forward to textobj, similar to targets.vim
-			lookahead = true,
-
-			keymaps = {
-				-- You can use the capture groups defined in textobjects.scm
-				["af"] = "@function.outer",
-				["if"] = "@function.inner",
-				["ac"] = "@class.outer",
-				["ic"] = "@class.inner",
-				["iB"] = "@block.inner",
-				["aB"] = "@block.outer",
+			additional_vim_regex_highlighting = false,
+		},
+		indent = {
+			enable = true,
+		},
+		textobjects = {
+			select = {
+				enable = true,
+				lookahead = true,
+				keymaps = {
+					["af"] = "@function.outer",
+					["if"] = "@function.inner",
+					["ac"] = "@class.outer",
+					["ic"] = "@class.inner",
+					["iB"] = "@block.inner",
+					["aB"] = "@block.outer",
+				},
 			},
 		},
-	},
-})
+	})
+end
 
 vim.api.nvim_set_keymap("x", "iu", ':lua require"treesitter-unit".select()<CR>', { noremap = true })
 vim.api.nvim_set_keymap("x", "au", ':lua require"treesitter-unit".select(true)<CR>', { noremap = true })

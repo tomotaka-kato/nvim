@@ -608,7 +608,8 @@ return {
     -- [begin] treesitter
     {
       "nvim-treesitter/nvim-treesitter",
-      lazy = true,
+      branch = "main",
+      lazy = false,
       build = ":TSUpdate",
       config = function()
           if isVscode() then
@@ -617,7 +618,6 @@ return {
           require("rc/pluginconfig/tree-sitter")
       end,
     },
-    { "yioneko/nvim-yati", dependencies = { "nvim-treesitter/nvim-treesitter" } }, -- インデントをいい感じに
     -- { "numToStr/Comment.nvim", config = true }, -- 下記プラグインへコマンドだけ提供する
     -- {
     -- 	-- gccでコメントアウト
