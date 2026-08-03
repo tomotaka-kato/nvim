@@ -284,8 +284,6 @@ return {
       event = { "BufReadPost", "BufNewFile" },
       config = true,
     },
-    -- -- ファイルタイプで絞ってもいいかもしれない
-    { "editorconfig/editorconfig-vim", lazy = false },
     {
     	"folke/which-key.nvim",
     	config = function()
@@ -586,7 +584,6 @@ return {
     -- 	config = true,
     -- },
     -- { "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } }, -- テキストオブジェクトを追加
-    -- { "David-Kunz/treesitter-unit", dependencies = { "nvim-treesitter/nvim-treesitter" } },
     -- { "gcmt/wildfire.vim" },
     -- -- [end] text object
     --
