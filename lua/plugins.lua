@@ -1,18 +1,11 @@
-local function isVscode()
-    return vim.fn.exists('g:vscode') == 1
-end
-
 return {
     --------------------------------
     -- External package Installer
     {
         "williamboman/mason.nvim",
-        event = { "VeryLazy" },
+        cmd = "Mason",
         build = ":MasonUpdate",
         config = function()
-            if isVscode() then
-                return
-            end
             require("rc/pluginconfig/mason")
         end,
     },
@@ -33,9 +26,6 @@ return {
         "stevearc/dressing.nvim",
         event = "VeryLazy",
         config = function()
-            if isVscode() then
-                return
-            end
             require("rc/pluginconfig/dressing")
         end,
     },
@@ -47,9 +37,6 @@ return {
         "rcarriga/nvim-notify",
         event = "VeryLazy",
         config = function()
-            if isVscode() then
-                return
-            end
             require("rc/pluginconfig/nvim-notify")
         end,
     }, -- Notify
@@ -63,9 +50,6 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            if isVscode() then
-                return
-            end
             require("rc/pluginconfig/tokyonight")
         end,
     },
@@ -96,11 +80,8 @@ return {
     -- Auto Completion
     {
         "hrsh7th/nvim-cmp",
-        event = "VimEnter",
+        event = "InsertEnter",
         config = function()
-            if isVscode() then
-                return
-            end
             require("rc/pluginconfig/nvim-cmp")
         end,
         dependencies = {
@@ -136,24 +117,19 @@ return {
     -- Language Server Protocol(LSP)
     {
         "neovim/nvim-lspconfig",
-        event = "VimEnter",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
-            if isVscode() then
-                return
-            end
             require("rc/pluginconfig/nvim-lspconfig")
         end,
     },
     {
         "williamboman/mason-lspconfig.nvim",
-        event = "VimEnter",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
-            if isVscode() then
-                return
-            end
             require("rc/pluginconfig/mason-lspconfig")
         end,
         dependencies = {
+            "williamboman/mason.nvim",
             {
                 "folke/neoconf.nvim",
                 config = function()
@@ -171,26 +147,12 @@ return {
     ---- Snippet
     {
         "L3MON4D3/LuaSnip",
-        event = "VimEnter",
+        event = "InsertEnter",
         build = "make install_jsregexp",
         config = function()
-            if isVscode() then
-                return
-            end
             require("rc/pluginconfig/LuaSnip")
         end,
     },
-    {
-        "benfowler/telescope-luasnip.nvim",
-        event = "VimEnter",
-        config = function()
-            if isVscode() then
-                return
-            end
-            require("telescope").load_extension("luasnip")
-        end,
-    },
-
     --------------------------------
 
     --------------------------------------------------------------
@@ -201,18 +163,26 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.8",
-        event = { "VimEnter" },
+        cmd = "Telescope",
+        keys = {
+            { "<C-p>", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+            { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Live grep" },
+            { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Buffers" },
+            { "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics" },
+            { "<leader>rf<CR>", "<cmd>Telescope lsp_refactors<CR>", desc = "LSP refactors" },
+        },
         config = function()
-            if isVscode() then
-                return
-            end
             ---@diagnostic disable-next-line: different-requires
             require("rc/pluginconfig/telescope")
+            require("telescope").load_extension("frecency")
+            require("telescope").load_extension("heading")
+            require("telescope").load_extension("luasnip")
         end,
         dependencies = {
-            {
-              'nvim-lua/plenary.nvim'
-            },
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-frecency.nvim",
+            "crispgm/telescope-heading.nvim",
+            "benfowler/telescope-luasnip.nvim",
             -- TODO: 依存関係のせいでsqliteエラーが出るのでコメントアウトしてる。どれが悪さしてるのかとか調査する
             -- {
             --     "nvim-telescope/telescope-github.nvim",
@@ -256,26 +226,6 @@ return {
             -- },
         },
     },
-    {
-        "nvim-telescope/telescope-frecency.nvim",
-        event = "VeryLazy",
-        config = function()
-            if isVscode() then
-                return
-            end
-            require("telescope").load_extension("frecency")
-        end,
-    },
-    {
-        "crispgm/telescope-heading.nvim",
-        event = "VeryLazy",
-        config = function()
-            if isVscode() then
-                return
-            end
-            require("telescope").load_extension("heading")
-        end,
-    },
     -- [end] telescope.nvim
     -- -----------	--------------------------------
 
@@ -285,9 +235,6 @@ return {
         "nvimdev/lspsaga.nvim",
         event = "VeryLazy",
         config = function()
-            if isVscode() then
-                return
-            end
             require("rc/pluginconfig/lspsaga")
         end,
     },
@@ -306,46 +253,36 @@ return {
     -- [begin] util
     {
         "petertriho/nvim-scrollbar",
-        lazy = false,
+        event = "VeryLazy",
         config = function()
-            if isVscode() then
-                return
-            end
             require('scrollbar').setup()
         end,
     },
     {
       "nvim-tree/nvim-tree.lua",
-      lazy = false,
+      cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile" },
+      keys = {
+        { "<C-e>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file tree" },
+      },
       dependencies = {
         "b0o/nvim-tree-preview.lua",
+        {
+          "antosha417/nvim-lsp-file-operations",
+          dependencies = { "nvim-lua/plenary.nvim" },
+          config = function()
+            require("lsp-file-operations").setup()
+          end,
+        },
       },
       config = function()
-          if isVscode() then
-              return
-          end
           require("rc/pluginconfig/nvim-tree")
       end,
     },
     {
-      -- nvim-treeなどでファイル名を変更したときにimport文も変更してくれる
-      "antosha417/nvim-lsp-file-operations",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-tree.lua",
-      },
-      config = function()
-        if isVscode() then
-            return
-        end
-        require("lsp-file-operations").setup()
-      end,
-    },
-    {
-    	"folke/todo-comments.nvim",
-    	dependencies = { "nvim-lua/plenary.nvim" },
-    	lazy = false,
-    	config = true,
+      "folke/todo-comments.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      event = { "BufReadPost", "BufNewFile" },
+      config = true,
     },
     -- -- ファイルタイプで絞ってもいいかもしれない
     { "editorconfig/editorconfig-vim", lazy = false },
@@ -359,11 +296,8 @@ return {
     },
     {
       "anuvyklack/hydra.nvim",
-      lazy = false,
+      keys = { "<C-w>" },
       config = function()
-        if isVscode() then
-            return
-        end
         require("rc/pluginconfig/hydra")
       end,
     },
@@ -440,9 +374,6 @@ return {
     {
       "nvim-lualine/lualine.nvim",
       config = function()
-        if isVscode() then
-            return
-        end
           require("rc/pluginconfig/lualine")
       end,
       priority = 1000
@@ -450,13 +381,9 @@ return {
     -- -- ハイライト
     -- { "norcalli/nvim-colorizer.lua", lazy = true }, -- cssなどのカラーコードに色を付ける
     { -- インデントのガイドを表示
-      -- vscodeだと色が滑らかにつながらないので使わない。
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         config = function()
-            if isVscode() then
-                return
-            end
             local highlight = {
                 "RainbowRed",
                 "RainbowYellow",
@@ -585,17 +512,42 @@ return {
     	"CopilotC-Nvim/CopilotChat.nvim",
     	branch = "main",
     	build = "make tiktoken",
+        cmd = {
+          "CopilotChat",
+          "CopilotChatPrompts",
+          "CopilotChatModels",
+          "CopilotChatOpen",
+          "CopilotChatClose",
+          "CopilotChatToggle",
+          "CopilotChatStop",
+          "CopilotChatReset",
+          "CopilotChatSave",
+          "CopilotChatLoad",
+        },
+        keys = {
+          {
+            "<C-c>",
+            function()
+              require("CopilotChat").open({ selection = require("CopilotChat.select").visual })
+            end,
+            mode = { "n", "x" },
+            desc = "Open CopilotChat",
+          },
+          {
+            "<leader><C-p>",
+            "<cmd>CopilotChatPrompts<CR>",
+            mode = { "n", "x" },
+            desc = "CopilotChat prompts",
+          },
+        },
     	opt = {
     		debug = true,
     	},
     	dependencies = {
     		{ "github/copilot.vim" },
     		{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    	},
+        },
       config = function()
-          if isVscode() then
-              return
-          end
           require("rc/pluginconfig/copilotChat")
       end,
     	-- See Commands section for default commands if you want to lazy load on them
@@ -612,9 +564,6 @@ return {
       lazy = false,
       build = ":TSUpdate",
       config = function()
-          if isVscode() then
-              return
-          end
           require("rc/pluginconfig/tree-sitter")
       end,
     },
@@ -645,11 +594,11 @@ return {
     { "tomotaka-kato/wb-only-current-line.nvim", lazy = false }, -- b, w, eが行を跨がない
     { -- easy motionのlua版みたいなもの
       "smoka7/hop.nvim", -- optional but strongly recommended
-      lazy = false,
+      keys = {
+        { "<leader>w", "<cmd>HopWord<CR>", mode = { "n", "x", "o" }, desc = "Hop word" },
+        { "<leader>l", "<cmd>HopLineStart<CR>", mode = { "n", "x", "o" }, desc = "Hop line" },
+      },
       config = function()
-          if isVscode() then
-              return
-          end
           require("rc/pluginconfig/hop")
       end,
     },
@@ -657,11 +606,8 @@ return {
     -- [begin] git
     {
       "lewis6991/gitsigns.nvim",
-      lazy = false,
+      event = { "BufReadPre", "BufNewFile" },
       config = function()
-        if isVscode() then
-          return
-        end
         require("gitsigns").setup()
       end,
     },
