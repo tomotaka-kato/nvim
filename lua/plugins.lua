@@ -68,7 +68,7 @@ return {
         event = "VeryLazy",
         config = function()
             require("cellwidths").setup({
-                name = "cica",
+                name = "default",
             })
         end,
     },
