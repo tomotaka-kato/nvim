@@ -2,12 +2,9 @@ return {
     --------------------------------
     -- External package Installer
     {
-        "williamboman/mason.nvim",
-        cmd = "Mason",
-        build = ":MasonUpdate",
-        config = function()
-            require("rc/pluginconfig/mason")
-        end,
+        "mason-org/mason.nvim",
+        lazy = false,
+        opts = {},
     },
     -- [end] library
     --------------------------------
@@ -123,19 +120,16 @@ return {
         end,
     },
     {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         event = { "BufReadPre", "BufNewFile" },
-        config = function()
-            require("rc/pluginconfig/mason-lspconfig")
-        end,
+        opts = {
+            -- LSPは必要になったタイミングで :LspInstall から追加する
+            ensure_installed = {},
+            automatic_enable = true,
+        },
         dependencies = {
-            "williamboman/mason.nvim",
-            {
-                "folke/neoconf.nvim",
-                config = function()
-                    require("rc/pluginconfig/neoconf")
-                end,
-            },
+            "mason-org/mason.nvim",
+            "neovim/nvim-lspconfig",
             { "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
         },
     },
@@ -422,8 +416,6 @@ return {
     -- -- [end] 見た目
     -- -- [begin] LSP
     -- { "neovim/nvim-lspconfig", lazy = true },
-    -- { "williamboman/mason.nvim", lazy = true },
-    -- { "williamboman/mason-lspconfig.nvim", lazy = true },
     -- { "tamago324/nlsp-settings.nvim", lazy = true }, -- プロジェクト固有のLSP設定をできるようにする
     -- {
     -- 	-- Breadcrumbsはこれが出してる
