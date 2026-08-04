@@ -11,7 +11,6 @@ return {
 
     --------------------------------
     -- [begin] library
-    { "nvim-lua/popup.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "MunifTanjim/nui.nvim" },
     -- [end] library
@@ -130,7 +129,6 @@ return {
         dependencies = {
             "mason-org/mason.nvim",
             "neovim/nvim-lspconfig",
-            { "weilbith/nvim-lsp-smag", after = "nvim-lspconfig" },
         },
     },
     -- [end] Language Server Protocol(LSP)
@@ -624,7 +622,7 @@ return {
     -- },
     -- {
     -- 	"akinsho/flutter-tools.nvim",
-    -- 	requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+    -- 	requires = { "nvim-lua/plenary.nvim" },
     -- 	ft = { "dart" },
     -- 	config = true,
     -- },
