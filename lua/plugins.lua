@@ -10,24 +10,6 @@ return {
     --------------------------------
 
     --------------------------------
-    -- [begin] library
-    { "nvim-lua/plenary.nvim" },
-    { "MunifTanjim/nui.nvim" },
-    -- [end] library
-    --------------------------------
-
-    --------------------------------
-    -- UI Library
-    {
-        "stevearc/dressing.nvim",
-        event = "VeryLazy",
-        config = function()
-            require("rc/pluginconfig/dressing")
-        end,
-    },
-    --------------------------------
-
-    --------------------------------
     -- Notify
     {
         "rcarriga/nvim-notify",
