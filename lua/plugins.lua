@@ -382,17 +382,6 @@ return {
             require("ibl").setup({ indent = { highlight = highlight } })
         end,
     },
-    -- {
-    -- 	"rcarriga/nvim-notify",
-    -- 	lazy = true,
-    -- 	config = function()
-    -- 		local _, notify = pcall(require, "notify")
-    -- 		notify.setup({
-    -- 			background_colour = "#000000",
-    -- 		})
-    -- 		vim.notify = notify
-    -- 	end,
-    -- },
     -- -- [end] 見た目
     -- -- [begin] LSP
     -- { "neovim/nvim-lspconfig", lazy = true },
