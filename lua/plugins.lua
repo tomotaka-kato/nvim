@@ -341,7 +341,6 @@ return {
     -- --------------------------------
     --
     -- -- [begin] 見た目
-    -- { "xiyaowong/transparent.nvim", priority = 1000 },
     -- -- ステータスライン
     {
       "nvim-lualine/lualine.nvim",
@@ -350,8 +349,6 @@ return {
       end,
       priority = 1000
     },
-    -- -- ハイライト
-    -- { "norcalli/nvim-colorizer.lua", lazy = true }, -- cssなどのカラーコードに色を付ける
     { -- インデントのガイドを表示
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
